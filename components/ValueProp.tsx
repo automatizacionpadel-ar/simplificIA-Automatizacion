@@ -14,8 +14,8 @@ export const ValueProp: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-16 items-start">
         <div className="lg:w-1/3 space-y-6">
           <span className="text-primary font-bold text-xs uppercase tracking-[0.3em]">Propuesta de Valor</span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">¿Por qué las PYMEs nos eligen?</h2>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">¿Por qué las PYMEs nos eligen?</h2>
+          <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
             No solo instalamos software; transformamos la cultura operativa de tu empresa con resultados tangibles desde el primer mes.
           </p>
           <div className="pt-4">
@@ -26,12 +26,12 @@ export const ValueProp: React.FC = () => {
         </div>
         <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
           {BENEFITS.map((b, i) => (
-            <div key={i} className="group p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all">
+            <div key={i} className="group p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-md transition-all">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors mb-4">
                 <span className="material-symbols-outlined text-[20px]">check</span>
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-2">{b.title}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">{b.desc}</p>
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{b.title}</h4>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{b.desc}</p>
             </div>
           ))}
         </div>

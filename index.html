@@ -18,6 +18,7 @@
               'primary-dark': '#15803d',
               'emerald-soft': '#34D399',
               'background-light': '#F9FAFB',
+              'background-dark': '#111827',
             },
             fontFamily: {
               display: ['Plus Jakarta Sans', 'sans-serif'],
@@ -33,16 +34,20 @@
     <style>
       @layer base {
         body {
-          @apply bg-[#F9FAFB] text-slate-900 font-sans;
+          @apply bg-[#F9FAFB] text-slate-900 font-sans transition-colors duration-300;
+        }
+        .dark body {
+          @apply bg-[#111827] text-white;
         }
       }
       .organic-gradient {
-        background: radial-gradient(circle at 50% -20%, rgba(22, 163, 74, 0.08), transparent 70%);
+        background: radial-gradient(circle at 50% -20%, rgba(22, 163, 74, 0.12), transparent 70%);
       }
       .glass-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        @apply bg-white/80 backdrop-blur-xl border border-black/5 transition-all duration-300;
+      }
+      .dark .glass-card {
+        @apply bg-slate-900/40 border-white/10;
       }
       .curved-path {
         stroke-dasharray: 1000;

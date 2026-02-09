@@ -29,8 +29,8 @@ export const Services: React.FC = () => {
     <section id="servicios" className="px-6 py-24 max-w-[1200px] mx-auto">
       <div className="text-center space-y-4 mb-16">
         <span className="text-primary font-bold text-xs uppercase tracking-[0.3em]">Expertise</span>
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900">Nuestros Servicios</h2>
-        <p className="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">Nuestros Servicios</h2>
+        <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-lg leading-relaxed">
           Diseñamos el sistema nervioso digital de tu empresa para que funcione sin fricciones.
         </p>
       </div>
@@ -40,8 +40,8 @@ export const Services: React.FC = () => {
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
               <span className="material-symbols-outlined text-[32px]">{service.icon}</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-900">{service.title}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">{service.description}</p>
+            <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{service.title}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
