@@ -8,14 +8,14 @@ const SERVICE_LIST = [
     description: 'Implementamos LLMs avanzados como GPT-4 en tus herramientas internas de trabajo diario.'
   },
   {
-    icon: 'groups',
-    title: 'Automatización CRM',
-    description: 'Sincronización total entre HubSpot, Salesforce y tus bases de datos actuales.'
+    icon: 'settings_suggest',
+    title: 'Automatización de Procesos',
+    description: 'Reducción de carga operativa mediante la automatización de tareas repetitivas.'
   },
   {
-    icon: 'terminal',
-    title: 'APIs a Medida',
-    description: 'Conectamos software heredado con aplicaciones SaaS modernas de forma segura.'
+    icon: 'lightbulb',
+    title: 'Consultoría Estratégica',
+    description: 'Te guiamos en la adopción de IA para maximizar el ROI y minimizar riesgos tecnológicos.'
   },
   {
     icon: 'smart_toy',

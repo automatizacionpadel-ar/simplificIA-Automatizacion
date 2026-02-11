@@ -4,9 +4,10 @@ import React from 'react';
 interface NavbarProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  onStartAudit: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
+export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode, onStartAudit }) => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-[#111827]/80 backdrop-blur-xl px-6 py-4">
       <div className="flex items-center justify-between max-w-[1200px] mx-auto">
@@ -30,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) =>
               {isDarkMode ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
-          <button className="bg-primary hover:bg-primary-dark transition-all text-white px-5 py-2 rounded-full font-bold text-sm">
+          <button onClick={onStartAudit} className="bg-primary hover:bg-primary-dark transition-all text-white px-5 py-2 rounded-full font-bold text-sm">
             Auditoría Gratis
           </button>
         </div>

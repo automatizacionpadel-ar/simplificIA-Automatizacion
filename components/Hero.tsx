@@ -1,7 +1,11 @@
 
 import React from 'react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onStartAudit: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onStartAudit }) => {
   return (
     <section className="relative px-6 pt-12 pb-20 max-w-[1200px] mx-auto overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full organic-gradient -z-10" />
@@ -19,7 +23,7 @@ export const Hero: React.FC = () => {
             Revoluciona tus operaciones con soluciones a medida que ahorran tiempo y potencian a tu equipo.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <button className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20">
+            <button onClick={onStartAudit} className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20">
               Auditoría Gratuita
             </button>
           </div>
