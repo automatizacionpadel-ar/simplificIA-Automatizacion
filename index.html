@@ -1,60 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SimplificIA - Automatización Inteligente para PyMEs</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#16A34A',
-              'primary-dark': '#15803d',
-              'emerald-soft': '#34D399',
-              'background-light': '#F9FAFB',
-              'background-dark': '#111827',
-            },
-            fontFamily: {
-              display: ['Plus Jakarta Sans', 'sans-serif'],
-              sans: ['Inter', 'sans-serif'],
-            },
-            borderRadius: {
-              'super': '2.5rem',
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <title>SimplificIA - Automatización Inteligente para PyMEs</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#16A34A',
+            'primary-dark': '#15803d',
+            'emerald-soft': '#34D399',
+            'background-light': '#F9FAFB',
+            'background-dark': '#111827',
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'super': '2.5rem',
           },
         },
+      },
+    }
+  </script>
+  <style>
+    @layer base {
+      body {
+        @apply bg-[#F9FAFB] text-slate-900 font-sans transition-colors duration-300;
       }
-    </script>
-    <style>
-      @layer base {
-        body {
-          @apply bg-[#F9FAFB] text-slate-900 font-sans transition-colors duration-300;
-        }
-        .dark body {
-          @apply bg-[#111827] text-white;
-        }
+
+      .dark body {
+        @apply bg-[#111827] text-white;
       }
-      .organic-gradient {
-        background: radial-gradient(circle at 50% -20%, rgba(22, 163, 74, 0.12), transparent 70%);
-      }
-      .glass-card {
-        @apply bg-white/80 backdrop-blur-xl border border-black/5 transition-all duration-300;
-      }
-      .dark .glass-card {
-        @apply bg-slate-900/40 border-white/10;
-      }
-      .curved-path {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 0;
-        filter: drop-shadow(0 0 5px rgba(22, 163, 74, 0.2));
-      }
-    </style>
+    }
+
+    .organic-gradient {
+      background: radial-gradient(circle at 50% -20%, rgba(22, 163, 74, 0.12), transparent 70%);
+    }
+
+    .glass-card {
+      @apply bg-white/80 backdrop-blur-xl border border-black/5 transition-all duration-300;
+    }
+
+    .dark .glass-card {
+      @apply bg-slate-900/40 border-white/10;
+    }
+
+    .curved-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 0;
+      filter: drop-shadow(0 0 5px rgba(22, 163, 74, 0.2));
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -64,10 +74,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>
