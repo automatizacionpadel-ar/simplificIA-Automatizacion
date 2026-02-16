@@ -6,7 +6,7 @@ import { Services } from './components/Services';
 import { Process } from './components/Process';
 import { ValueProp } from './components/ValueProp';
 import { SocialProof } from './components/SocialProof';
-import { CTA } from './components/CTA';
+// import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { AuditStep1 } from './components/AuditStep1';
 import { AuditStep2 } from './components/AuditStep2';
@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <Process />
         <ValueProp />
         <SocialProof />
-        <CTA />
+        {/* <CTA /> */}
       </main>
       <Footer />
     </div>
