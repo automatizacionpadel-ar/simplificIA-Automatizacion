@@ -1,0 +1,100 @@
+{
+  "name": "IA Google News a Email Diario",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1-5"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "name": "Lunes a Viernes 8 AM"
+    },
+    {
+      "parameters": {
+        "url": "https://news.google.com/rss/search?q=inteligencia+artificial+when:24h&hl=es-419&gl=AR&ceid=AR:es-419"
+      },
+      "name": "Leer Google News RSS",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let html = '<h2 style=\"color: #2c3e50;\">🤖 Noticias de Inteligencia Artificial (últimas 24 hs)</h2><hr><br>';\nconst items = $input.all();\n\nif (items.length === 0) {\n  html += '<p>No se encontraron noticias recientes.</p>';\n} else {\n  let limite = items.length > 15 ? 15 : items.length; // Limitamos a 15 noticias para no hacer muy extenso el email\n  for (let i = 0; i < limite; i++) {\n    const item = items[i].json;\n    const title = item.title;\n    const link = item.link;\n    let description = item.contentSnippet || item.content || item.description || 'Sin descripción detallada.';\n    \n    // Limpiar etiquetas HTML extrañas que a veces trae Google News en la descripción\n    description = description.replace(/<[^>]*>?/gm, '');\n\n    html += `\n      <div style=\"margin-bottom: 20px;\">\n        <h3 style=\"margin-bottom: 5px; color: #2980b9;\"><a href=\"${link}\" target=\"_blank\" style=\"text-decoration: none; color: #2980b9;\">${title}</a></h3>\n        <p style=\"margin-top: 0; color: #555;\">${description}</p>\n        <a href=\"${link}\" style=\"color: #e67e22; font-weight: bold; text-decoration: none;\">Leer noticia completa →</a>\n      </div>\n    `;\n  }\n}\n\nreturn [{ json: { htmlEmail: html } }];"
+      },
+      "name": "Agrupar todas las noticias (HTML)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "tu-email-origen@gmail.com",
+        "toEmail": "tu-correo-personal@gmail.com",
+        "subject": "📰 Resumen Diario: Noticias de Inteligencia Artificial",
+        "emailFormat": "html",
+        "html": "={{ $json.htmlEmail }}"
+      },
+      "name": "Enviar Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Lunes a Viernes 8 AM": {
+      "main": [
+        [
+          {
+            "node": "Leer Google News RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Google News RSS": {
+      "main": [
+        [
+          {
+            "node": "Agrupar todas las noticias (HTML)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agrupar todas las noticias (HTML)": {
+      "main": [
+        [
+          {
+            "node": "Enviar Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

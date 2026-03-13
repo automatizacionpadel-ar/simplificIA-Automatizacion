@@ -26,7 +26,7 @@ export const ValueProp: React.FC = () => {
         </div>
         <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
           {BENEFITS.map((b, i) => (
-            <div key={i} className="group p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-md transition-all">
+            <div key={i} className="group p-8 bg-white dark:bg-primary/10 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-md transition-all">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors mb-4">
                 <span className="material-symbols-outlined text-[20px]">check</span>
               </div>

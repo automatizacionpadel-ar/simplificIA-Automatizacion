@@ -36,7 +36,7 @@ export const Services: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {SERVICE_LIST.map((service, idx) => (
-          <div key={idx} className="glass-card rounded-[2.5rem] p-8 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 group">
+          <div key={idx} className="glass-card rounded-[2.5rem] bg-emerald-soft/10 p-8 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 group">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
               <span className="material-symbols-outlined text-[32px]">{service.icon}</span>
             </div>

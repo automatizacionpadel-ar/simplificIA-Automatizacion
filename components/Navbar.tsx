@@ -12,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode, onSt
     <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-[#111827]/80 backdrop-blur-xl px-6 py-4">
       <div className="flex items-center justify-between max-w-[1200px] mx-auto">
         <div className="flex items-center gap-2">
-          <div className="text-primary flex items-center">
+          <div className="text-primary flex items-center w-40">
             <img src="/img/logo.png" alt="SimplificIA" />
           </div>
         </div>

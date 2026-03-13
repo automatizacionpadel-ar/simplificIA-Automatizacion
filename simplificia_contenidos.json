@@ -1,0 +1,431 @@
+{
+  "name": "simplificIA - Estrategia de Contenidos",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1,3,5"
+            }
+          ]
+        }
+      },
+      "name": "Schedule L-M-V",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "sheetName": "Historial Contenidos",
+        "options": {}
+      },
+      "name": "Consultar Historial Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.1,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "number",
+        "value1": "={{ $now.weekday }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": 1,
+              "output": 0
+            },
+            {
+              "value2": 3,
+              "output": 1
+            },
+            {
+              "value2": 5,
+              "output": 2
+            }
+          ]
+        }
+      },
+      "name": "Switch Día",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "prompt_system",
+              "value": "Actúa como copywriter de simplificIA. Hoy ES LUNES de VENTAS. Crea un post para vender nuestros servicios (Chatbots, automatización de procesos). Incluye un prompt de imagen al final encerrado en <image_prompt>."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Lunes (Ventas)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        660,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "prompt_system",
+              "value": "Actúa como copywriter de simplificIA. Hoy ES MIÉRCOLES de INFO IA. Crea un post educativo sobre tendencias de IA aplicadas a negocios. Incluye un prompt de imagen al final encerrado en <image_prompt>."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Miércoles (Info IA)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "prompt_system",
+              "value": "Actúa como copywriter de simplificIA. Hoy ES VIERNES de MITOS. Crea un post desmintiendo mitos tecnológicos del rubro. Incluye un prompt de imagen al final encerrado en <image_prompt>."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Viernes (Mitos/Rubro)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        660,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "anthropic/claude-3.5-sonnet"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"system\", \"content\": \"{{ $json.prompt_system }}\"}, {\"role\": \"user\", \"content\": \"Genera el copy para hoy basándote en el historial para no repetir (Historial: {{ $('Consultar Historial Sheets').first().json }}).\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Generar Copy (OpenRouter)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "google/gemini-2.0-pro-exp-02-05:free"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"user\", \"content\": \"Genera una imagen basada en este prompt: {{ $json.choices[0].message.content.match(/<image_prompt>(.*?)<\\/image_prompt>/s)[1] }} . La estética DEBE SER: Minimalista, verde esmeralda y blanco, estilo tech futurista.\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Generar Imagen Gemini",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "ID_DE_TU_CHAT",
+        "text": "=NUEVO POST PROPUESTO:\n\n{{ $('Generar Copy (OpenRouter)').item.json.choices[0].message.content }}",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "Aprobar",
+                    "url": "={{ $execution.resumeUrl }}?action=aprobar"
+                  },
+                  {
+                    "text": "Rechazar",
+                    "url": "={{ $execution.resumeUrl }}?action=rechazar"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "name": "Solicitar Aprobación Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "webhook"
+      },
+      "name": "Wait (Aprobación)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.query.action }}",
+              "value2": "aprobar"
+            }
+          ]
+        }
+      },
+      "name": "Switch (Aprobado?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "caption": "={{ $('Generar Copy (OpenRouter)').item.json.choices[0].message.content }}"
+      },
+      "name": "Publicar Instagram",
+      "type": "n8n-nodes-base.instagramForBusiness",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "sheetName": "Historial Contenidos",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Estado": "Enviado",
+            "Copy": "={{ $('Generar Copy (OpenRouter)').item.json.choices[0].message.content }}"
+          },
+          "matchingColumns": []
+        },
+        "options": {}
+      },
+      "name": "Actualizar Sheets (Enviado)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.1,
+      "position": [
+        2220,
+        200
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule L-M-V": {
+      "main": [
+        [
+          {
+            "node": "Consultar Historial Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultar Historial Sheets": {
+      "main": [
+        [
+          {
+            "node": "Switch Día",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Día": {
+      "main": [
+        [
+          {
+            "node": "Lunes (Ventas)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Miércoles (Info IA)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Viernes (Mitos/Rubro)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lunes (Ventas)": {
+      "main": [
+        [
+          {
+            "node": "Generar Copy (OpenRouter)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Miércoles (Info IA)": {
+      "main": [
+        [
+          {
+            "node": "Generar Copy (OpenRouter)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Viernes (Mitos/Rubro)": {
+      "main": [
+        [
+          {
+            "node": "Generar Copy (OpenRouter)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generar Copy (OpenRouter)": {
+      "main": [
+        [
+          {
+            "node": "Generar Imagen Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generar Imagen Gemini": {
+      "main": [
+        [
+          {
+            "node": "Solicitar Aprobación Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Solicitar Aprobación Telegram": {
+      "main": [
+        [
+          {
+            "node": "Wait (Aprobación)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait (Aprobación)": {
+      "main": [
+        [
+          {
+            "node": "Switch (Aprobado?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch (Aprobado?)": {
+      "main": [
+        [
+          {
+            "node": "Publicar Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publicar Instagram": {
+      "main": [
+        [
+          {
+            "node": "Actualizar Sheets (Enviado)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

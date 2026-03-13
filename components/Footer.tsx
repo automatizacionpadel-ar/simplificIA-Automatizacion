@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
           <h5 className="font-bold text-slate-900 dark:text-white text-[10px] uppercase tracking-[0.2em]">Contactanos</h5>
           <ul className="space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400">
             <li><span className="material-symbols-outlined align-middle">mail</span> info@simplificia.com.ar</li>
-            <li><span className="material-symbols-outlined align-middle">phone</span> <a href="https://wa.me/5491133680235" className="hover:text-primary transition-colors">Whatsapp</a></li>
+            <li><span className="material-symbols-outlined align-middle">phone</span> <a href="#" className="hover:text-primary transition-colors">Whatsapp</a></li>
           </ul>
         </div>
       </div>
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
          <span>© 2024 SimplificIA. Todos los derechos reservados.</span>
          <div className="flex gap-6">
             <a href="https://www.instagram.com/simplificia.ar/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
-            <a href="#" className="hover:text-primary transition-colors">Twitter</a>
+            {/* <a href="#" className="hover:text-primary transition-colors">Twitter</a> */}
          </div>
       </div>
     </footer>
