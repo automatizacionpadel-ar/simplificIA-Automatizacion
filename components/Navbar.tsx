@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode, onSt
             </span>
           </button>
           <button onClick={onStartAudit} className="bg-primary hover:bg-primary-dark transition-all text-white px-5 py-2 rounded-full font-bold text-sm">
-            Auditoría Gratis
+            Prueba Gratis
           </button>
         </div>
       </div>

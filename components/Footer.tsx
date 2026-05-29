@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-xs">
-            Empoderando a las pequeñas empresas a través de automatización inteligente desde 2024.
+            Empoderando a las pequeñas empresas a través de automatización inteligente desde 2025.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
         </div>
       </div>
       <div className="max-w-[1200px] mx-auto mt-20 pt-10 border-t border-slate-100 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-         <span>© 2024 SimplificIA. Todos los derechos reservados.</span>
+         <span>© 2025 SimplificIA. Todos los derechos reservados.</span>
          <div className="flex gap-6">
             <a href="https://www.instagram.com/simplificia.ar/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
             {/* <a href="#" className="hover:text-primary transition-colors">Twitter</a> */}

@@ -24,7 +24,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartAudit }) => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
             <button onClick={onStartAudit} className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20">
-              Auditoría Gratuita
+              Prueba Gratuita
             </button>
           </div>
         </div>
