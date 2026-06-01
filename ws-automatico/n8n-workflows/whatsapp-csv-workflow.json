@@ -73,7 +73,8 @@
         },
         "options": {
           "timeout": 30000
-        }
+        },
+        "onError": "continueErrorOutput"
       },
       "id": "aaaa0004-0000-0000-0000-000000000004",
       "name": "Enviar Mensaje WhatsApp",
