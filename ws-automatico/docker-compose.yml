@@ -1,0 +1,19 @@
+services:
+
+  wwebjs-api:
+    image: avoylenko/wwebjs-api:v1.34.6
+    container_name: ws-wwebjs
+    restart: unless-stopped
+    environment:
+      - API_KEY=${WWEBJS_API_KEY}
+      - BASE_WEBHOOK_URL=http://localhost
+    volumes:
+      - ./sessions:/app/sessions
+    networks:
+      - n8n_default
+    labels:
+      - "traefik.enable=false"
+
+networks:
+  n8n_default:
+    external: true

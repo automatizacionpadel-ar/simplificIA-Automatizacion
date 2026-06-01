@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envío Masivo WhatsApp — simplificIA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="img/logo.png" alt="simplificIA" />
+    <h1>Envío Masivo de WhatsApp</h1>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <div class="card">
+      <h2>Subir lista de contactos</h2>
+
+      <!-- Drop zone CSV -->
+      <div class="drop-zone" id="dropZone">
+        <input
+          type="file"
+          id="csvInput"
+          accept=".csv"
+          aria-label="Seleccionar archivo CSV"
+        />
+        <div class="icon">📋</div>
+        <div class="label">
+          <strong>Arrastrá el CSV aquí</strong><br />
+          o hacé click para seleccionar
+        </div>
+        <div class="file-info" id="fileInfo">
+          <span>✅</span>
+          <span id="fileInfoText"></span>
+        </div>
+      </div>
+
+      <!-- Errores de validación -->
+      <div class="validation-errors" id="validationErrors">
+        <strong>Errores en el CSV:</strong>
+        <ul id="errorList"></ul>
+      </div>
+
+      <!-- Mensaje personalizado -->
+      <div class="field-group">
+        <label for="mensajeInput">
+          Mensaje personalizado
+          <span style="font-weight:400; color:#6b7280;">(opcional)</span>
+        </label>
+        <textarea
+          id="mensajeInput"
+          placeholder="Hola, tu paquete fue despachado por {empresa} y está en camino. Llegará en 2-3 días hábiles."
+          rows="4"
+        ></textarea>
+        <p class="hint">
+          Usá <code>{empresa}</code> donde querés que aparezca el nombre de la empresa.
+          Si dejás vacío, se usa el mensaje de arriba por defecto.
+        </p>
+      </div>
+
+      <!-- Botón enviar -->
+      <button class="btn-submit" id="btnSubmit" disabled>
+        Enviar mensajes
+      </button>
+
+      <!-- Barra de progreso -->
+      <div class="progress-section" id="progressSection">
+        <div class="progress-header">
+          <span>Procesando en segundo plano...</span>
+          <span id="progressLabel">0%</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-status" id="progressStatus">
+          Iniciando envíos...
+        </p>
+      </div>
+
+      <!-- Alertas de resultado -->
+      <div class="alert alert-success" id="alertSuccess"></div>
+      <div class="alert alert-error" id="alertError"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <strong>simplificIA</strong><span class="separator">·</span>
+    <a href="https://www.simplificia.com.ar" target="_blank">www.simplificia.com.ar</a>
+    <span class="separator">·</span>
+    <a href="mailto:info@simplificia.com.ar">info@simplificia.com.ar</a>
+    <br />
+    Automatización inteligente para tu negocio
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
