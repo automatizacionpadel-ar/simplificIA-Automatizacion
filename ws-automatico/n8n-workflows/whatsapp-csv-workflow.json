@@ -121,14 +121,14 @@
     },
     "Split In Batches": {
       "main": [
+        [],
         [
           {
             "node": "Enviar Mensaje WhatsApp",
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
     "Enviar Mensaje WhatsApp": {
