@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vincular WhatsApp — simplificIA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f3f4f6; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .card { background: white; border-radius: 16px; padding: 40px; text-align: center; max-width: 420px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    img.logo { height: 48px; margin-bottom: 24px; }
+    h1 { font-size: 1.3rem; color: #111827; margin-bottom: 8px; }
+    p { color: #6b7280; font-size: 0.95rem; margin-bottom: 24px; }
+    .qr-wrap { position: relative; display: inline-block; margin-bottom: 20px; }
+    .qr-wrap img.qr { width: 240px; height: 240px; border-radius: 12px; border: 2px solid #e5e7eb; display: block; }
+    .overlay { display: none; position: absolute; inset: 0; background: rgba(255,255,255,0.85); border-radius: 12px; align-items: center; justify-content: center; font-size: 0.9rem; color: #374151; flex-direction: column; gap: 8px; }
+    .overlay.visible { display: flex; }
+    .spinner { width: 28px; height: 28px; border: 3px solid #e5e7eb; border-top-color: #96bd45; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .timer { font-size: 0.8rem; color: #9ca3af; margin-bottom: 16px; }
+    .steps { text-align: left; background: #f9fafb; border-radius: 10px; padding: 16px 20px; font-size: 0.88rem; color: #374151; line-height: 1.7; }
+    .steps strong { color: #96bd45; }
+    .status { margin-top: 16px; font-size: 0.85rem; padding: 8px 14px; border-radius: 8px; }
+    .status.ok { background: #dcfce7; color: #166534; }
+    .status.err { background: #fef2f2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="/ws-automatico/img/logo.png" alt="simplificIA" />
+    <h1>Vincular WhatsApp</h1>
+    <p>Escaneá el código QR desde tu teléfono para conectar el número.</p>
+
+    <div class="qr-wrap">
+      <img class="qr" id="qrImg" src="" alt="Código QR" />
+      <div class="overlay" id="overlay">
+        <div class="spinner"></div>
+        <span>Actualizando QR...</span>
+      </div>
+    </div>
+
+    <div class="timer" id="timer">Próxima actualización en <strong id="countdown">15</strong>s</div>
+
+    <div class="steps">
+      <strong>1.</strong> Abrí WhatsApp en tu teléfono<br>
+      <strong>2.</strong> Tocá los tres puntitos → <em>Dispositivos vinculados</em><br>
+      <strong>3.</strong> Tocá <em>Vincular un dispositivo</em><br>
+      <strong>4.</strong> Escaneá este código antes de que se actualice
+    </div>
+
+    <div class="status" id="statusMsg" style="display:none"></div>
+  </div>
+
+  <script>
+    const qrImg = document.getElementById('qrImg');
+    const overlay = document.getElementById('overlay');
+    const countdownEl = document.getElementById('countdown');
+    const statusMsg = document.getElementById('statusMsg');
+    let countdown = 15;
+    let interval;
+
+    function loadQR() {
+      overlay.classList.add('visible');
+      const url = '/ws-automatico/qr?t=' + Date.now();
+      const img = new Image();
+      img.onload = () => {
+        qrImg.src = url;
+        overlay.classList.remove('visible');
+        statusMsg.style.display = 'none';
+        countdown = 15;
+      };
+      img.onerror = () => {
+        overlay.classList.remove('visible');
+        statusMsg.style.display = 'block';
+        statusMsg.className = 'status err';
+        statusMsg.textContent = '⚠️ QR no disponible — la sesión puede estar cargando, esperá unos segundos.';
+        countdown = 10;
+      };
+      img.src = url;
+    }
+
+    function tick() {
+      countdown--;
+      countdownEl.textContent = countdown;
+      if (countdown <= 0) loadQR();
+    }
+
+    loadQR();
+    interval = setInterval(tick, 1000);
+  </script>
+</body>
+</html>
