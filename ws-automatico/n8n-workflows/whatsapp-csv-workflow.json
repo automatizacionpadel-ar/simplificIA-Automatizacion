@@ -66,7 +66,8 @@
             { "name": "contentType", "value": "string" }
           ]
         },
-        "options": { "timeout": 30000 }
+        "options": { "timeout": 30000 },
+        "onError": "continueRegularOutput"
       },
       "id": "aaaa0005-0000-0000-0000-000000000005",
       "name": "Enviar Mensaje WhatsApp",
@@ -81,7 +82,7 @@
           "conditions": [
             {
               "id": "cond-success",
-              "leftValue": "={{ $json.success }}",
+              "leftValue": "={{ $json.success === true && !$json.error }}",
               "rightValue": true,
               "operator": { "type": "boolean", "operation": "true" }
             }
