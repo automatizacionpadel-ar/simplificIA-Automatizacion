@@ -19,7 +19,7 @@
     {
       "parameters": {
         "language": "javaScript",
-        "jsCode": "const staticData = $getWorkflowStaticData('global');\nstaticData.failedNumbers = [];\n\nconst body = $input.first().json.body;\nconst contactos = body.contactos || [];\nconst mensajeTemplate = (body.mensaje && body.mensaje.trim())\n  ? body.mensaje.trim()\n  : '👋🏻Hola! Nos contactamos desde Buenos Aires Logística. 🚚 Tenemos un envío de {empresa} para entregarte.\\nQueremos avisarte que la entrega se realizará hoy entre las 16:00 y las 22:00 hs.\\nEn caso de que por cuestiones operativas no llegue a completarse dentro de ese rango, la entrega pasará automáticamente al siguiente día hábil entre las 10:30 y las 22:00 hs.\\nAgradecemos tu comprensión y quedamos atentos ante cualquier consulta 🙌';\n\nreturn contactos.map(c => {\n  let tel = String(c.telefono || '').replace(/\\D/g, '');\n  if (tel.length === 10) tel = '549' + tel;\n  return { json: { chatId: tel + '@c.us', message: mensajeTemplate.replace(/\\{empresa\\}/gi, c.nombre_empresa || '') } };\n});"
+        "jsCode": "const body = $input.first().json.body;\nconst contactos = body.contactos || [];\nconst mensajeTemplate = (body.mensaje && body.mensaje.trim())\n  ? body.mensaje.trim()\n  : '👋🏻Hola! Nos contactamos desde Buenos Aires Logística. 🚚 Tenemos un envío de {empresa} para entregarte.\\nQueremos avisarte que la entrega se realizará hoy entre las 16:00 y las 22:00 hs.\\nEn caso de que por cuestiones operativas no llegue a completarse dentro de ese rango, la entrega pasará automáticamente al siguiente día hábil entre las 10:30 y las 22:00 hs.\\nAgradecemos tu comprensión y quedamos atentos ante cualquier consulta 🙌';\n\nreturn contactos.map(c => {\n  let tel = String(c.telefono || '').replace(/\\D/g, '');\n  if (tel.length === 10) tel = '549' + tel;\n  return { json: { chatId: tel + '@c.us', message: mensajeTemplate.replace(/\\{empresa\\}/gi, c.nombre_empresa || '') } };\n});"
       },
       "id": "aaaa0002-0000-0000-0000-000000000002",
       "name": "Formatear Contactos",
@@ -37,17 +37,6 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [680, 300]
-    },
-    {
-      "parameters": {
-        "language": "javaScript",
-        "jsCode": "const staticData = $getWorkflowStaticData('global');\nstaticData.currentChatId = $input.first().json.chatId;\nreturn $input.all();"
-      },
-      "id": "aaaa0004-0000-0000-0000-000000000004",
-      "name": "Guardar ChatId",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [880, 300]
     },
     {
       "parameters": {
@@ -69,32 +58,11 @@
         "options": { "timeout": 30000 },
         "onError": "continueRegularOutput"
       },
-      "id": "aaaa0005-0000-0000-0000-000000000005",
+      "id": "aaaa0004-0000-0000-0000-000000000004",
       "name": "Enviar Mensaje WhatsApp",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
-      "position": [1080, 300]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
-          "conditions": [
-            {
-              "id": "cond-success",
-              "leftValue": "={{ $json.success === true && !$json.error }}",
-              "rightValue": true,
-              "operator": { "type": "boolean", "operation": "true" }
-            }
-          ],
-          "combinator": "and"
-        }
-      },
-      "id": "aaaa0006-0000-0000-0000-000000000006",
-      "name": "Fue exitoso?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [1280, 300]
+      "position": [900, 300]
     },
     {
       "parameters": {
@@ -103,75 +71,12 @@
         "resumeUnit": "seconds",
         "options": {}
       },
-      "id": "aaaa0007-0000-0000-0000-000000000007",
+      "id": "aaaa0005-0000-0000-0000-000000000005",
       "name": "Esperar 45s",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
-      "position": [1480, 300],
-      "webhookId": "aaaa00w8-0000-0000-0000-000000000008"
-    },
-    {
-      "parameters": {
-        "language": "javaScript",
-        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!Array.isArray(staticData.failedNumbers)) staticData.failedNumbers = [];\nstaticData.failedNumbers.push(staticData.currentChatId || 'desconocido');\nreturn $input.all();"
-      },
-      "id": "aaaa0009-0000-0000-0000-000000000009",
-      "name": "Registrar Fallido",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1480, 480]
-    },
-    {
-      "parameters": {
-        "method": "GET",
-        "url": "http://ws-wwebjs:3000/client/info/default",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [{ "name": "x-api-key", "value": "34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72" }]
-        },
-        "options": {}
-      },
-      "id": "aaaa0010-0000-0000-0000-000000000010",
-      "name": "Obtener Info Propio",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [880, 100]
-    },
-    {
-      "parameters": {
-        "language": "javaScript",
-        "jsCode": "const staticData = $getWorkflowStaticData('global');\nconst failed = staticData.failedNumbers || [];\nif (failed.length === 0) return [];\n\nconst info = $input.first().json;\nconst wid = info?.info?.wid?._serialized || (info?.info?.wid?.user ? info.info.wid.user + '@c.us' : '');\nif (!wid) return [];\n\nconst lista = failed.map(n => '• ' + n).join('\\n');\nconst message = '⚠️ ' + failed.length + ' número' + (failed.length !== 1 ? 's' : '') + ' sin WhatsApp:\\n\\n' + lista;\nreturn [{ json: { chatId: wid, content: message, contentType: 'string' } }];"
-      },
-      "id": "aaaa0011-0000-0000-0000-000000000011",
-      "name": "Preparar Resumen",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1080, 100]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "http://ws-wwebjs:3000/client/sendMessage/default",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [{ "name": "x-api-key", "value": "34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72" }]
-        },
-        "sendBody": true,
-        "specifyBody": "keypair",
-        "bodyParameters": {
-          "parameters": [
-            { "name": "chatId", "value": "={{ $json.chatId }}" },
-            { "name": "content", "value": "={{ $json.content }}" },
-            { "name": "contentType", "value": "string" }
-          ]
-        },
-        "options": {}
-      },
-      "id": "aaaa0012-0000-0000-0000-000000000012",
-      "name": "Enviar Resumen",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [1280, 100]
+      "position": [1120, 300],
+      "webhookId": "aaaa0006-0000-0000-0000-000000000006"
     }
   ],
   "connections": {
@@ -183,33 +88,15 @@
     },
     "Split In Batches": {
       "main": [
-        [{ "node": "Obtener Info Propio", "type": "main", "index": 0 }],
-        [{ "node": "Guardar ChatId", "type": "main", "index": 0 }]
+        [],
+        [{ "node": "Enviar Mensaje WhatsApp", "type": "main", "index": 0 }]
       ]
-    },
-    "Guardar ChatId": {
-      "main": [[{ "node": "Enviar Mensaje WhatsApp", "type": "main", "index": 0 }]]
     },
     "Enviar Mensaje WhatsApp": {
-      "main": [[{ "node": "Fue exitoso?", "type": "main", "index": 0 }]]
-    },
-    "Fue exitoso?": {
-      "main": [
-        [{ "node": "Esperar 45s", "type": "main", "index": 0 }],
-        [{ "node": "Registrar Fallido", "type": "main", "index": 0 }]
-      ]
-    },
-    "Registrar Fallido": {
       "main": [[{ "node": "Esperar 45s", "type": "main", "index": 0 }]]
     },
     "Esperar 45s": {
       "main": [[{ "node": "Split In Batches", "type": "main", "index": 0 }]]
-    },
-    "Obtener Info Propio": {
-      "main": [[{ "node": "Preparar Resumen", "type": "main", "index": 0 }]]
-    },
-    "Preparar Resumen": {
-      "main": [[{ "node": "Enviar Resumen", "type": "main", "index": 0 }]]
     }
   },
   "settings": {
