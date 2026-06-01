@@ -33,7 +33,9 @@
       "Bash(sshpass -f /tmp/sp scp -o StrictHostKeyChecking=no /Users/gus/Developer/simplificia/ws-automatico/docker-compose.yml /Users/gus/Developer/simplificia/ws-automatico/n8n-workflows/whatsapp-csv-workflow.json root@76.13.127.2:/root/ws-automatico/)",
       "Bash(sshpass -f /tmp/sp scp -o StrictHostKeyChecking=no /Users/gus/Developer/simplificia/ws-automatico/n8n-workflows/whatsapp-csv-workflow.json root@76.13.127.2:/root/ws-automatico/n8n-workflows/)",
       "Bash(sshpass -f /tmp/sp scp -o StrictHostKeyChecking=no /Users/gus/Developer/simplificia/ws-automatico/docker-compose.yml root@76.13.127.2:/root/ws-automatico/docker-compose.yml)",
-      "Bash(sshpass -p ';3qF;;C/Z\\(TqamB\\)AodE' ssh -o StrictHostKeyChecking=no root@76.13.127.2 'cd /root/ws-automatico && docker compose down && echo \"Contenedores detenidos\"')"
+      "Bash(sshpass -p ';3qF;;C/Z\\(TqamB\\)AodE' ssh -o StrictHostKeyChecking=no root@76.13.127.2 'cd /root/ws-automatico && docker compose down && echo \"Contenedores detenidos\"')",
+      "Bash(sshpass -p ';3qF;;C/Z\\(TqamB\\)AodE' ssh -o StrictHostKeyChecking=no root@76.13.127.2 'docker ps | grep wwebjs && echo \"---\" && cat /root/ws-automatico/.env')",
+      "Bash(sshpass -p *)"
     ],
     "additionalDirectories": [
       "/Users/gus/Developer/ws-automatico/docs/superpowers",

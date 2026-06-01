@@ -8,7 +8,7 @@
         "path": "whatsapp-csv-upload",
         "responseMode": "onReceived",
         "options": {
-          "allowedOrigins": "*"
+          "allowedOrigins": "https://simplificia.com.ar"
         }
       },
       "id": "aaaa0001-0000-0000-0000-000000000001",
@@ -49,7 +49,7 @@
           "parameters": [
             {
               "name": "x-api-key",
-              "value": "={{ $vars.WWEBJS_API_KEY }}"
+              "value": "34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72"
             }
           ]
         },
