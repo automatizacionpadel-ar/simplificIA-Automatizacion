@@ -2,7 +2,7 @@
 const WEBHOOK_URL = 'https://n8n.simplificia.com.ar/webhook/whatsapp-csv-upload'; // n8n en mismo dominio
 const DELAY_POR_MENSAJE_MS = 47000; // 45s wait + 2s overhead
 const DEFAULT_MENSAJE =
-  'Hola, tu paquete fue despachado por {empresa} y está en camino. Llegará en 2-3 días hábiles.';
+  '👋🏻Hola! Nos contactamos desde Buenos Aires Logística. 🚚 Tenemos un envío de {empresa} para entregarte.\nQueremos avisarte que la entrega se realizará hoy entre las 16:00 y las 22:00 hs.\nEn caso de que por cuestiones operativas no llegue a completarse dentro de ese rango, la entrega pasará automáticamente al siguiente día hábil entre las 10:30 y las 22:00 hs.\nAgradecemos tu comprensión y quedamos atentos ante cualquier consulta 🙌';
 
 function getWebhookUrl() {
   return WEBHOOK_URL;
