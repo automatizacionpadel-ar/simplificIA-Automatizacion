@@ -7,6 +7,7 @@ services:
     environment:
       - API_KEY=${WWEBJS_API_KEY}
       - BASE_WEBHOOK_URL=https://n8n.simplificia.com.ar
+      - ENABLE_WEBHOOK=false
     volumes:
       - ./sessions:/app/sessions
     networks:
