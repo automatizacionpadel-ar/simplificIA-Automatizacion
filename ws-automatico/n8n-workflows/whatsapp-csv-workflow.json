@@ -67,7 +67,7 @@
     {
       "parameters": {
         "language": "javaScript",
-        "jsCode": "const segundos = Math.floor(Math.random() * 16) + 45;\nreturn [{ json: { waitSeconds: segundos } }];"
+        "jsCode": "const segundos = Math.floor(Math.random() * 16) + 45;\nconst resumeAt = new Date(Date.now() + segundos * 1000).toISOString();\nreturn [{ json: { resumeAt } }];"
       },
       "id": "aaaa0007-0000-0000-0000-000000000007",
       "name": "Calcular Espera",
@@ -77,9 +77,8 @@
     },
     {
       "parameters": {
-        "resume": "timeInterval",
-        "resumeAmount": "={{ $json.waitSeconds }}",
-        "resumeUnit": "seconds",
+        "resume": "specificTime",
+        "dateTime": "={{ $json.resumeAt }}",
         "options": {}
       },
       "id": "aaaa0005-0000-0000-0000-000000000005",
