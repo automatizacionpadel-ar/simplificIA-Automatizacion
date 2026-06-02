@@ -67,7 +67,7 @@
     {
       "parameters": {
         "resume": "timeInterval",
-        "resumeAmount": 45,
+        "resumeAmount": "={{ Math.floor(Math.random() * 16) + 45 }}",
         "resumeUnit": "seconds",
         "options": {}
       },

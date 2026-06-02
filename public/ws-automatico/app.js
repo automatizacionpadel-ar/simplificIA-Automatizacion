@@ -1,6 +1,6 @@
 // === Configuración ===
 const WEBHOOK_URL = 'https://n8n.simplificia.com.ar/webhook/whatsapp-csv-upload'; // n8n en mismo dominio
-const DELAY_POR_MENSAJE_MS = 47000; // 45s wait + 2s overhead
+const DELAY_POR_MENSAJE_MS = 54000; // promedio ~52s (random 45-60s) + 2s overhead
 
 function getWebhookUrl() {
   return WEBHOOK_URL;
