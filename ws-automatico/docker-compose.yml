@@ -10,7 +10,7 @@ services:
       - ENABLE_WEBHOOK=false
     volumes:
       - ./sessions:/usr/src/app/sessions
-    shm_size: '256mb'
+    shm_size: '512mb'
     networks:
       - n8n_default
     labels:
