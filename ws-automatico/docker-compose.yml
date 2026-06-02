@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       - API_KEY=${WWEBJS_API_KEY}
-      - BASE_WEBHOOK_URL=http://localhost
+      - BASE_WEBHOOK_URL=https://n8n.simplificia.com.ar
     volumes:
       - ./sessions:/app/sessions
     networks:
