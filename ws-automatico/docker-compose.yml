@@ -9,7 +9,7 @@ services:
       - BASE_WEBHOOK_URL=https://n8n.simplificia.com.ar
       - ENABLE_WEBHOOK=false
     volumes:
-      - ./sessions:/app/sessions
+      - ./sessions:/usr/src/app/sessions
     networks:
       - n8n_default
     labels:
