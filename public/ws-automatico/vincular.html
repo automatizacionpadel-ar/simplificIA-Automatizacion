@@ -25,6 +25,11 @@
     .status { margin-top: 16px; font-size: 0.85rem; padding: 8px 14px; border-radius: 8px; }
     .status.ok { background: #dcfce7; color: #166534; }
     .status.err { background: #fef2f2; color: #991b1b; }
+    .connected-state { display: none; margin-bottom: 20px; }
+    .connected-state.visible { display: block; }
+    .connected-badge { background: #dcfce7; color: #166534; border-radius: 12px; padding: 20px; font-size: 1rem; font-weight: 600; }
+    .connected-badge .icon { font-size: 2rem; margin-bottom: 8px; }
+    .qr-section.hidden { display: none; }
   </style>
 </head>
 <body>
@@ -33,15 +38,24 @@
     <h1>Vincular WhatsApp</h1>
     <p>Escaneá el código QR desde tu teléfono para conectar el número.</p>
 
-    <div class="qr-wrap">
-      <img class="qr" id="qrImg" src="" alt="Código QR" />
-      <div class="overlay" id="overlay">
-        <div class="spinner"></div>
-        <span>Cargando QR...</span>
+    <div class="connected-state" id="connectedState">
+      <div class="connected-badge">
+        <div class="icon">✅</div>
+        WhatsApp conectado correctamente
       </div>
     </div>
 
-    <button class="btn-refresh" id="btnRefresh" onclick="loadQR()">🔄 Actualizar QR</button>
+    <div class="qr-section" id="qrSection">
+      <div class="qr-wrap">
+        <img class="qr" id="qrImg" src="" alt="Código QR" />
+        <div class="overlay" id="overlay">
+          <div class="spinner"></div>
+          <span>Cargando QR...</span>
+        </div>
+      </div>
+
+      <button class="btn-refresh" id="btnRefresh" onclick="loadQR()">🔄 Actualizar QR</button>
+    </div>
 
     <div class="steps">
       <strong>1.</strong> Abrí WhatsApp en tu teléfono<br>
@@ -58,6 +72,21 @@
     const overlay = document.getElementById('overlay');
     const btnRefresh = document.getElementById('btnRefresh');
     const statusMsg = document.getElementById('statusMsg');
+    const connectedState = document.getElementById('connectedState');
+    const qrSection = document.getElementById('qrSection');
+
+    async function checkStatus() {
+      try {
+        const res = await fetch('/ws-automatico/status?t=' + Date.now());
+        const data = await res.json();
+        if (data.connected) {
+          connectedState.classList.add('visible');
+          qrSection.classList.add('hidden');
+          return true;
+        }
+      } catch (_) {}
+      return false;
+    }
 
     function loadQR() {
       overlay.classList.add('visible');
@@ -73,18 +102,26 @@
         btnRefresh.disabled = false;
         btnRefresh.textContent = '🔄 Actualizar QR';
       };
-      img.onerror = () => {
-        overlay.classList.remove('visible');
-        btnRefresh.disabled = false;
-        btnRefresh.textContent = '🔄 Actualizar QR';
-        statusMsg.style.display = 'block';
-        statusMsg.className = 'status err';
-        statusMsg.textContent = '⚠️ QR no disponible — la sesión puede estar cargando, intentá de nuevo.';
+      img.onerror = async () => {
+        const connected = await checkStatus();
+        if (!connected) {
+          overlay.classList.remove('visible');
+          btnRefresh.disabled = false;
+          btnRefresh.textContent = '🔄 Actualizar QR';
+          statusMsg.style.display = 'block';
+          statusMsg.className = 'status err';
+          statusMsg.textContent = '⚠️ QR no disponible — la sesión puede estar cargando, intentá de nuevo.';
+        }
       };
       img.src = url;
     }
 
-    loadQR();
+    async function init() {
+      const connected = await checkStatus();
+      if (!connected) loadQR();
+    }
+
+    init();
   </script>
 </body>
 </html>
