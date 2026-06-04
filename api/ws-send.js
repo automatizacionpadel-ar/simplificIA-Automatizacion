@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   if (tel.length === 10) tel = '549' + tel;
   const chatId = tel + '@c.us';
 
-  try {
+  async function intentarEnvio() {
     const response = await fetch('http://76.13.127.2:3001/client/sendMessage/default', {
       method: 'POST',
       headers: {
@@ -23,15 +23,25 @@ export default async function handler(req, res) {
       body: JSON.stringify({ chatId, content: mensaje, contentType: 'string' }),
       signal: AbortSignal.timeout(30000)
     });
-
     if (!response.ok) {
       const err = await response.text();
-      return res.status(502).json({ error: `wwebjs error: ${err}` });
+      throw new Error(`wwebjs error: ${err}`);
     }
-
     const data = await response.json();
     if (!data.success) {
-      return res.status(502).json({ error: data.error || 'Error al enviar mensaje' });
+      throw new Error(data.error || 'Error al enviar mensaje');
+    }
+    return data;
+  }
+
+  try {
+    let data;
+    try {
+      data = await intentarEnvio();
+    } catch (firstErr) {
+      // Reintento único tras 3s (cubre el race condition de getChat en contactos nuevos)
+      await new Promise(r => setTimeout(r, 3000));
+      data = await intentarEnvio();
     }
     res.status(200).json({ ok: true, data });
   } catch (err) {
