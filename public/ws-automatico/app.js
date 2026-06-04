@@ -27,6 +27,13 @@ const alertSuccess       = document.getElementById('alertSuccess');
 const alertError         = document.getElementById('alertError');
 const noWhatsappSection  = document.getElementById('noWhatsappSection');
 const noWhatsappList     = document.getElementById('noWhatsappList');
+const resultadoSection   = document.getElementById('resultadoSection');
+const modalOverlay       = document.getElementById('modalOverlay');
+const btnAbrirMensaje    = document.getElementById('btnAbrirMensaje');
+const btnCerrarModal     = document.getElementById('btnCerrarModal');
+const btnGuardarMensaje  = document.getElementById('btnGuardarMensaje');
+const btnLimpiarMensaje  = document.getElementById('btnLimpiarMensaje');
+const mensajeBadge       = document.getElementById('mensajeBadge');
 
 let contactosParsed = [];
 let enviandoActivo  = false;
@@ -126,6 +133,50 @@ function ocultarTodo() {
   progressSection.classList.remove('visible');
   noWhatsappSection.classList.remove('visible');
   noWhatsappList.innerHTML = '';
+  resultadoSection.classList.remove('visible');
+  resultadoSection.innerHTML = '';
+}
+
+function mostrarResumen(sinWhatsapp, fallos, enviados, detenido) {
+  noWhatsappSection.classList.remove('visible');
+
+  let html = '';
+
+  if (detenido) {
+    html += '<div class="resumen-item resumen-stopped">🛑 Proceso detenido por el usuario</div>';
+  }
+
+  if (enviados > 0) {
+    const s = enviados !== 1;
+    html += '<div class="resumen-item resumen-ok">';
+    html += '✅ ' + enviados + ' mensaje' + (s ? 's' : '') + ' enviado' + (s ? 's' : '') + ' correctamente';
+    html += '</div>';
+  }
+
+  if (sinWhatsapp.length > 0) {
+    const s = sinWhatsapp.length !== 1;
+    html += '<div class="resumen-item resumen-warn">';
+    html += '<strong>⚠️ ' + sinWhatsapp.length + ' contacto' + (s ? 's' : '') + ' sin WhatsApp (omitido' + (s ? 's' : '') + '):</strong>';
+    html += '<ul>' + sinWhatsapp.map(function(c) {
+      return '<li>' + c.nombre_empresa + ' · ' + c.telefono + '</li>';
+    }).join('') + '</ul>';
+    html += '</div>';
+  }
+
+  if (fallos.length > 0) {
+    const s = fallos.length !== 1;
+    html += '<div class="resumen-item resumen-error">';
+    html += '<strong>❌ ' + fallos.length + ' error' + (s ? 'es' : '') + ' de envío:</strong>';
+    html += '<ul>' + fallos.map(function(f) {
+      return '<li>' + f.contacto.nombre_empresa + ' · ' + f.contacto.telefono + ' — ' + f.error + '</li>';
+    }).join('') + '</ul>';
+    html += '</div>';
+  }
+
+  if (html) {
+    resultadoSection.innerHTML = html;
+    resultadoSection.classList.add('visible');
+  }
 }
 function formatDuracion(ms) {
   const mins = Math.round(ms / 60000);
@@ -138,8 +189,8 @@ function sleep(ms) {
 // === Fase 1: Verificar números ===
 async function verificarNumeros(contactos) {
   const total = contactos.length;
-  const sinWhatsapp = [];
-  const conWhatsapp = [];
+  var sinWhatsapp = [];
+  var conWhatsapp = [];
 
   progressSection.classList.add('visible');
   progressFill.style.width = '0%';
@@ -181,7 +232,7 @@ async function verificarNumeros(contactos) {
     noWhatsappSection.classList.add('visible');
   }
 
-  return conWhatsapp;
+  return { conWhatsapp: conWhatsapp, sinWhatsapp: sinWhatsapp };
 }
 
 // === Fase 2: Enviar mensajes ===
@@ -191,40 +242,88 @@ function elegirMensaje(nombreEmpresa, mensajeCustom) {
 }
 
 async function enviarContactos(contactos, mensajeCustom) {
-  const total = contactos.length;
+  var total = contactos.length;
+  var fallos = [];
+  var enviados = 0;
 
-  for (let i = 0; i < total; i++) {
+  for (var i = 0; i < total; i++) {
     if (!enviandoActivo) break;
 
-    const contacto = contactos[i];
-    const mensaje = elegirMensaje(contacto.nombre_empresa, mensajeCustom);
+    var contacto = contactos[i];
+    var mensaje = elegirMensaje(contacto.nombre_empresa, mensajeCustom);
 
-    progressFill.style.width = `${Math.round((i / total) * 100)}%`;
-    progressLabel.textContent = `${Math.round((i / total) * 100)}%`;
-    progressStatus.textContent = `📤 Enviando ${i + 1}/${total}: ${contacto.nombre_empresa}...`;
+    progressFill.style.width = Math.round((i / total) * 100) + '%';
+    progressLabel.textContent = Math.round((i / total) * 100) + '%';
+    progressStatus.textContent = '📤 Enviando ' + (i + 1) + '/' + total + ': ' + contacto.nombre_empresa + '...';
 
     try {
-      const res = await fetch('/ws-automatico/send', {
+      var res = await fetch('/ws-automatico/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ telefono: contacto.telefono, nombre_empresa: contacto.nombre_empresa, mensaje })
+        body: JSON.stringify({ telefono: contacto.telefono, nombre_empresa: contacto.nombre_empresa, mensaje: mensaje })
       });
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        console.warn(`Error en ${contacto.nombre_empresa}:`, err.error || res.status);
+        var errData = await res.json().catch(function() { return {}; });
+        var errorMsg = errData.error || ('HTTP ' + res.status);
+        console.warn('Error en ' + contacto.nombre_empresa + ':', errorMsg);
+        fallos.push({ contacto: contacto, error: errorMsg });
+      } else {
+        enviados++;
       }
     } catch (err) {
-      console.warn(`Error de red en ${contacto.nombre_empresa}:`, err.message);
+      var redMsg = err.message || 'Error de red';
+      console.warn('Error de red en ' + contacto.nombre_empresa + ':', redMsg);
+      fallos.push({ contacto: contacto, error: redMsg });
     }
 
     if (i < total - 1 && enviandoActivo) {
-      const delay = Math.floor(Math.random() * (DELAY_MAX_MS - DELAY_MIN_MS + 1)) + DELAY_MIN_MS;
-      const proximos = total - i - 1;
-      progressStatus.textContent = `⏳ Esperando ${Math.round(delay / 1000)}s — quedan ${proximos} mensaje${proximos !== 1 ? 's' : ''}`;
+      var delay = Math.floor(Math.random() * (DELAY_MAX_MS - DELAY_MIN_MS + 1)) + DELAY_MIN_MS;
+      var proximos = total - i - 1;
+      progressStatus.textContent = '⏳ Esperando ' + Math.round(delay / 1000) + 's — quedan ' + proximos + ' mensaje' + (proximos !== 1 ? 's' : '');
       await sleep(delay);
     }
   }
+
+  return { enviados: enviados, fallos: fallos };
 }
+
+// === Modal mensaje personalizado ===
+function actualizarBtnMensaje() {
+  var tiene = mensajeInput.value.trim().length > 0;
+  mensajeBadge.style.display = tiene ? 'inline' : 'none';
+  if (tiene) {
+    btnAbrirMensaje.classList.add('activo');
+  } else {
+    btnAbrirMensaje.classList.remove('activo');
+  }
+}
+
+function abrirModal() {
+  modalOverlay.classList.add('visible');
+  mensajeInput.focus();
+}
+
+function cerrarModal() {
+  modalOverlay.classList.remove('visible');
+  actualizarBtnMensaje();
+}
+
+btnAbrirMensaje.addEventListener('click', abrirModal);
+btnCerrarModal.addEventListener('click', cerrarModal);
+
+btnGuardarMensaje.addEventListener('click', cerrarModal);
+
+btnLimpiarMensaje.addEventListener('click', function() {
+  mensajeInput.value = '';
+});
+
+modalOverlay.addEventListener('click', function(e) {
+  if (e.target === modalOverlay) cerrarModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) cerrarModal();
+});
 
 // === Botón principal ===
 btnSubmit.addEventListener('click', async () => {
@@ -244,10 +343,13 @@ btnSubmit.addEventListener('click', async () => {
 
   // Fase 1: verificación
   progressStatus.textContent = '🔍 Verificando números con WhatsApp...';
-  const conWhatsapp = await verificarNumeros([...contactosParsed]);
+  var resultado = await verificarNumeros([...contactosParsed]);
+  var conWhatsapp = resultado.conWhatsapp;
+  var sinWhatsapp = resultado.sinWhatsapp;
 
   if (!enviandoActivo) {
     progressStatus.textContent = '🛑 Verificación detenida por el usuario';
+    mostrarResumen(sinWhatsapp, [], 0, true);
     btnSubmit.disabled = false;
     btnSubmit.textContent = 'Enviar mensajes';
     return;
@@ -258,6 +360,7 @@ btnSubmit.addEventListener('click', async () => {
     progressStatus.textContent = '⚠️ Ningún contacto tiene WhatsApp activo.';
     progressFill.style.width = '100%';
     progressLabel.textContent = '100%';
+    mostrarResumen(sinWhatsapp, [], 0, false);
     enviandoActivo = false;
     btnSubmit.disabled = false;
     btnSubmit.textContent = 'Enviar mensajes';
@@ -265,25 +368,24 @@ btnSubmit.addEventListener('click', async () => {
   }
 
   // Fase 2: envío
-  const mensajeCustom = mensajeInput.value.trim() || null;
-  const tiempoEstimado = conWhatsapp.length * ((DELAY_MIN_MS + DELAY_MAX_MS) / 2);
-  progressStatus.textContent = `📤 Iniciando envío a ${conWhatsapp.length} contactos. Tiempo estimado: ${formatDuracion(tiempoEstimado)}`;
+  var mensajeCustom = mensajeInput.value.trim() || null;
+  var tiempoEstimado = conWhatsapp.length * ((DELAY_MIN_MS + DELAY_MAX_MS) / 2);
+  progressStatus.textContent = '📤 Iniciando envío a ' + conWhatsapp.length + ' contactos. Tiempo estimado: ' + formatDuracion(tiempoEstimado);
   progressFill.style.width = '0%';
   progressLabel.textContent = '0%';
 
-  await enviarContactos(conWhatsapp, mensajeCustom);
+  var envioResultado = await enviarContactos(conWhatsapp, mensajeCustom);
+  var enviados = envioResultado.enviados;
+  var fallos = envioResultado.fallos;
+  var detenido = !enviandoActivo;
 
-  if (enviandoActivo) {
-    progressFill.style.width = '100%';
-    progressLabel.textContent = '100%';
-    progressStatus.textContent = `✅ Proceso finalizado — ${conWhatsapp.length} mensajes enviados`;
-    const omitidos = contactosParsed.length - conWhatsapp.length;
-    const omitidosTexto = omitidos > 0 ? ` ${omitidos} contacto(s) omitidos por no tener WhatsApp.` : '';
-    alertSuccess.textContent = `✅ Envío completado: ${conWhatsapp.length} mensajes enviados.${omitidosTexto}`;
-    alertSuccess.classList.add('visible');
-  } else {
-    progressStatus.textContent = '🛑 Envío detenido por el usuario';
-  }
+  progressFill.style.width = '100%';
+  progressLabel.textContent = '100%';
+  progressStatus.textContent = detenido
+    ? '🛑 Envío detenido — ' + enviados + ' mensajes enviados antes de detener'
+    : '✅ Proceso finalizado — ' + enviados + ' mensajes enviados';
+
+  mostrarResumen(sinWhatsapp, fallos, enviados, detenido);
 
   enviandoActivo = false;
   btnSubmit.disabled = false;

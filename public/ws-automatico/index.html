@@ -44,22 +44,10 @@
         <ul id="errorList"></ul>
       </div>
 
-      <!-- Mensaje personalizado -->
-      <div class="field-group">
-        <label for="mensajeInput">
-          Mensaje personalizado
-          <span style="font-weight:400; color:#6b7280;">(opcional)</span>
-        </label>
-        <textarea
-          id="mensajeInput"
-          placeholder="Dejá vacío para que cada contacto reciba un mensaje aleatorio de las 4 plantillas. Si escribís algo acá, se enviará este texto a todos."
-          rows="4"
-        ></textarea>
-        <p class="hint">
-          Usá <code>{empresa}</code> donde querés que aparezca el nombre de la empresa.
-          Si dejás vacío, se selecciona una plantilla al azar por cada destinatario.
-        </p>
-      </div>
+      <!-- Botón abrir mensaje personalizado -->
+      <button class="btn-mensaje" id="btnAbrirMensaje" type="button">
+        ✏️ Mensaje personalizado <span class="btn-mensaje-badge" id="mensajeBadge" style="display:none">✓ activo</span>
+      </button>
 
       <!-- Botón enviar -->
       <button class="btn-submit" id="btnSubmit" disabled>
@@ -88,6 +76,9 @@
         </p>
       </div>
 
+      <!-- Resumen final unificado -->
+      <div class="resultado-section" id="resultadoSection"></div>
+
       <!-- Alertas de resultado -->
       <div class="alert alert-success" id="alertSuccess"></div>
       <div class="alert alert-error" id="alertError"></div>
@@ -103,6 +94,31 @@
     <br />
     Automatización inteligente para tu negocio
   </footer>
+
+  <!-- Modal mensaje personalizado -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Mensaje personalizado</h3>
+        <button class="modal-close" id="btnCerrarModal" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <textarea
+          id="mensajeInput"
+          placeholder="Dejá vacío para que cada contacto reciba un mensaje aleatorio de las 4 plantillas. Si escribís algo acá, se enviará este texto a todos."
+          rows="7"
+        ></textarea>
+        <p class="hint">
+          Usá <code>{empresa}</code> donde querés que aparezca el nombre de la empresa.
+          Si dejás vacío, se selecciona una plantilla al azar por cada destinatario.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal-limpiar" id="btnLimpiarMensaje" type="button">Limpiar</button>
+        <button class="btn-modal-guardar" id="btnGuardarMensaje" type="button">Guardar</button>
+      </div>
+    </div>
+  </div>
 
   <script src="/ws-automatico/app.js"></script>
 </body>
