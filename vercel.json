@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/ws-automatico/status", "destination": "/api/ws-status" },
     { "source": "/ws-automatico/qr", "destination": "/api/ws-qr" },
+    { "source": "/ws-automatico/send", "destination": "/api/ws-send" },
     { "source": "/ws-automatico/(.*)", "destination": "/ws-automatico/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
