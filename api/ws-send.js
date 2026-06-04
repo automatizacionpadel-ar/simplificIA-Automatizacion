@@ -30,6 +30,9 @@ export default async function handler(req, res) {
     }
 
     const data = await response.json();
+    if (!data.success) {
+      return res.status(502).json({ error: data.error || 'Error al enviar mensaje' });
+    }
     res.status(200).json({ ok: true, data });
   } catch (err) {
     res.status(502).json({ error: err.message || 'Error de red al contactar wwebjs' });
