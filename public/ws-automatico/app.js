@@ -8,22 +8,25 @@ const PLANTILLAS = [
 
 const DELAY_MIN_MS = 45000;
 const DELAY_MAX_MS = 90000;
+const DELAY_CHECK_MS = 1000;
 
 // === Referencias al DOM ===
-const dropZone        = document.getElementById('dropZone');
-const csvInput        = document.getElementById('csvInput');
-const fileInfo        = document.getElementById('fileInfo');
-const fileInfoText    = document.getElementById('fileInfoText');
-const valErrors       = document.getElementById('validationErrors');
-const errorList       = document.getElementById('errorList');
-const mensajeInput    = document.getElementById('mensajeInput');
-const btnSubmit       = document.getElementById('btnSubmit');
-const progressSection = document.getElementById('progressSection');
-const progressLabel   = document.getElementById('progressLabel');
-const progressFill    = document.getElementById('progressFill');
-const progressStatus  = document.getElementById('progressStatus');
-const alertSuccess    = document.getElementById('alertSuccess');
-const alertError      = document.getElementById('alertError');
+const dropZone           = document.getElementById('dropZone');
+const csvInput           = document.getElementById('csvInput');
+const fileInfo           = document.getElementById('fileInfo');
+const fileInfoText       = document.getElementById('fileInfoText');
+const valErrors          = document.getElementById('validationErrors');
+const errorList          = document.getElementById('errorList');
+const mensajeInput       = document.getElementById('mensajeInput');
+const btnSubmit          = document.getElementById('btnSubmit');
+const progressSection    = document.getElementById('progressSection');
+const progressLabel      = document.getElementById('progressLabel');
+const progressFill       = document.getElementById('progressFill');
+const progressStatus     = document.getElementById('progressStatus');
+const alertSuccess       = document.getElementById('alertSuccess');
+const alertError         = document.getElementById('alertError');
+const noWhatsappSection  = document.getElementById('noWhatsappSection');
+const noWhatsappList     = document.getElementById('noWhatsappList');
 
 let contactosParsed = [];
 let enviandoActivo  = false;
@@ -75,7 +78,7 @@ function validarCSV(headers, filas) {
 }
 
 function procesarArchivo(file) {
-  ocultarAlertas();
+  ocultarTodo();
   contactosParsed = [];
   btnSubmit.disabled = true;
   if (!file.name.toLowerCase().endsWith('.csv')) {
@@ -117,29 +120,78 @@ function ocultarValidationErrors() {
   valErrors.classList.remove('visible');
   errorList.innerHTML = '';
 }
-function ocultarAlertas() {
+function ocultarTodo() {
   alertSuccess.classList.remove('visible');
   alertError.classList.remove('visible');
   progressSection.classList.remove('visible');
+  noWhatsappSection.classList.remove('visible');
+  noWhatsappList.innerHTML = '';
 }
 function formatDuracion(ms) {
   const mins = Math.round(ms / 60000);
   return mins >= 60 ? `${Math.floor(mins / 60)}h ${mins % 60}min` : `${mins} min`;
 }
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-// === Loop de envío (controlado por el browser) ===
+// === Fase 1: Verificar números ===
+async function verificarNumeros(contactos) {
+  const total = contactos.length;
+  const sinWhatsapp = [];
+  const conWhatsapp = [];
+
+  progressSection.classList.add('visible');
+  progressFill.style.width = '0%';
+  progressLabel.textContent = '0%';
+
+  for (let i = 0; i < total; i++) {
+    if (!enviandoActivo) break;
+
+    const c = contactos[i];
+    const pct = Math.round((i / total) * 100);
+    progressFill.style.width = `${pct}%`;
+    progressLabel.textContent = `${pct}%`;
+    progressStatus.textContent = `🔍 Verificando ${i + 1}/${total}: ${c.nombre_empresa}...`;
+
+    try {
+      const res = await fetch('/ws-automatico/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ telefono: c.telefono })
+      });
+      const data = await res.json();
+      if (data.hasWhatsapp) {
+        conWhatsapp.push(c);
+      } else {
+        sinWhatsapp.push(c);
+      }
+    } catch {
+      conWhatsapp.push(c);
+    }
+
+    if (i < total - 1 && enviandoActivo) await sleep(DELAY_CHECK_MS);
+  }
+
+  // Mostrar los que no tienen WhatsApp
+  if (sinWhatsapp.length > 0) {
+    noWhatsappList.innerHTML = sinWhatsapp
+      .map(c => `<li>${c.nombre_empresa} (${c.telefono})</li>`)
+      .join('');
+    noWhatsappSection.classList.add('visible');
+  }
+
+  return conWhatsapp;
+}
+
+// === Fase 2: Enviar mensajes ===
 function elegirMensaje(nombreEmpresa, mensajeCustom) {
   const base = mensajeCustom || PLANTILLAS[Math.floor(Math.random() * PLANTILLAS.length)];
   return base.replace(/\{empresa\}/gi, nombreEmpresa);
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 async function enviarContactos(contactos, mensajeCustom) {
   const total = contactos.length;
-  progressSection.classList.add('visible');
 
   for (let i = 0; i < total; i++) {
     if (!enviandoActivo) break;
@@ -168,28 +220,13 @@ async function enviarContactos(contactos, mensajeCustom) {
     if (i < total - 1 && enviandoActivo) {
       const delay = Math.floor(Math.random() * (DELAY_MAX_MS - DELAY_MIN_MS + 1)) + DELAY_MIN_MS;
       const proximos = total - i - 1;
-      const delaySeg = Math.round(delay / 1000);
-      progressStatus.textContent = `⏳ Esperando ${delaySeg}s — quedan ${proximos} mensaje${proximos !== 1 ? 's' : ''}`;
+      progressStatus.textContent = `⏳ Esperando ${Math.round(delay / 1000)}s — quedan ${proximos} mensaje${proximos !== 1 ? 's' : ''}`;
       await sleep(delay);
     }
   }
-
-  if (enviandoActivo) {
-    progressFill.style.width = '100%';
-    progressLabel.textContent = '100%';
-    progressStatus.textContent = `✅ Proceso finalizado — ${total} mensajes enviados`;
-    alertSuccess.textContent = `✅ Todos los mensajes fueron enviados (${total} contactos).`;
-    alertSuccess.classList.add('visible');
-  } else {
-    progressStatus.textContent = '🛑 Envío detenido por el usuario';
-  }
-
-  enviandoActivo = false;
-  btnSubmit.disabled = false;
-  btnSubmit.textContent = 'Enviar mensajes';
 }
 
-// === Botón de envío ===
+// === Botón principal ===
 btnSubmit.addEventListener('click', async () => {
   if (enviandoActivo) {
     enviandoActivo = false;
@@ -200,15 +237,55 @@ btnSubmit.addEventListener('click', async () => {
 
   if (contactosParsed.length === 0) return;
 
-  ocultarAlertas();
+  ocultarTodo();
   enviandoActivo = true;
-  btnSubmit.textContent = '⏹ Detener envío';
+  btnSubmit.textContent = '⏹ Detener';
   btnSubmit.disabled = false;
 
-  const mensajeCustom = mensajeInput.value.trim() || null;
-  const tiempoEstimado = contactosParsed.length * ((DELAY_MIN_MS + DELAY_MAX_MS) / 2);
-  alertSuccess.textContent = `📤 Enviando ${contactosParsed.length} mensajes. Tiempo estimado: ${formatDuracion(tiempoEstimado)}`;
-  alertSuccess.classList.add('visible');
+  // Fase 1: verificación
+  progressStatus.textContent = '🔍 Verificando números con WhatsApp...';
+  const conWhatsapp = await verificarNumeros([...contactosParsed]);
 
-  await enviarContactos([...contactosParsed], mensajeCustom);
+  if (!enviandoActivo) {
+    progressStatus.textContent = '🛑 Verificación detenida por el usuario';
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Enviar mensajes';
+    return;
+  }
+
+  if (conWhatsapp.length === 0) {
+    progressSection.classList.add('visible');
+    progressStatus.textContent = '⚠️ Ningún contacto tiene WhatsApp activo.';
+    progressFill.style.width = '100%';
+    progressLabel.textContent = '100%';
+    enviandoActivo = false;
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Enviar mensajes';
+    return;
+  }
+
+  // Fase 2: envío
+  const mensajeCustom = mensajeInput.value.trim() || null;
+  const tiempoEstimado = conWhatsapp.length * ((DELAY_MIN_MS + DELAY_MAX_MS) / 2);
+  progressStatus.textContent = `📤 Iniciando envío a ${conWhatsapp.length} contactos. Tiempo estimado: ${formatDuracion(tiempoEstimado)}`;
+  progressFill.style.width = '0%';
+  progressLabel.textContent = '0%';
+
+  await enviarContactos(conWhatsapp, mensajeCustom);
+
+  if (enviandoActivo) {
+    progressFill.style.width = '100%';
+    progressLabel.textContent = '100%';
+    progressStatus.textContent = `✅ Proceso finalizado — ${conWhatsapp.length} mensajes enviados`;
+    const omitidos = contactosParsed.length - conWhatsapp.length;
+    const omitidosTexto = omitidos > 0 ? ` ${omitidos} contacto(s) omitidos por no tener WhatsApp.` : '';
+    alertSuccess.textContent = `✅ Envío completado: ${conWhatsapp.length} mensajes enviados.${omitidosTexto}`;
+    alertSuccess.classList.add('visible');
+  } else {
+    progressStatus.textContent = '🛑 Envío detenido por el usuario';
+  }
+
+  enviandoActivo = false;
+  btnSubmit.disabled = false;
+  btnSubmit.textContent = 'Enviar mensajes';
 });

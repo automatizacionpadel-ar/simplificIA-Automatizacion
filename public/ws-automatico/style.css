@@ -315,6 +315,44 @@ main {
   margin: 0 6px;
 }
 
+/* === Panel números sin WhatsApp === */
+.no-whatsapp-section {
+  display: none;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.no-whatsapp-section.visible {
+  display: block;
+}
+
+.no-whatsapp-header {
+  margin-bottom: 8px;
+  color: #92400e;
+}
+
+#noWhatsappList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#noWhatsappList li {
+  background: #fde68a;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  color: #78350f;
+}
+
 /* === Responsive === */
 @media (max-width: 600px) {
   .card {
