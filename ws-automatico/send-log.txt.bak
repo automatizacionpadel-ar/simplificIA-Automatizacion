@@ -1,0 +1,28 @@
+=== SimplificIA Email Sender (Zoho Mail API) ===
+
+Total contactos a procesar: 172
+Plantilla cargada
+PDF: presentacion-simplificia.pdf (1718 KB)
+Delay entre envíos: 25s
+Dry-run: NO
+
+Ya enviados previamente: 0
+
+Obteniendo access token...
+Subiendo PDF...
+  storeName: 917485091
+  attachmentName: presentacion-simplificia.pdf
+  attachmentPath: /Mail/2908447f6570eea07bfdc-presentacion-simplificia.pdf
+
+[1/172] Enviando a: veterinariadonlalo@gmail.com
+  Asunto: Clínica Veterinaria don podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571428375155000)
+  ⏳ Esperando 25s... listo
+[2/172] Enviando a: infosipba@gmail.com
+  Asunto: Sofìa Guaimas atención podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"The requested file is unavailable as the sender may have deleted the file."}}
+  ⏳ Esperando 25s... listo
+[3/172] Enviando a: pelaez.lucas@gmail.com
+  Asunto: Lucas Peláez podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"The requested file is unavailable as the sender may have deleted the file."}}
+  ⏳ Esperando 25s...

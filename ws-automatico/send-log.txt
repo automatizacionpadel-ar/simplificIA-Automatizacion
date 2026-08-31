@@ -1,0 +1,307 @@
+=== SimplificIA Email Sender (Zoho Mail API) ===
+
+Total contactos a procesar: 172
+Plantilla cargada
+PDF: presentacion-simplificia.pdf (1718 KB)
+Delay entre envíos: 25s
+Dry-run: NO
+
+Ya enviados previamente: 1
+
+Obteniendo access token...
+PDF: disponible
+
+[1/172] SKIP (ya enviado): veterinariadonlalo@gmail.com
+[2/172] Enviando a: infosipba@gmail.com
+  Asunto: Sofìa Guaimas atención podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571530287155300)
+  ⏳ Esperando 25s... listo
+[3/172] Enviando a: pelaez.lucas@gmail.com
+  Asunto: Lucas Peláez podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571559642155000)
+  ⏳ Esperando 25s... listo
+[4/172] Enviando a: vet.sebastianonline@gmail.com
+  Asunto: Sebastián podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571591519155000)
+  ⏳ Esperando 25s... listo
+[5/172] Enviando a: info@tuveterinariaencasa.com.ar
+  Asunto: Veterinaria en casa podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571625614138400)
+  ⏳ Esperando 25s... listo
+[5/172] Enviando a: info@veterinariaencasa.com.ar
+  Asunto: Veterinaria en casa podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571653657138400)
+  ⏳ Esperando 25s... listo
+[6/172] Enviando a: info@faunavets.com
+  Asunto: Fauna Vets podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571683749155000)
+  ⏳ Esperando 25s... listo
+[7/172] Enviando a: psicologoscognitivoscapital@gmail.com
+  Asunto: Psicoc podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571716191138400)
+  ⏳ Esperando 25s... listo
+[8/172] Enviando a: soporte-ar@doctoralia.com
+  Asunto: Gaston Matsuda podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571744038138400)
+  ⏳ Esperando 25s... listo
+[8/172] Enviando a: contacto-ar@doctoralia.com
+  Asunto: Gaston Matsuda podés tener su propio asistente de turnos con IA...
+  ✅ Enviado (ID: 1784571771840138400)
+  ⏳ Esperando 25s... listo
+[9/172] Enviando a: lic.carlosperera@hotmail.com
+  Asunto: Carlos E. Perera podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: elsaalvarez@institutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: florenciatorzillo@institutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: marielagoldszmidt@institutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: arielghirelli@institutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: ofeliasalgueiro@institoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: cecilialotero@ibstitutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[10/172] Enviando a: info@institutoinepa.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[11/172] Enviando a: turnos@cvpaunero.com.ar
+  Asunto: Centro Veterinario Paunero podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[12/172] Enviando a: licjuangentili@gmail.com
+  Asunto: Juan Gentili podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[13/172] Enviando a: consultas@carolinaantonelli.com.ar
+  Asunto: Nuñez podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[14/172] Enviando a: bruballone@gmail.com
+  Asunto: Bruno Ballone Psicólogo podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[15/172] Enviando a: psicologos.online.argen@gmail.com
+  Asunto: Psicologos Online Argentina podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[16/172] Enviando a: psicolautaro@gmail.com
+  Asunto: Psicólogo deportivo podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[17/172] Enviando a: psicologobrandan@gmail.com
+  Asunto: TERAPIA ONLINE podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[18/172] Enviando a: psicosinbarreras@gmail.com
+  Asunto: Sin Barreras podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[19/172] Enviando a: vnapoli98@gmail.com
+  Asunto: CABA Recoleta Lic. podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[20/172] Enviando a: info@emotia.ar
+  Asunto: Ruth Arias podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[20/172] Enviando a: infoemotia@emotia.ar
+  Asunto: Ruth Arias podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[21/172] Enviando a: nsrios3@gmail.com
+  Asunto: Psicología Arteterapia Lic. podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[22/172] Enviando a: petshopdcm@gmail.com
+  Asunto: DCM Pet Shop podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[22/172] Enviando a: petshopdcmalmagro@gmail.com
+  Asunto: DCM Pet Shop podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[23/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[23/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[24/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[24/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[25/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[25/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[26/172] Enviando a: rapp_ale@fibertel.com.ar
+  Asunto: Instituto de Psicología podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[27/172] Enviando a: lic.noracaminoa@gmail.com
+  Asunto: Nora Caminoa. Terapia podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[28/172] Enviando a: vaninacarrizo.mt@gmail.com
+  Asunto: Vanina Carrizo podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[29/172] Enviando a: psiconvergencias@live.com
+  Asunto: Cristina Cubisino podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[30/172] Enviando a: veterinariamt777@gmail.com
+  Asunto: Veterinaria Petshopping. Homeopatia podés tener su propio asistente de turnos co...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[31/172] Enviando a: adrianyosh@yahoo.com.ar
+  Asunto: Adrián Yoshida podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[32/172] SKIP (ya enviado): vet.sebastianonline@gmail.com
+[33/172] Enviando a: info@100mascotas.com.ar
+  Asunto: 100% mascotas podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[34/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[34/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[35/172] Enviando a: info@veterinariablinka.com.ar
+  Asunto: Veterinaria Blinka podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[36/172] Enviando a: julietalandolfi@gmail.com
+  Asunto: Julieta Landolfi podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[37/172] Enviando a: npersini@buenosaires.gob.ar
+  Asunto: Unidad de Atención podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[37/172] Enviando a: claram@buenosaires.gob.ar
+  Asunto: Unidad de Atención podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[38/172] Enviando a: veterinariabarracas@gmail.com
+  Asunto: Clínica Veterinaria Barracas podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[39/172] Enviando a: veterinariacongreso@yahoo.com.ar
+  Asunto: Veterinaria Congreso podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[40/172] Enviando a: veterinariaelfauno@gmail.com
+  Asunto: Veterinaria El Fauno podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[41/172] Enviando a: intervalospsicoanaliticos@gmail.com
+  Asunto: Lic. Nicolás Herrera podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[42/172] Enviando a: acufisio.vet@gmail.com
+  Asunto: ACUFISIO podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[43/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[43/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[44/172] Enviando a: veterinaria.patricios@gmail.com
+  Asunto: Veterinaria Patricios podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[45/172] Enviando a: lic.marianomendoza@hotmail.com
+  Asunto: Psicologo Mariano Mendoza podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[45/172] Enviando a: info@misitio.com
+  Asunto: Psicologo Mariano Mendoza podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[46/172] Enviando a: crvbattimopera@gmail.com
+  Asunto: Consultorio Radiologico Veterinario podés tener su propio asistente de turnos co...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[47/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[47/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[48/172] Enviando a: profesionalbelgrano@gmail.com
+  Asunto: esional Farmacia podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[48/172] Enviando a: ventasweb@profesionalvet.com.ar
+  Asunto: esional Farmacia podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[49/172] Enviando a: admisiones@tratamebien.red
+  Asunto: Psicóloga Infantil podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[50/172] Enviando a: clinica@carolaruizpsicologia.com
+  Asunto: Infantil Lic. Carola podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[51/172] Enviando a: jorgevismara1@gmail.com
+  Asunto: Jorge Vismara. podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[52/172] Enviando a: lic.julietacucca@gmail.com
+  Asunto: Julieta Cucca. Psicóloga. podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[53/172] Enviando a: drarizio@gmail.com
+  Asunto: Veterinaria Arizio podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[54/172] Enviando a: info@psicobaires.ar
+  Asunto: PSICOBAIRES.AR podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[55/172] Enviando a: marcelomalizia73@yahoo.com.ar
+  Asunto: Marcelo Malizia podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[56/172] Enviando a: lic.julietacucca@gmail.com
+  Asunto: Equipo PZ Psicólogos. podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[57/172] Enviando a: consultas@psicologoalexis.com
+  Asunto: Alexis Vaneskeheian podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[58/172] SKIP (ya enviado): soporte-ar@doctoralia.com
+[58/172] SKIP (ya enviado): contacto-ar@doctoralia.com
+[59/172] Enviando a: vetemascotasdelparque@gmail.com
+  Asunto: Veterinaria Mascotas del podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[60/172] Enviando a: info@cpmv.org.ar
+  Asunto: Consejo Profesional de podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[60/172] Enviando a: %20info@cpmv.org.ar
+  Asunto: Consejo Profesional de podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[61/172] Enviando a: equipopzpsicologos@gmail.com
+  Asunto: Equipo PZ Psicólogos podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[62/172] Enviando a: razasunidasvet@hotmail.com
+  Asunto: Razas Unidas podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[63/172] Enviando a: cristinaduca@gmail.com
+  Asunto: Cristina Duca podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[63/172] Enviando a: info@liccristinaduca.info
+  Asunto: Cristina Duca podés tener su propio asistente de turnos con IA...
+  ❌ Error: {"status":{"code":500,"description":"Internal Error"},"data":{"moreInfo":"Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho
+  ⏳ Esperando 25s... listo
+[64/172] Enviando a: info@misitio.com
+  Asunto: Psicología Infantojuvenil Adultos. podés tener su propio asistente de turnos con...

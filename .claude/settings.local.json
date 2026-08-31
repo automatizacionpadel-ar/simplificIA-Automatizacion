@@ -60,7 +60,22 @@
       "Read(//Users/gus/.ssh/**)",
       "Bash(ssh -o BatchMode=yes -o ConnectTimeout=5 -p 21098 -i ~/.ssh/id_rsa root@192.64.117.220 \"echo OK\")",
       "Bash(ssh-keygen -R \"[192.64.117.220]:21098\")",
-      "Bash(ssh-keyscan -p 21098 192.64.117.220)"
+      "Bash(ssh-keyscan -p 21098 192.64.117.220)",
+      "Bash(ssh -i ~/.ssh/id_rsa root@76.13.127.2 \"docker ps --filter name=ws-wwebjs --format '{{.Status}}'\")",
+      "Bash(ssh -i ~/.ssh/id_ed25519 root@76.13.127.2 \"docker ps --filter name=ws-wwebjs --format '{{.Status}}'\")",
+      "Bash(ssh -i ~/.ssh/id_simplificia root@76.13.127.2 \"docker ps --filter name=ws-wwebjs --format '{{.Status}}' && echo '---' && docker exec ws-wwebjs wget -q -O- http://localhost:3000/session/status/default 2>/dev/null\")",
+      "Bash(curl -s -w \"\\\\nHTTP:%{http_code}\" \"http://76.13.127.2:3001/session/status/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s -w \"\\\\nHTTP:%{http_code}\" \"http://76.13.127.2:3001/session/start/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s \"http://76.13.127.2:3001/session/status/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s --max-time 20 \"http://76.13.127.2:3001/session/start/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s --max-time 5 \"http://76.13.127.2:3001/\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\" -w \"\\\\nHTTP:%{http_code}\")",
+      "Bash(curl -s --max-time 5 \"http://76.13.127.2:3001/session/status/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s --max-time 30 \"http://76.13.127.2:3001/session/start/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s --max-time 10 \"http://76.13.127.2:3001/session/status/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s --max-time 8 \"http://76.13.127.2:3001/session/status/default\" -H \"x-api-key: 34d0e1f22e96ddc98de69f39295251001b7152b120dc3a72\")",
+      "Bash(curl -s \"https://hub.docker.com/v2/repositories/avoylenko/wwebjs-api/tags?page_size=10\")",
+      "Bash(python3 -c \"import sys,json; tags=json.load\\(sys.stdin\\)['results']; [print\\(t['name'], t['last_updated'][:10]\\) for t in tags]\")",
+      "Bash(curl -s \"http://ip-api.com/json/186.22.17.36?fields=country,city,org\")"
     ],
     "additionalDirectories": [
       "/Users/gus/Developer/ws-automatico/docs/superpowers",

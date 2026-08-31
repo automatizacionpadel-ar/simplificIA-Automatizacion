@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Comercial – CT Representaciones Turísticas (Claro)</title>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a1a2e;
+    background: #e8ecf1;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #ffffff;
+    break-after: page;
+    position: relative;
+  }
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 297mm;
+    padding: 20mm 22mm;
+    position: relative;
+    background: #ffffff;
+  }
+  .cover-blob-1 {
+    position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(150, 189, 69, 0.08); pointer-events: none;
+  }
+  .cover-blob-2 {
+    position: absolute; bottom: -100px; left: -100px;
+    width: 450px; height: 450px; border-radius: 50%;
+    background: rgba(21, 128, 61, 0.05); pointer-events: none;
+  }
+  .cover-blob-3 {
+    position: absolute; top: 40%; left: -60px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: rgba(200, 230, 138, 0.12); pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 2; max-width: 160mm; width: 100%; }
+  .cover-logo { display: block; width: 420px; height: auto; margin: 0 auto 32px auto; }
+  .cover-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    background: rgba(150, 189, 69, 0.1); color: #15803d;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 3px; margin-bottom: 20px;
+  }
+  .cover-title { font-size: 34px; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.5px; }
+  .cover-subtitle { font-size: 19px; font-weight: 500; color: #4a5568; margin-bottom: 32px; }
+  .cover-line { width: 70px; height: 4px; background: #96bd45; margin: 0 auto 28px auto; border-radius: 2px; }
+  .cover-for { font-size: 13px; color: #4a5568; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .cover-client-name { font-size: 22px; font-weight: 700; color: #15803d; margin-bottom: 40px; }
+  .cover-prep { font-size: 12px; color: #4a5568; margin-bottom: 4px; }
+  .cover-company-name { font-size: 16px; font-weight: 600; color: #1a1a2e; margin-bottom: 2px; }
+  .cover-tagline { font-size: 11px; color: #4a5568; }
+  .cover-date { font-size: 11px; color: #4a5568; margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; display: inline-block; }
+  .cover-dots {
+    position: absolute; bottom: 60px; right: 40px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    opacity: 0.2; pointer-events: none;
+  }
+  .cover-dots div { width: 5px; height: 5px; border-radius: 50%; background: #96bd45; }
+
+  /* INNER PAGES */
+  .inner { padding: 18mm 20mm 16mm 20mm; position: relative; }
+  .inner-watermark {
+    position: absolute; top: 50%; right: -40px; transform: translateY(-50%);
+    font-size: 180px; font-weight: 800; color: #15803d;
+    pointer-events: none; line-height: 1; opacity: 0.03; letter-spacing: -10px;
+  }
+  .inner-watermark-sm {
+    position: absolute; top: 50%; right: -40px; transform: translateY(-50%);
+    font-size: 140px; font-weight: 800; color: #15803d;
+    pointer-events: none; line-height: 1; opacity: 0.03; letter-spacing: -8px;
+  }
+  .page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0; position: relative;
+  }
+  .page-header::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 50px; height: 2px; background: #96bd45;
+  }
+  .page-header-logo { display: block; width: 180px; height: auto; }
+  .page-header-right { text-align: right; }
+  .page-header-title { font-size: 9px; color: #4a5568; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+  .page-header-subtitle { font-size: 8px; color: #4a5568; opacity: 0.6; }
+
+  .section-num { font-size: 64px; font-weight: 800; color: rgba(21, 128, 61, 0.06); line-height: 1; margin-bottom: -10px; letter-spacing: -3px; }
+  h1 { font-size: 24px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; line-height: 1.3; letter-spacing: -0.3px; }
+  h3 { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-bottom: 8px; margin-top: 22px; }
+  p { font-size: 11.5px; color: #4a5568; margin-bottom: 10px; line-height: 1.6; }
+  .intro-text { font-size: 12px; color: #4a5568; margin-bottom: 12px; line-height: 1.65; }
+  .section-intro { font-size: 12px; color: #4a5568; line-height: 1.65; margin-bottom: 18px; }
+  .lead { font-size: 13px; color: #1a1a2e; font-weight: 500; line-height: 1.6; margin-bottom: 16px; }
+  .accent-bar { width: 36px; height: 3px; background: #96bd45; margin: 0 0 16px 0; border-radius: 2px; }
+
+  .feature-list { list-style: none; padding: 0; margin: 8px 0 14px 0; }
+  .feature-list li {
+    font-size: 11.5px; color: #4a5568; padding: 5px 0; padding-left: 24px;
+    position: relative; line-height: 1.45;
+  }
+  .feature-list li::before {
+    content: ''; position: absolute; left: 2px; top: 10px;
+    width: 7px; height: 7px; border-radius: 2px;
+    background: #96bd45; transform: rotate(45deg);
+  }
+  .check-list { list-style: none; padding: 0; margin: 10px 0 16px 0; }
+  .check-list li {
+    font-size: 12.5px; color: #1a1a2e; padding: 8px 0; padding-left: 30px;
+    position: relative; line-height: 1.45; font-weight: 500;
+  }
+  .check-list li::before {
+    content: '\2713'; position: absolute; left: 0; top: 8px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #96bd45; color: #ffffff;
+    font-weight: 700; font-size: 10px;
+    display: flex; align-items: center; justify-content: center; line-height: 1;
+  }
+  .icon-list { list-style: none; padding: 0; margin: 8px 0 14px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 24px; }
+  .icon-list li {
+    font-size: 11.5px; color: #4a5568; padding: 4px 0; padding-left: 20px;
+    position: relative; line-height: 1.45;
+  }
+  .icon-list li::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 5px; height: 5px; border-radius: 50%; background: #96bd45;
+  }
+  .module-title {
+    font-size: 15px; font-weight: 600; color: #1a1a2e;
+    margin: 18px 0 6px 0; display: flex; align-items: center; gap: 8px;
+  }
+  .module-icon {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: #f0f5e8; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .module-icon svg { width: 14px; height: 14px; stroke: #15803d; }
+
+  .highlight-box {
+    background: #f6f9ef; border-radius: 8px; padding: 14px 18px;
+    margin: 18px 0; border-left: 4px solid #96bd45;
+  }
+  .highlight-box p { margin: 0; font-size: 11.5px; line-height: 1.55; color: #1a1a2e; }
+  .highlight-label { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: #96bd45; font-weight: 600; margin-bottom: 4px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 11.5px; }
+  table th {
+    background: #15803d; color: #ffffff; padding: 10px 14px;
+    text-align: left; font-weight: 600; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  table th:first-child { border-radius: 5px 0 0 0; }
+  table th:last-child { border-radius: 0 5px 0 0; }
+  table td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #4a5568; }
+  table tbody tr { background: #ffffff; }
+  table tbody tr:nth-child(even) { background: #f6f9ef; }
+  table tbody tr:last-child td:first-child { border-radius: 0 0 0 5px; }
+  table tbody tr:last-child td:last-child { border-radius: 0 0 5px 0; }
+  table tbody tr:last-child td { border-bottom: 2px solid #c8e68a; }
+
+  .price-highlight {
+    background: #f6f9ef; border: 2px solid #96bd45;
+    border-radius: 12px; padding: 22px; text-align: center; margin: 20px 0; position: relative;
+  }
+  .price-highlight::before {
+    content: ''; position: absolute; top: -25px; right: -25px;
+    width: 80px; height: 80px; border-radius: 50%;
+    background: rgba(150, 189, 69, 0.1); pointer-events: none;
+  }
+  .price-amount { font-size: 36px; font-weight: 800; color: #15803d; margin: 0; line-height: 1.2; letter-spacing: -1px; position: relative; }
+  .price-label { font-size: 12px; color: #4a5568; margin: 0 0 6px 0; position: relative; }
+  .price-note { font-size: 10px; color: #4a5568; opacity: 0.7; margin-top: 6px; position: relative; }
+
+  .page-footer {
+    position: absolute; bottom: 12mm; left: 20mm; right: 20mm;
+    font-size: 8px; color: #a0aec0;
+    display: flex; justify-content: space-between;
+    border-top: 1px solid #e2e8f0; padding-top: 6px;
+  }
+  .page-footer-dot { color: #96bd45; margin: 0 4px; }
+
+  .toc-list { list-style: none; padding: 0; margin: 24px 0; }
+  .toc-list li {
+    font-size: 13px; padding: 11px 14px; margin-bottom: 3px; border-radius: 6px;
+    display: flex; align-items: center; gap: 12px; color: #4a5568;
+  }
+  .toc-list li:nth-child(odd) { background: #fafbf9; }
+  .toc-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #96bd45; color: #ffffff;
+    font-weight: 700; font-size: 11px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .toc-title { font-weight: 500; flex: 1; }
+  .toc-dots { flex: 1; border-bottom: 1px dotted #e2e8f0; margin: 0 6px; align-self: flex-end; margin-bottom: 3px; }
+
+  .tag {
+    display: inline-block; padding: 4px 12px; border-radius: 14px;
+    font-size: 10.5px; font-weight: 500;
+    background: #f0f5e8; color: #15803d;
+    margin-right: 5px; margin-bottom: 5px;
+  }
+
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .card {
+    background: #ffffff; border-radius: 8px; padding: 16px;
+    border: 1px solid #e2e8f0; position: relative;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: #96bd45; border-radius: 2px 0 0 2px;
+  }
+  .card-icon {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: #f0f5e8; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 10px;
+  }
+  .card h4 { font-size: 12px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+  .card p { font-size: 11px; margin: 0; line-height: 1.5; color: #4a5568; }
+
+  .thanks {
+    text-align: center; padding: 50px 40px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 50vh;
+  }
+  .thanks-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #f6f9ef; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 16px;
+  }
+  .thanks-icon svg { width: 22px; height: 22px; stroke: #15803d; }
+  .thanks h2 { font-size: 24px; font-weight: 700; color: #15803d; margin-bottom: 14px; }
+  .thanks p { font-size: 13px; max-width: 460px; margin: 0 auto 12px auto; line-height: 1.65; }
+  .thanks-line { width: 44px; height: 3px; background: #96bd45; margin: 16px auto; border-radius: 2px; }
+
+  @media print {
+    body { background: #ffffff !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .page { break-after: page !important; margin: 0; box-shadow: none; background: #ffffff !important; }
+    .page:last-child { break-after: avoid !important; }
+    @page { size: A4; margin: 0; }
+  }
+
+  @media screen {
+    body { padding: 20px; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.08); margin-bottom: 24px; border-radius: 4px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-blob-1"></div>
+    <div class="cover-blob-2"></div>
+    <div class="cover-blob-3"></div>
+    <div class="cover-dots">
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div class="cover-content">
+      <img class="cover-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="cover-badge">Propuesta Comercial</div>
+      <div class="cover-title">Desarrollo de Plataforma<br>de Gestión Comercial</div>
+      <div class="cover-subtitle">Solución de Software a Medida</div>
+      <div class="cover-line"></div>
+      <div class="cover-for">Preparado para</div>
+      <div class="cover-client-name">CT Representaciones Turísticas</div>
+      <div class="cover-prep">Preparado por</div>
+      <div class="cover-company-name">SimplificIA</div>
+      <div class="cover-tagline">Desarrollo de Software a Medida</div>
+      <div class="cover-date">31 de Julio de 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ÍNDICE -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">IA</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">00</div>
+    <h1>Índice</h1>
+    <div class="accent-bar"></div>
+    <ul class="toc-list">
+      <li><span class="toc-num">1</span><span class="toc-title">Presentación</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">2</span><span class="toc-title">Objetivos del proyecto</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">3</span><span class="toc-title">Alcance de la solución</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">4</span><span class="toc-title">Tecnologías</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">5</span><span class="toc-title">Metodología de trabajo</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">6</span><span class="toc-title">Cronograma estimado</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">7</span><span class="toc-title">Inversión</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">8</span><span class="toc-title">Condiciones comerciales</span><span class="toc-dots"></span></li>
+      <li><span class="toc-num">9</span><span class="toc-title">Evolución futura</span><span class="toc-dots"></span></li>
+    </ul>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 1. PRESENTACIÓN -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">01</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">01</div>
+    <h1>Presentación</h1>
+    <div class="accent-bar"></div>
+    <h3>Sobre esta propuesta</h3>
+    <p class="lead">Agradecemos la oportunidad de presentar esta propuesta para el desarrollo de una plataforma de gestión comercial diseñada específicamente para las necesidades de <strong>CT Representaciones Turísticas</strong>.</p>
+    <p class="intro-text">Nuestro objetivo es desarrollar una solución moderna, segura y escalable que permita centralizar la información comercial de la empresa, optimizar los procesos internos y facilitar el trabajo diario del equipo de ventas.</p>
+    <p class="intro-text">Más que un sistema, proponemos construir una herramienta que acompañe el crecimiento de la empresa durante los próximos años, permitiendo incorporar nuevas funcionalidades conforme evolucionen sus necesidades.</p>
+    <div class="highlight-box" style="margin-top: 30px;">
+      <div class="highlight-label">SimplificIA</div>
+      <p>Nos especializamos en el desarrollo de software a medida, combinando expertise técnico con un enfoque cercano y personalizado. Creemos en la tecnología como una aliada para potenciar los negocios de nuestros clientes.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 2. OBJETIVOS -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">02</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">02</div>
+    <h1>Objetivos del Proyecto</h1>
+    <div class="accent-bar"></div>
+    <p class="section-intro">La plataforma tendrá como objetivos principales:</p>
+    <ul class="check-list">
+      <li>Centralizar toda la información comercial.</li>
+      <li>Mejorar el seguimiento de clientes.</li>
+      <li>Organizar el trabajo del equipo de ventas.</li>
+      <li>Automatizar procesos repetitivos.</li>
+      <li>Obtener indicadores de gestión en tiempo real.</li>
+      <li>Preparar la empresa para futuras integraciones.</li>
+    </ul>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 3A. ALCANCE (1/4) - Clientes + Seguimiento -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">03</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">03</div>
+    <h1>Alcance de la Solución</h1>
+    <div class="accent-bar"></div>
+    <p class="section-intro">El sistema será desarrollado completamente a medida y estará compuesto por los siguientes módulos.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="module-title">Gestión de Clientes</div>
+    <p>Toda la información de cada cliente se encontrará centralizada dentro de la plataforma. Cada registro incluirá información de contacto, historial comercial, estado actual, observaciones, seguimientos realizados y registro cronológico de actividades.</p>
+    <p>Esto permitirá disponer de una visión completa de cada oportunidad comercial.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="module-title">Seguimiento Comercial</div>
+    <p>La plataforma incorporará un tablero visual para administrar el proceso comercial.</p>
+    <p>Estados sugeridos:</p>
+    <ul class="feature-list">
+      <li>🟢 Cliente nuevo</li>
+      <li>📞 Primer contacto</li>
+      <li>📄 Cotización enviada</li>
+      <li>🤝 Negociación</li>
+      <li>✅ Venta concretada</li>
+    </ul>
+    <p>El objetivo es facilitar el seguimiento diario y reducir la posibilidad de perder oportunidades de venta.</p>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 3B. ALCANCE (2/4) - Cotizaciones + Equipo + Panel -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark-sm">03</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <h1>Alcance de la Solución <span style="font-weight:400; font-size:14px; color:#4a5568;">(cont.)</span></h1>
+    <div class="accent-bar"></div>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="module-title">Gestión de Cotizaciones</div>
+    <p>El sistema permitirá generar y administrar cotizaciones vinculadas directamente con cada cliente. Cada presupuesto quedará almacenado para futuras consultas, permitiendo conocer rápidamente su estado e historial.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div><div class="module-title">Gestión del Equipo Comercial</div>
+    <p>Cada integrante contará con un usuario individual. Dependiendo de su perfil, podrá acceder únicamente a la información correspondiente a sus clientes o disponer de una visión completa de toda la operación. La plataforma permitirá administrar permisos de acceso según el rol de cada usuario.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="module-title">Panel de Indicadores</div>
+    <p>Se desarrollará un panel ejecutivo con información actualizada en tiempo real.</p>
+    <p>Entre los principales indicadores:</p>
+    <ul class="icon-list">
+      <li>Clientes registrados</li>
+      <li>Cotizaciones emitidas</li>
+      <li>Ventas concretadas</li>
+      <li>Conversión comercial</li>
+      <li>Rendimiento por vendedor</li>
+      <li>Actividad general del equipo</li>
+    </ul>
+    <p>Esta información facilitará la toma de decisiones basada en datos.</p>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 3C. ALCANCE (3/4) - Automatización + WhatsApp -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark-sm">03</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <h1>Alcance de la Solución <span style="font-weight:400; font-size:14px; color:#4a5568;">(cont.)</span></h1>
+    <div class="accent-bar"></div>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="module-title">Automatización de Procesos</div>
+    <p>Con el objetivo de reducir tareas administrativas, la plataforma permitirá automatizar distintos procesos, tales como:</p>
+    <ul class="icon-list">
+      <li>Recordatorios automáticos</li>
+      <li>Seguimiento de cotizaciones</li>
+      <li>Notificaciones internas</li>
+      <li>Procesos programados</li>
+      <li>Automatización de tareas repetitivas</li>
+    </ul>
+    <p>Esto permitirá que el equipo concentre sus esfuerzos en actividades comerciales de mayor valor.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div class="module-title">Integración con WhatsApp Business Platform</div>
+    <p>La solución quedará preparada para integrarse con WhatsApp Business Platform. Entre las posibles automatizaciones:</p>
+    <ul class="icon-list">
+      <li>Envío de recordatorios</li>
+      <li>Mensajes automáticos</li>
+      <li>Seguimiento de clientes</li>
+      <li>Campañas comerciales</li>
+      <li>Confirmaciones de eventos</li>
+    </ul>
+    <div class="highlight-box" style="margin-top: 16px;">
+      <div class="highlight-label">Tarifas de referencia · Argentina</div>
+      <p style="margin-bottom: 8px;">Al momento de esta propuesta, las tarifas para destinatarios en Argentina son:</p>
+      <ul class="feature-list" style="margin: 4px 0;">
+        <li><strong>Marketing:</strong> USD 0,0618 por mensaje.</li>
+        <li><strong>Utilidad:</strong> USD 0,0120 por mensaje.</li>
+        <li><strong>Autenticación:</strong> USD 0,0220 por mensaje.</li>
+        <li><strong>Servicio:</strong> Sin cargo, cuando la conversación es iniciada por el cliente y se responde dentro de la ventana de 24 horas.</li>
+      </ul>
+    </div>
+    <p>Los costos del servicio de WhatsApp Business Platform serán contratados directamente por CT Representaciones Turísticas.</p>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 3D. ALCANCE (4/4) - WhatsApp cost + Seguridad + Multidispositivo + Web + Resumen -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark-sm">03</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <h1>Alcance de la Solución <span style="font-weight:400; font-size:14px; color:#4a5568;">(cont.)</span></h1>
+    <div class="accent-bar"></div>
+    <p style="margin-bottom: 6px;"><strong>Ejemplo de costos mensuales estimados de WhatsApp</strong> — suponiendo 5.000 mensajes de utilidad y 2.000 de marketing:</p>
+    <table>
+      <thead><tr><th>Tipo de mensaje</th><th style="text-align:right;">Cantidad</th><th style="text-align:right;">Tarifa (USD)</th><th style="text-align:right;">Costo mensual (USD)</th></tr></thead>
+      <tbody>
+        <tr><td>Utilidad</td><td style="text-align:right;">5.000</td><td style="text-align:right;">0,0120</td><td style="text-align:right;"><strong>USD 60,00</strong></td></tr>
+        <tr><td>Marketing</td><td style="text-align:right;">2.000</td><td style="text-align:right;">0,0618</td><td style="text-align:right;"><strong>USD 123,60</strong></td></tr>
+        <tr><td><strong>Total estimado</strong></td><td style="text-align:right;">7.000</td><td style="text-align:right;"></td><td style="text-align:right;"><strong>USD 183,60</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="module-title">Seguridad</div>
+    <p>La plataforma contemplará buenas prácticas de seguridad, incluyendo accesos individuales, control de permisos, registro de acciones realizadas, gestión de usuarios y resguardo de la información.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="13" rx="2"/><path d="M8 22h8"/><line x1="12" y1="18" x2="12" y2="22"/></svg></div><div class="module-title">Acceso Multidispositivo</div>
+    <p>La plataforma será completamente web responsive. Podrá utilizarse desde computadoras, tablets y teléfonos móviles, sin necesidad de instalar aplicaciones.</p>
+    <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="module-title">Página Web Institucional</div>
+    <p>Aprovechando la contratación del dominio de Internet, podemos desarrollar una página web institucional sencilla para que CT Representaciones Turísticas tenga presencia profesional en línea. Una web institucional funciona como la vidriera digital de la empresa, permitiendo que potenciales clientes y proveedores encuentren información sobre los servicios y datos de contacto disponibles las 24 horas.</p>
+    <p>La página incluiría diseño moderno y responsive adaptado a la identidad de la empresa, secciones principales (Inicio, Quiénes somos, Servicios, Contacto), formulario de contacto funcional, optimización básica para buscadores (SEO), integración con redes sociales y vinculación con el dominio contratado.</p>
+    <div class="highlight-box" style="margin-top: 16px;">
+      <div class="highlight-label">En resumen</div>
+      <p>Proponemos una plataforma integral que centraliza la gestión de clientes, agiliza el seguimiento comercial, organiza al equipo de ventas y automatiza procesos clave, complementada con una página web institucional que le da presencia digital a la empresa. Todo esto con un panel de indicadores en tiempo real, integración con WhatsApp Business y acceso desde cualquier dispositivo, construido sobre una arquitectura moderna, segura y preparada para crecer junto a CT Representaciones Turísticas.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 4. TECNOLOGÍAS -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">04</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">04</div>
+    <h1>Tecnologías</h1>
+    <div class="accent-bar"></div>
+    <p class="section-intro">La plataforma será desarrollada utilizando tecnologías modernas que permitan garantizar:</p>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h4>Alto rendimiento</h4><p>Arquitectura optimizada para velocidad y fluidez en las operaciones.</p></div>
+      <div class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h4>Seguridad</h4><p>Estándares actuales de protección de datos y control de accesos.</p></div>
+      <div class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div><h4>Escalabilidad</h4><p>Diseñada para crecer con la empresa sin degradar el rendimiento.</p></div>
+      <div class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h4>Fácil mantenimiento</h4><p>Código limpio, modular y documentado para evolución continua.</p></div>
+      <div class="card" style="grid-column: 1 / -1;"><h4>Arquitectura modular</h4><p>Posibilidad de incorporar nuevos módulos sin afectar las funcionalidades existentes.</p></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 5+6. METODOLOGÍA + CRONOGRAMA -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">05</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">05</div>
+    <h1>Metodología de Trabajo</h1>
+    <div class="accent-bar"></div>
+    <p class="lead">El desarrollo se realizará de forma incremental.</p>
+    <p class="intro-text">Cada etapa será presentada para su revisión antes de avanzar a la siguiente, permitiendo realizar ajustes durante el proceso y asegurando que el producto final responda a las necesidades de la empresa.</p>
+    <h1 style="margin-top: 32px;"><span class="section-num" style="font-size:52px; margin-bottom:-8px;">06</span>Cronograma Estimado</h1>
+    <div class="accent-bar"></div>
+    <table>
+      <thead><tr><th>Etapa</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Relevamiento</strong></td><td>Análisis de requerimientos</td></tr>
+        <tr><td><strong>Diseño</strong></td><td>Arquitectura y diseño del sistema</td></tr>
+        <tr><td><strong>Desarrollo</strong></td><td>Implementación de funcionalidades</td></tr>
+        <tr><td><strong>Pruebas</strong></td><td>Validación y ajustes</td></tr>
+        <tr><td><strong>Implementación</strong></td><td>Puesta en producción</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 14px; font-style: italic; text-align: center; color: #4a5568; font-size: 11px;">Los tiempos específicos podrán definirse al iniciar el proyecto.</p>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 7+8. INVERSIÓN + CONDICIONES -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">07</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">07</div>
+    <h1>Inversión</h1>
+    <div class="accent-bar"></div>
+    <div class="price-highlight">
+      <div class="price-label">Desarrollo de Plataforma de Gestión Comercial</div>
+      <div class="price-amount">ARS $6.000.000</div>
+      <div class="price-note">Inversión total del proyecto</div>
+    </div>
+    <h3>Forma de Pago</h3>
+    <table>
+      <thead><tr><th>Concepto</th><th style="text-align:right;">Importe</th></tr></thead>
+      <tbody>
+        <tr><td>Anticipo</td><td style="text-align:right;"><strong>ARS $2.500.000</strong></td></tr>
+        <tr><td>Cuota 1</td><td style="text-align:right;">ARS $875.000</td></tr>
+        <tr><td>Cuota 2</td><td style="text-align:right;">ARS $875.000</td></tr>
+        <tr><td>Cuota 3</td><td style="text-align:right;">ARS $875.000</td></tr>
+        <tr><td>Cuota 4</td><td style="text-align:right;">ARS $875.000</td></tr>
+        <tr><td><strong>Mantenimiento mensual</strong> *</td><td style="text-align:right;"><strong>ARS $350.000</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 10px; color: #4a5568; margin-top: 6px; font-style: italic;">* El mantenimiento mensual comienza a pagarse después de la última cuota (Cuota 4).</p>
+    <h1 style="margin-top: 32px;"><span class="section-num" style="font-size:52px; margin-bottom:-8px;">08</span>Condiciones Comerciales</h1>
+    <div class="accent-bar"></div>
+    <p class="section-intro">Los siguientes servicios no están incluidos en esta propuesta y serán contratados directamente por CT Representaciones Turísticas:</p>
+    <ul class="feature-list">
+      <li>WhatsApp Business Platform</li>
+      <li>Dominio de Internet</li>
+      <li>Servicio de correo electrónico</li>
+      <li>Hosting o infraestructura (si correspondiera)</li>
+    </ul>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- 9. EVOLUCIÓN -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">09</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="section-num">09</div>
+    <h1>Evolución de la Plataforma</h1>
+    <div class="accent-bar"></div>
+    <p class="lead">La arquitectura del sistema permitirá incorporar nuevos módulos sin necesidad de reemplazar la solución.</p>
+    <p>Algunas funcionalidades que podrán agregarse en futuras etapas incluyen:</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px;">
+      <span class="tag">Gestión documental</span>
+      <span class="tag">Automatización de emisiones</span>
+      <span class="tag">Integración con proveedores</span>
+      <span class="tag">Firma digital</span>
+      <span class="tag">Reportes avanzados</span>
+      <span class="tag">Dashboards personalizados</span>
+      <span class="tag">Integración con sistemas externos</span>
+      <span class="tag">Inteligencia Artificial para asistencia comercial</span>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+<!-- AGRADECIMIENTO -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-watermark">♥</div>
+    <div class="page-header">
+      <img class="page-header-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="page-header-right">
+        <div class="page-header-title">CT Representaciones Turísticas</div>
+      </div>
+    </div>
+    <div class="thanks">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <h2>Agradecimiento</h2>
+      <div class="thanks-line"></div>
+      <p class="intro-text">Agradecemos la confianza depositada en <strong>SimplificIA</strong>.</p>
+      <p class="intro-text">Será un placer acompañar a <strong>CT Representaciones Turísticas</strong> en este proyecto, desarrollando una solución tecnológica que contribuya a optimizar sus procesos y potenciar su crecimiento.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>Propuesta Comercial <span class="page-footer-dot">·</span> CT Representaciones Turísticas</span>
+    <span>SimplificIA</span>
+  </div>
+</div>
+
+</body>
+</html>

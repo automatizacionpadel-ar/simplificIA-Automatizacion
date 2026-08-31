@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SimplificIA · Presentación de venta — Centros de Imágenes (Oscuro)</title>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0a100d;
+    --surface: #101a14;
+    --surface-2: #16221a;
+    --ink: #eaf5ec;
+    --muted: #8fa69a;
+    --soft: #5f756a;
+    --brand: #96bd45;
+    --brand-strong: #b7e055;
+    --tint: rgba(150,189,69,0.10);
+    --line: rgba(150,189,69,0.18);
+    --line-soft: rgba(150,189,69,0.10);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --display: 'Sora', -apple-system, sans-serif;
+    --sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #060b08;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--bg);
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---------- shared ---------- */
+  .wrap { position: relative; z-index: 2; padding: 15mm 17mm 16mm; min-height: 297mm; display: flex; flex-direction: column; }
+
+  .hdr {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 9px; border-bottom: 1px solid var(--line); margin-bottom: 30px;
+  }
+  .hdr::after {
+    content: ''; position: absolute; left: 17mm; margin-top: -9px;
+    width: 26px; height: 3px; background: var(--brand); border-radius: 2px;
+    box-shadow: 0 0 12px rgba(150,189,69,0.55);
+  }
+  .hdr-logo { height: 22px; width: auto; display: block; filter: brightness(1.3); }
+  .hdr-right { display: flex; align-items: center; gap: 10px; }
+  .hdr-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+  .hdr-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 8px rgba(150,189,69,0.8); }
+
+  .kicker {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--brand-strong); font-weight: 600; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .kicker::before { content: '//'; color: var(--soft); }
+
+  h1 { font-family: var(--display); font-weight: 600; font-size: 27px; letter-spacing: -0.6px; color: var(--ink); line-height: 1.16; }
+  .lede { font-size: 12.5px; color: var(--muted); margin-top: 10px; max-width: 150mm; }
+
+  .ghost {
+    position: absolute; font-family: var(--mono); font-weight: 600;
+    font-size: 120px; line-height: 1; letter-spacing: -6px; color: var(--brand);
+    opacity: 0.05; z-index: 1; pointer-events: none;
+  }
+  .ghost.br { bottom: 18mm; right: -4mm; }
+  .ghost.tr { top: 40mm; right: -4mm; }
+
+  .foot {
+    margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line-soft);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 8px; letter-spacing: 1.5px; color: var(--soft); text-transform: uppercase;
+  }
+  .foot .accent { color: var(--brand-strong); }
+
+  /* ---------- cover ---------- */
+  .cover {
+    background:
+      radial-gradient(1000px 640px at 82% -12%, rgba(150,189,69,0.22), transparent 58%),
+      radial-gradient(760px 520px at -10% 112%, rgba(43,99,71,0.35), transparent 60%),
+      var(--bg);
+  }
+  .cover-scans {
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background:
+      repeating-linear-gradient(0deg, rgba(150,189,69,0.045) 0px, rgba(150,189,69,0.045) 1px, transparent 1px, transparent 4px);
+  }
+  .radar {
+    position: absolute; z-index: 1; pointer-events: none;
+    border: 1px solid rgba(150,189,69,0.20); border-radius: 50%;
+  }
+  .radar::after {
+    content: ''; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px;
+    margin: -2px 0 0 -2px; border-radius: 50%; background: var(--brand-strong);
+    box-shadow: 0 0 12px 2px rgba(150,189,69,0.8);
+  }
+  .radar.r1 { width: 240px; height: 240px; top: -90px; right: -70px; }
+  .radar.r2 { width: 160px; height: 160px; top: -20px; right: -10px; }
+  .radar.r3 { width: 320px; height: 320px; bottom: -130px; left: -110px; }
+
+  .crosshair {
+    position: absolute; width: 74px; height: 74px; z-index: 2; pointer-events: none;
+  }
+  .crosshair::before, .crosshair::after { content: ''; position: absolute; background: var(--brand); box-shadow: 0 0 10px rgba(150,189,69,0.6); }
+  .crosshair::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+  .crosshair::after { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-50%); }
+  .crosshair i { position: absolute; width: 11px; height: 11px; }
+  .crosshair i:nth-child(1) { top: 0; left: 0; border-top: 2px solid var(--brand); border-left: 2px solid var(--brand); }
+  .crosshair i:nth-child(2) { top: 0; right: 0; border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); }
+  .crosshair i:nth-child(3) { bottom: 0; left: 0; border-bottom: 2px solid var(--brand); border-left: 2px solid var(--brand); }
+  .crosshair i:nth-child(4) { bottom: 0; right: 0; border-bottom: 2px solid var(--brand); border-right: 2px solid var(--brand); }
+  .crosshair .core { position: absolute; left: 50%; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: var(--brand-strong); transform: translate(-50%,-50%); }
+  .ch-tl { top: 24mm; left: 17mm; }
+  .ch-br { bottom: 26mm; right: 17mm; transform: scale(0.8); opacity: 0.5; }
+
+  .cover-inner {
+    position: relative; z-index: 3; min-height: 297mm;
+    padding: 18mm 20mm; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cover-top { display: flex; align-items: center; justify-content: space-between; }
+  .cover-top-logo { height: 30px; width: auto; filter: brightness(1.35); }
+  .cover-tag {
+    font-family: var(--mono); font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--brand-strong); border: 1px solid var(--line); border-radius: 20px;
+    padding: 6px 14px; background: var(--tint);
+  }
+  .cover-mid { text-align: center; max-width: 150mm; margin: 0 auto; }
+  .cover-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--brand-strong); font-weight: 600; }
+  .cover-kicker .slash { color: var(--soft); }
+  .cover-title { font-family: var(--display); font-weight: 700; font-size: 44px; line-height: 1.12; letter-spacing: -1.2px; color: var(--ink); margin: 18px 0 6px; }
+  .cover-title em { font-style: normal; color: var(--brand-strong); }
+  .cover-sub { font-size: 15.5px; color: var(--muted); max-width: 118mm; margin: 16px auto 0; font-weight: 500; }
+  .cover-chips { display: flex; justify-content: center; gap: 9px; margin-top: 30px; flex-wrap: wrap; }
+  .chip {
+    font-size: 11px; font-weight: 600; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 20px; padding: 7px 15px;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .chip .glyph { color: var(--brand-strong); }
+  .cover-line { width: 54px; height: 4px; background: var(--brand); border-radius: 3px; margin: 34px auto 0; box-shadow: 0 0 14px rgba(150,189,69,0.6); }
+  .cover-bottom { text-align: center; }
+  .cover-for { font-family: var(--mono); font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--soft); margin-bottom: 6px; }
+  .cover-client { font-size: 15px; font-weight: 700; color: var(--brand-strong); margin-bottom: 22px; }
+  .cover-by { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .cover-by strong { color: var(--ink); font-weight: 600; }
+  .cover-date { font-family: var(--mono); font-size: 8px; letter-spacing: 2px; color: var(--soft); text-transform: uppercase; margin-top: 5px; }
+
+  /* ---------- intro / statement ---------- */
+  .statement { background: radial-gradient(900px 520px at 110% 110%, rgba(150,189,69,0.08), transparent 55%), var(--bg); }
+  .big-quote {
+    font-family: var(--display); font-weight: 500; font-size: 26px; line-height: 1.32; letter-spacing: -0.5px; color: var(--ink);
+    margin: 8px 0 26px; max-width: 158mm;
+  }
+  .big-quote .hl { color: var(--brand-strong); border-bottom: 3px solid var(--brand); }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .pillar {
+    display: flex; gap: 13px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--line-soft); border-radius: 12px; padding: 15px 16px;
+  }
+  .pillar-ico {
+    width: 38px; height: 38px; flex-shrink: 0; border-radius: 10px; background: var(--tint);
+    display: flex; align-items: center; justify-content: center; color: var(--brand-strong);
+  }
+  .pillar-ico svg { width: 19px; height: 19px; }
+  .pillar h3 { font-size: 12.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .pillar p { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .pillar-num { font-family: var(--mono); font-size: 9px; color: var(--soft); margin-left: auto; }
+
+  /* ---------- module section ---------- */
+  .num {
+    font-family: var(--mono); font-weight: 600; font-size: 52px; line-height: 1;
+    color: var(--brand); margin-right: 16px; letter-spacing: -4px; margin-top: 6px;
+    text-shadow: 0 0 22px rgba(150,189,69,0.45);
+  }
+  .title-row { display: flex; align-items: flex-start; margin-top: 6px; }
+  .title-row h1 { flex: 1; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 24px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line-soft); border-radius: 13px;
+    padding: 17px 17px 15px; position: relative; display: flex; flex-direction: column;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 17px; right: 17px; height: 2px;
+    background: linear-gradient(90deg, var(--brand), transparent 60%); border-radius: 2px;
+  }
+  .card-ico {
+    width: 34px; height: 34px; border-radius: 9px; background: var(--tint);
+    display: flex; align-items: center; justify-content: center; color: var(--brand-strong); margin-bottom: 11px;
+  }
+  .card-ico svg { width: 17px; height: 17px; }
+  .card p { font-size: 12px; color: var(--ink); font-weight: 600; line-height: 1.45; }
+  .card p small { display: block; color: var(--muted); font-weight: 400; margin-top: 4px; font-size: 11px; }
+  .card-idx { position: absolute; top: 15px; right: 16px; font-family: var(--mono); font-size: 9px; color: var(--soft); }
+
+  .valuebar {
+    margin-top: 22px; display: flex; align-items: center; gap: 12px;
+    background: var(--tint); border-left: 4px solid var(--brand); border-radius: 10px; padding: 13px 16px;
+  }
+  .valuebar .vb-glyph { font-size: 16px; color: var(--brand-strong); }
+  .valuebar p { font-size: 11.5px; color: var(--ink); font-weight: 600; line-height: 1.5; }
+
+  /* ---------- dashboard ---------- */
+  .screen {
+    margin-top: 18px; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 14px;
+    box-shadow: 0 0 40px -18px rgba(150,189,69,0.35), 0 20px 40px -30px rgba(0,0,0,0.8); overflow: hidden;
+  }
+  .screen-bar {
+    display: flex; align-items: center; gap: 7px; padding: 10px 14px; border-bottom: 1px solid var(--line-soft); background: var(--surface-2);
+  }
+  .screen-bar .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .screen-bar .d1 { background: #7a5b48; } .screen-bar .d2 { background: var(--brand); box-shadow: 0 0 8px rgba(150,189,69,0.6); } .screen-bar .d3 { background: #4c6b2f; }
+  .screen-bar .title { margin-left: 8px; font-family: var(--mono); font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .screen-bar .live { margin-left: auto; font-family: var(--mono); font-size: 7.5px; color: var(--brand-strong); letter-spacing: 1px; }
+  .screen-bar .live::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-strong); margin-right: 5px; box-shadow: 0 0 8px rgba(183,224,85,0.9); }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-soft); }
+  .kpi { background: var(--surface); padding: 13px 14px 12px; }
+  .kpi-label { font-family: var(--mono); font-size: 8px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  .kpi-val { font-family: var(--display); font-weight: 700; font-size: 24px; color: var(--ink); letter-spacing: -0.5px; line-height: 1; }
+  .kpi-val span { font-size: 13px; color: var(--soft); }
+  .kpi-trend { font-size: 9px; font-weight: 600; color: var(--brand-strong); margin-top: 6px; }
+  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-soft); border-top: 1px solid var(--line-soft); }
+  .chart { background: var(--surface); padding: 14px 16px 16px; }
+  .chart h4 { font-size: 10px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: 0.2px; }
+  .bars { display: flex; align-items: flex-end; gap: 8px; height: 46px; }
+  .bars i { flex: 1; background: var(--surface-2); border-radius: 3px 3px 0 0; position: relative; border-top: 1px solid var(--line); }
+  .bars i.hl { background: linear-gradient(180deg, var(--brand-strong), rgba(150,189,69,0.35)); box-shadow: 0 0 14px rgba(150,189,69,0.35); }
+  .bars-labels { display: flex; gap: 8px; margin-top: 6px; }
+  .bars-labels span { flex: 1; font-family: var(--mono); font-size: 6.5px; color: var(--soft); text-align: center; letter-spacing: 0.5px; }
+  .chart p.note { font-size: 9px; color: var(--muted); margin-top: 9px; font-style: italic; }
+
+  /* ---------- integrations ---------- */
+  .pull {
+    margin: 14px 0 4px; padding: 22px 24px 20px; position: relative;
+    background: linear-gradient(135deg, rgba(27,67,50,0.9), rgba(10,16,13,0.6));
+    border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: 0 0 34px -14px rgba(150,189,69,0.5);
+  }
+  .pull::before {
+    content: '\201C'; position: absolute; top: 6px; left: 16px;
+    font-family: var(--display); font-size: 60px; color: rgba(183,224,85,0.45); line-height: 1;
+  }
+  .pull p { font-family: var(--display); font-size: 19px; font-weight: 500; line-height: 1.45; max-width: 158mm; color: var(--ink); }
+  .pull p b { color: var(--brand-strong); font-weight: 600; }
+  .integ-wrap { display: flex; gap: 12px; margin-top: 20px; }
+  .integ-block { flex: 1; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 13px; padding: 16px; }
+  .integ-block h4 { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .integ-block > p { font-size: 11px; color: var(--muted); margin-bottom: 11px; line-height: 1.5; }
+  .integ-block > p strong { color: var(--ink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 10px; font-weight: 600; color: var(--ink); background: var(--tint);
+    border: 1px solid var(--line-soft); border-radius: 16px; padding: 5px 11px;
+  }
+  .tag .plus { color: var(--brand-strong); }
+
+  /* ---------- adaptable ---------- */
+  .adapt-step { display: flex; gap: 14px; align-items: flex-start; margin-top: 20px; }
+  .adapt-step .idx {
+    font-family: var(--mono); font-weight: 600; font-size: 30px; line-height: 1; color: var(--brand-strong);
+    min-width: 46px; letter-spacing: -2px; text-shadow: 0 0 18px rgba(150,189,69,0.5);
+  }
+  .adapt-step .ln { width: 1px; background: var(--line); align-self: stretch; margin-top: 6px; }
+  .adapt-step h3 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .adapt-step p { font-size: 11.5px; color: var(--muted); line-height: 1.55; max-width: 150mm; }
+
+  /* ---------- closing ---------- */
+  .closing {
+    background:
+      radial-gradient(900px 560px at 50% -18%, rgba(150,189,69,0.20), transparent 62%),
+      radial-gradient(600px 400px at 50% 118%, rgba(43,99,71,0.35), transparent 60%),
+      var(--bg);
+  }
+  .closing .wrap { justify-content: center; align-items: center; text-align: center; }
+  .closing h1 { color: var(--ink); font-size: 38px; }
+  .closing h1 em { font-style: normal; color: var(--brand-strong); }
+  .closing .kicker { color: var(--brand-strong); }
+  .closing .kicker::before { color: var(--soft); }
+  .closing p.lede { color: var(--muted); max-width: 130mm; margin-left: auto; margin-right: auto; }
+  .next-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 34px; width: 100%; }
+  .next-step { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 12px; padding: 15px 12px; }
+  .next-step .n { font-family: var(--mono); font-size: 9px; color: var(--brand-strong); letter-spacing: 2px; margin-bottom: 7px; display: block; }
+  .next-step h4 { font-size: 11.5px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+  .closing-contact { margin-top: 36px; }
+  .closing-contact .logo { height: 30px; width: auto; display: block; margin: 0 auto 12px; filter: brightness(1.3); }
+  .closing-contact p { font-size: 11px; color: var(--muted); }
+  .closing-contact p strong { color: var(--ink); font-weight: 700; }
+  .closing-line { width: 54px; height: 3px; background: var(--brand); border-radius: 2px; margin: 18px auto 0; box-shadow: 0 0 14px rgba(150,189,69,0.6); }
+
+  @media print {
+    body { background: #060b08 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .page { break-after: page !important; margin: 0; box-shadow: none; }
+    .page:last-child { break-after: avoid !important; }
+    @page { size: A4; margin: 0; }
+  }
+  @media screen {
+    body { padding: 20px; }
+    .page { box-shadow: 0 10px 44px rgba(0,0,0,0.6); margin-bottom: 26px; border-radius: 6px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<div class="page cover">
+  <div class="cover-scans"></div>
+  <div class="radar r1"></div>
+  <div class="radar r2"></div>
+  <div class="radar r3"></div>
+  <div class="crosshair ch-tl"><i></i><i></i><i></i><i></i><span class="core"></span></div>
+  <div class="crosshair ch-br"><i></i><i></i><i></i><i></i><span class="core"></span></div>
+  <div class="cover-inner">
+    <div class="cover-top">
+      <img class="cover-top-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <span class="cover-tag">Presentación de venta</span>
+    </div>
+    <div class="cover-mid">
+      <div class="cover-kicker"><span class="slash">//</span> &nbsp;Solución para centros de imágenes</div>
+      <h1 class="cover-title">Gestión integral<br>para tu centro<em>.</em></h1>
+      <div class="cover-line"></div>
+      <p class="cover-sub">Organizamos estudios, pagos, comunicaciones y coordinación en un solo lugar, para que el centro se enfoque en lo que mejor sabe hacer: atender pacientes.</p>
+      <div class="cover-chips">
+        <span class="chip"><span class="glyph">◆</span> Estudios</span>
+        <span class="chip"><span class="glyph">◆</span> Pagos</span>
+        <span class="chip"><span class="glyph">◆</span> Comunicación</span>
+        <span class="chip"><span class="glyph">◆</span> Coordinación</span>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-for">Preparado para</div>
+      <div class="cover-client">[Nombre del Centro de Imágenes]</div>
+      <div class="cover-by">Preparado por <strong>SimplificIA</strong></div>
+      <div class="cover-date">Agosto de 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INTRO / EL DÍA A DÍA ============ -->
+<div class="page statement">
+  <div class="ghost tr">SIMPLIFICA</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Centro de Imágenes</span><span class="hdr-dot"></span><span class="hdr-label">SimplificIA</span></div>
+    </header>
+    <span class="kicker">Introducción</span>
+    <h1>Un centro de imágenes<br>es mucho más que imágenes.</h1>
+    <p class="big-quote">Cada jornada implica <span class="hl">solicitudes, estudios, turnos, pagos, recordatorios y derivaciones</span> que conviven entre el papel, los mensajes y las planillas.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div><h3>Estudios y documentación</h3><p>Solicitudes, datos de pacientes y documentación organizados y accesibles.</p></div>
+        <span class="pillar-num">01</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div><h3>Pagos y confirmaciones</h3><p>Cobros claros, avisos automáticos y un registro ordenado de cada operación.</p></div>
+        <span class="pillar-num">02</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h3>Comunicación y campañas</h3><p>Recordatorios, promociones y campañas que llegan solas al paciente.</p></div>
+        <span class="pillar-num">03</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2.85 2.83 0 1 1 4 4L7.5 19.5 2 21l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
+        <div><h3>Derivación y coordinación</h3><p>Cada consulta llega al área correcta y ningún caso queda sin respuesta.</p></div>
+        <span class="pillar-num">04</span>
+      </div>
+    </div>
+    <p class="lede" style="margin-top: 20px;">El objetivo es simple: <strong style="color:var(--ink);">que los procesos repetitivos se resuelvan solos</strong> y que el equipo dedique su tiempo a las personas.</p>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>02</span>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 1 · ESTUDIOS ============ -->
+<div class="page">
+  <div class="ghost br">MOD 01</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Módulo 01</span><span class="hdr-dot"></span><span class="hdr-label">Gestión</span></div>
+    </header>
+    <span class="kicker">Módulo 01</span>
+    <div class="title-row">
+      <div class="num">01</div>
+      <h1>Gestión de estudios<br>y documentación</h1>
+    </div>
+    <p class="lede">Todo lo que entra y sale del centro —solicitudes, datos, resultados y papeles— organizado y en un solo lugar.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="card-idx">A</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+        <p>Organización de solicitudes y datos del paciente.<small>La información de cada estudio y cada paciente queda cargada, ordenada y siempre disponible.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">B</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <p>Seguimiento de estudios pendientes.<small>Sabés en qué estado está cada estudio y qué falta para cerrarlo.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">C</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+        <p>Automatización del envío de información.<small>Resultados e información que se envían al paciente de forma automática.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">D</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/><polyline points="16 3 16 8 21 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></div>
+        <p>Organización de documentación.<small>Orden y trazabilidad para la documentación del centro.</small></p>
+      </div>
+    </div>
+    <div class="valuebar">
+      <span class="vb-glyph">◆</span>
+      <p>Menos búsquedas, menos papeles y menos errores: la información siempre a mano cuando se la necesita.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>03</span>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 2 · PAGOS ============ -->
+<div class="page">
+  <div class="ghost br">MOD 02</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Módulo 02</span><span class="hdr-dot"></span><span class="hdr-label">Pagos</span></div>
+    </header>
+    <span class="kicker">Módulo 02</span>
+    <div class="title-row">
+      <div class="num">02</div>
+      <h1>Pagos y confirmaciones</h1>
+    </div>
+    <p class="lede">Menos tareas administrativas alrededor del cobro y total claridad sobre qué está pagado y qué queda pendiente.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="card-idx">A</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <p>Envío automático de links de pago.<small>El paciente recibe el link y puede pagar sin llamadas ni idas y vueltas.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">B</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Confirmación de pagos.<small>Cada pago se confirma de forma automática y queda registrado.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">C</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <p>Avisos de pagos pendientes.<small>Recordatorios automáticos que avisan sin que nadie tenga que hacerlo a mano.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">D</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></div>
+        <p>Registro de operaciones.<small>Un historial ordenado de cada cobro, para consultar en cualquier momento.</small></p>
+      </div>
+    </div>
+    <div class="valuebar">
+      <span class="vb-glyph">◆</span>
+      <p>El paciente paga sin fricción y el centro sabe, al instante, qué está cobrado y qué falta.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>04</span>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 3 · COMUNICACIÓN ============ -->
+<div class="page">
+  <div class="ghost br">MOD 03</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Módulo 03</span><span class="hdr-dot"></span><span class="hdr-label">Comunicación</span></div>
+    </header>
+    <span class="kicker">Módulo 03</span>
+    <div class="title-row">
+      <div class="num">03</div>
+      <h1>Comunicación y campañas</h1>
+    </div>
+    <p class="lede">El centro presente para cada paciente en el momento justo, sin depender de planillas ni llamadas manuales.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="card-idx">A</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+        <p>Campañas para comunicar nuevos servicios.<small>Anunciá novedades a todos los pacientes con un solo disparo.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">B</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="15" r="2"/></svg></div>
+        <p>Recordatorios.<small>Turnos que se recuerdan solos: menos ausencias y menos olvidos.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">C</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <p>Promociones.<small>Ofertas y paquetes que llegan directo al paciente interesado.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">D</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3"/><path d="M2 7h3"/><path d="M2 17h3"/><path d="M7 3l4.5 18"/><path d="M14 3h6l-4.5 18H9"/></svg></div>
+        <p>Reactivación de pacientes que ya utilizaron el centro.<small>Quienes ya te conocen vuelven a saber de vos en el momento adecuado.</small></p>
+      </div>
+    </div>
+    <div class="valuebar">
+      <span class="vb-glyph">◆</span>
+      <p>Comunicar más y mejor, sin sumar trabajo manual para el equipo.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>05</span>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 4 · DERIVACIÓN ============ -->
+<div class="page">
+  <div class="ghost br">MOD 04</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Módulo 04</span><span class="hdr-dot"></span><span class="hdr-label">Coordinación</span></div>
+    </header>
+    <span class="kicker">Módulo 04</span>
+    <div class="title-row">
+      <div class="num">04</div>
+      <h1>Derivación y coordinación</h1>
+    </div>
+    <p class="lede">Cada consulta llega al área correcta, cada tarea tiene un responsable y ningún caso queda pendiente sin aviso.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="card-idx">A</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+        <p>Detectar qué necesita el paciente.<small>La información se organiza para entender rápido qué se requiere.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">B</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
+        <p>Derivar consultas al área correspondiente.<small>Cada consulta se encamina al área correcta, sin que se pierda en el medio.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">C</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+        <p>Asignar tareas al personal.<small>Responsabilidades claras para cada integrante del equipo.</small></p>
+      </div>
+      <div class="card">
+        <span class="card-idx">D</span>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <p>Seguimiento de casos pendientes.<small>Los casos abiertos se vigilan solos y avisan cuando necesitan atención.</small></p>
+      </div>
+    </div>
+    <div class="valuebar">
+      <span class="vb-glyph">◆</span>
+      <p>El paciente siempre sabe a dónde va y quién lo está esperando.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>06</span>
+  </div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div class="page">
+  <div class="ghost br">MOD 05</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Dashboard</span><span class="hdr-dot"></span><span class="hdr-label">Indicadores</span></div>
+    </header>
+    <span class="kicker">Dashboard</span>
+    <div class="title-row">
+      <div class="num">05</div>
+      <h1>Métricas claras para decidir con datos.</h1>
+    </div>
+    <p class="lede">Un panel con los indicadores del centro en tiempo real, para que las decisiones se tomen con información, no por intuición.</p>
+
+    <div class="screen">
+      <div class="screen-bar">
+        <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="title">Panel del Centro</span>
+        <span class="live">EN VIVO</span>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-label">Consultas</div><div class="kpi-val">1.284</div><div class="kpi-trend">▲ 12% vs. mes anterior</div></div>
+        <div class="kpi"><div class="kpi-label">Turnos solicitados</div><div class="kpi-val">348</div><div class="kpi-trend">▲ 8%</div></div>
+        <div class="kpi"><div class="kpi-label">Turnos confirmados</div><div class="kpi-val">291</div><div class="kpi-trend">▲ 5%</div></div>
+        <div class="kpi"><div class="kpi-label">Cancelaciones</div><div class="kpi-val">38</div><div class="kpi-trend">▼ 4%</div></div>
+      </div>
+      <div class="kpis" style="border-top:1px solid var(--line-soft);">
+        <div class="kpi"><div class="kpi-label">Pacientes nuevos</div><div class="kpi-val">97</div><div class="kpi-trend">▲ 14%</div></div>
+        <div class="kpi"><div class="kpi-label">Pacientes recurrentes</div><div class="kpi-val">112</div><div class="kpi-trend">▲ 6%</div></div>
+        <div class="kpi"><div class="kpi-label">Rendimiento de campañas</div><div class="kpi-val">23<span>%</span></div><div class="kpi-trend">▲ 3 pts.</div></div>
+        <div class="kpi"><div class="kpi-label">Estudios más solicitados</div><div class="kpi-val">RMN</div><div class="kpi-trend">Ecografía · TC</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart">
+          <h4>Horarios de mayor demanda</h4>
+          <div class="bars">
+            <i style="height:30%"></i><i style="height:46%"></i><i style="height:38%"></i><i class="hl" style="height:78%"></i><i class="hl" style="height:100%"></i><i style="height:62%"></i><i style="height:40%"></i><i style="height:26%"></i>
+          </div>
+          <div class="bars-labels"><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>14</span><span>16</span><span>18</span></div>
+        </div>
+        <div class="chart">
+          <h4>Estudios por tipo</h4>
+          <div class="bars">
+            <i style="height:64%"></i><i class="hl" style="height:100%"></i><i style="height:82%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:36%"></i>
+          </div>
+          <div class="bars-labels"><span>ECG</span><span>RMN</span><span>TC</span><span>MAM</span><span>ECO</span><span>RAD</span></div>
+          <p class="note">* Valores ilustrativos. El panel muestra la información real del centro.</p>
+        </div>
+      </div>
+    </div>
+    <div class="valuebar">
+      <span class="vb-glyph">◆</span>
+      <p>Un solo lugar con lo que más importa: consultas, turnos, cancelaciones, estudios y pacientes.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>07</span>
+  </div>
+</div>
+
+<!-- ============ INTEGRACIONES ============ -->
+<div class="page statement">
+  <div class="ghost tr">MOD 06</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Integraciones</span><span class="hdr-dot"></span><span class="hdr-label">SimplificIA</span></div>
+    </header>
+    <span class="kicker">Módulo 06</span>
+    <div class="title-row">
+      <div class="num">06</div>
+      <h1>Integraciones</h1>
+    </div>
+    <p class="lede">Un punto muy fuerte de la propuesta: no venimos a reemplazar lo que ya funciona.</p>
+    <div class="pull">
+      <p>“No buscamos reemplazar necesariamente los sistemas que el centro ya utiliza. <b>Analizamos qué herramientas tienen actualmente y evaluamos cómo podemos integrarlas o complementarlas</b>.”</p>
+    </div>
+    <div class="integ-wrap">
+      <div class="integ-block">
+        <h4>Lo que ya usás, lo integramos</h4>
+        <p>Herramientas y sistemas habituales que podemos analizar, conectar o complementar:</p>
+        <div class="tags">
+          <span class="tag"><span class="plus">+</span> Sistemas de turnos</span>
+          <span class="tag"><span class="plus">+</span> Historia clínica</span>
+          <span class="tag"><span class="plus">+</span> PACS / imágenes</span>
+          <span class="tag"><span class="plus">+</span> Laboratorio</span>
+          <span class="tag"><span class="plus">+</span> Facturación</span>
+          <span class="tag"><span class="plus">+</span> WhatsApp Business</span>
+          <span class="tag"><span class="plus">+</span> Link de pago</span>
+          <span class="tag"><span class="plus">+</span> Correo electrónico</span>
+        </div>
+      </div>
+      <div class="integ-block">
+        <h4>¿Y si usan otro sistema?</h4>
+        <p>Si el centro ya trabaja con una herramienta, <strong>decinos cuál es</strong>: evaluamos juntos cómo se conecta con esta solución, sin obligar a cambiar lo que ya funciona.</p>
+        <p style="margin-bottom:0;"><strong>El punto de partida siempre es la conversación.</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>08</span>
+  </div>
+</div>
+
+<!-- ============ UNA SOLUCIÓN QUE SE ADAPTA ============ -->
+<div class="page statement">
+  <div class="ghost br">MOD 07</div>
+  <div class="wrap">
+    <header class="hdr">
+      <img class="hdr-logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <div class="hdr-right"><span class="hdr-label">Lo más importante</span><span class="hdr-dot"></span><span class="hdr-label">Escuchamos</span></div>
+    </header>
+    <span class="kicker">Módulo 07</span>
+    <div class="title-row">
+      <div class="num">07</div>
+      <h1>Una solución que se adapta a cada centro.</h1>
+    </div>
+    <p class="lede" style="font-size:13.5px; color:var(--ink); font-weight:600; max-width:155mm;">Cada centro de imágenes tiene una forma diferente de trabajar. Por eso no ofrecemos únicamente un sistema cerrado.</p>
+    <div class="adapt-step">
+      <div class="idx">01</div>
+      <div class="ln"></div>
+      <div><h3>Escuchamos cómo trabajan hoy</h3><p>Queremos conocer cómo trabajan actualmente, qué dificultades encuentran y qué procesos les gustaría mejorar.</p></div>
+    </div>
+    <div class="adapt-step">
+      <div class="idx">02</div>
+      <div class="ln"></div>
+      <div><h3>Analizamos qué herramientas ya tienen</h3><p>Evaluamos los sistemas actuales y cómo integrarlos o complementarlos con la solución.</p></div>
+    </div>
+    <div class="adapt-step">
+      <div class="idx">03</div>
+      <div class="ln"></div>
+      <div><h3>Comenzamos por lo más importante</h3><p>Podemos empezar por las necesidades más importantes del centro y avanzar sin fricciones.</p></div>
+    </div>
+    <div class="adapt-step">
+      <div class="idx">04</div>
+      <div class="ln"></div>
+      <div><h3>Evolucionamos con el centro</h3><p>Posteriormente incorporamos nuevas funcionalidades, integraciones y automatizaciones.</p></div>
+    </div>
+    <div class="valuebar" style="margin-top:26px;">
+      <span class="vb-glyph">◆</span>
+      <p>A partir de esa información podemos diseñar una solución realmente adaptada a su operación.</p>
+    </div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm;">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>09</span>
+  </div>
+</div>
+
+<!-- ============ CIERRE ============ -->
+<div class="page closing">
+  <div class="wrap">
+    <span class="kicker">Próximos pasos</span>
+    <h1>El próximo paso<br>es <em>escucharlos</em>.</h1>
+    <p class="lede">Nos reunimos, analizamos cómo trabaja el centro hoy y diseñamos juntos una solución a medida, comenzando por lo que más les importa.</p>
+    <div class="next-steps">
+      <div class="next-step"><span class="n">01</span><h4>Reunión de relevamiento</h4></div>
+      <div class="next-step"><span class="n">02</span><h4>Análisis de herramientas actuales</h4></div>
+      <div class="next-step"><span class="n">03</span><h4>Propuesta a medida</h4></div>
+      <div class="next-step"><span class="n">04</span><h4>Implementación incremental</h4></div>
+    </div>
+    <div class="closing-contact">
+      <img class="logo" src="logo-verde-claro.png" alt="SimplificIA">
+      <p><strong>SimplificIA</strong> · Desarrollo de software a medida</p>
+      <p>[Contacto] · [Email] · [Teléfono]</p>
+    </div>
+    <div class="closing-line"></div>
+  </div>
+  <div class="foot" style="position:absolute; left:17mm; right:17mm; bottom:12mm; border-color:var(--line-soft); color:var(--soft);">
+    <span>SimplificIA <span class="accent">·</span> Centro de Imágenes</span>
+    <span>10</span>
+  </div>
+</div>
+
+</body>
+</html>

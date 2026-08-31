@@ -1,0 +1,2362 @@
+[{
+  "title": "VETERINARIA PUCHUNIS",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Pje. San Benito de Palermo 1595, C1426DEA Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo, Comuna 14",
+  "street": "Pje. San Benito de Palermo 1595",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1426",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.instagram.com/veterinariapuchunis",
+  "phone": "+54 11 4770-9349",
+  "phoneUnformatted": "+541147709349",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5673245,
+    "lng": -58.432362
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.6,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJDeZReLy1vJURvLL6E_yO-uE",
+  "categories": [
+    "Veterinario",
+    "Acupuntor",
+    "Cardiólogo",
+    "Cirujano",
+    "Peluquería",
+    "Clínica de fisioterapia"
+  ],
+  "fid": "0x95bcb5bc7851e60d:0xe1fa8efc13fab2bc",
+  "cid": "16283484616029549244",
+  "reviewsCount": 144,
+  "reviewsDistribution": {
+    "oneStar": 12,
+    "twoStar": 0,
+    "threeStar": 0,
+    "fourStar": 5,
+    "fiveStar": 127
+  },
+  "imagesCount": 84,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:36.118Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10 AM to 2 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se requiere una cita": true
+      },
+      {
+        "Se recomienda concertar cita": true
+      }
+    ],
+    "Pagos": [
+      {
+        "Pagos móviles mediante NFC": true
+      },
+      {
+        "Tarjetas de crédito": true
+      },
+      {
+        "Tarjetas de débito": true
+      },
+      {
+        "Tarjetas de crédito": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=VETERINARIA%20PUCHUNIS&query_place_id=ChIJDeZReLy1vJURvLL6E_yO-uE",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 162,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWljwvzJGLa_tbFwZ5-nE9UhWfS4WNPbKTR3HNO2PtOQFfowLp5VZbsIZte-scF7zbFXRhjDfGVJ35PV5zf7JXLbCq096MQ2bcjc4dPUSjRKLHmRsAqbpCSMrsT2gteMAvRtZbgp=w408-h306-k-no",
+  "kgmid": "/g/11b6gfb5r7",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [
+    "4770-9349"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [
+    "https://www.instagram.com/veterinariapuchunis"
+  ],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "instagram.com",
+  "leadsEnrichment": []
+},
+{
+  "title": "CVet | Consultorio Veterinario",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Av. Dr. Ricardo Balbín 3541, C1430 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Saavedra, Comuna 12",
+  "street": "Av. Dr. Ricardo Balbín 3541",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1430",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.nortepr.com.ar/cvet",
+  "phone": "+54 9 11 4186-4751",
+  "phoneUnformatted": "+5491141864751",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5564027,
+    "lng": -58.4798623
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.8,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJV-oKN_S3vJUR7fx-eK7WQQA",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcb7f4370aea57:0x41d6ae787efced",
+  "cid": "18531918320434413",
+  "reviewsCount": 175,
+  "reviewsDistribution": {
+    "oneStar": 5,
+    "twoStar": 2,
+    "threeStar": 2,
+    "fourStar": 8,
+    "fiveStar": 158
+  },
+  "imagesCount": 50,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.568Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 2 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "4:30 to 7:30 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 1 PM, 4:30 to 7:30 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 1 PM, 4:30 to 7:30 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 1 PM, 4:30 to 7:30 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 1 PM, 4:30 to 7:30 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se requiere una cita": true
+      },
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=CVet%20%7C%20Consultorio%20Veterinario&query_place_id=ChIJV-oKN_S3vJUR7fx-eK7WQQA",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.53109138513739,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 37,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnI886H_D-dbpZ-ye1wA1Mtmm2VXTHQBlb7fyi758J8fMJn5My3_Q6fR7ww7ZNGhvHZFGFV0pQVtt9SsB8IFRjx491tUfq7ci1dB1SLpAxEbmRWS9n-VvTwwfOMdGlrb4DxkbiT0A=w408-h544-k-no",
+  "kgmid": "/g/11fnszjhxj",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "nortepr.com.ar",
+  "leadsEnrichment": []
+},
+{
+  "title": "Juan Manuel Roza - Psicólogo clínico",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Psicólogo",
+  "address": "ABA, Sarmiento 1371, C1041 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "San Nicolás, Comuna 1",
+  "street": "ABA, Sarmiento 1371",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1041",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.terapiaweb.com.ar/",
+  "phone": "+54 9 11 5335-4888",
+  "phoneUnformatted": "+5491153354888",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.605145,
+    "lng": -58.3860915
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": null,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJH-cygjSlvpURyZjIj6OohVI",
+  "categories": [
+    "Psicólogo",
+    "Servicio de salud mental",
+    "Psicoterapeuta"
+  ],
+  "fid": "0x95bea5348232e71f:0x5285a8a38fc898c9",
+  "cid": "5946344303458031817",
+  "reviewsCount": null,
+  "imagesCount": 14,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:35.717Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "9 AM to 8 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "8 AM to 5 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "8 AM to 8 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "8 AM to 5 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "8 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Servicios": [
+      {
+        "Sanitario": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se requiere una cita": true
+      },
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Juan%20Manuel%20Roza%20-%20Psic%C3%B3logo%20cl%C3%ADnico&query_place_id=ChIJH-cygjSlvpURyZjIj6OohVI",
+  "searchPageUrl": "https://www.google.com/maps/search/psic%C3%B3logo/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "psicólogo",
+  "language": "es",
+  "rank": 168,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnB_D9gdHghaFtDqqj1pfPz0EMK_0JFmUe1X-IBCcUVTvsFLuYUxwL3GtyCC58rnkWxB-Cwazi36puHUfH7SWPxjUTf2qGXE3vJDFqMOWXESSUHgaWKqrEy8B-ODUl5Dl__lf6g7AByyPs=w426-h240-k-no",
+  "kgmid": "/g/11cmmzfmyc",
+  "emails": [
+    "turnos@terapiaweb.com.ar",
+    "consultas@terapiaweb.com.ar",
+    "info@terapiaweb.com.ar"
+  ],
+  "phones": [
+    "+5491153354888"
+  ],
+  "phonesUncertain": [
+    "+5491153354888",
+    "11 5335 4888",
+    "2015-2026",
+    "0155-553355",
+    "0800 0767",
+    "0800 8483",
+    "095 73 8483",
+    "11-5275-1135",
+    "1800-472783",
+    "222442533",
+    "22730381",
+    "800-366-8288",
+    "83742377",
+    "87855753",
+    "982481971",
+    "0800-222-1717",
+    "56581111",
+    "800-799-7233",
+    "800-996-6228",
+    "(0280) 15-457",
+    "(0297) 15- 477",
+    "(0342) 514-5520",
+    "(2945) 15-55",
+    "(2966) 70-6676",
+    "198 4521",
+    "4121-0700",
+    "4121-0701",
+    "4121-0816",
+    "4127-020",
+    "4127-0285",
+    "4127-0404",
+    "4301-3655",
+    "4301-4522",
+    "4302-6666",
+    "4304-2180",
+    "4304-2692",
+    "4304-5555",
+    "4304-6365",
+    "4304-6666",
+    "4305-6108",
+    "4305-6485",
+    "4305-6666",
+    "4501-5555",
+    "4501-5775",
+    "4501-6773",
+    "4521-3600",
+    "4521-5555",
+    "4521-6666",
+    "4521-8700",
+    "4541-5552"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [
+    "https://www.instagram.com/terapiawebargentina"
+  ],
+  "facebooks": [
+    "https://www.facebook.com/terapiawebargentina"
+  ],
+  "youtubes": [
+    "https://www.youtube.com/@terapiaweb",
+    "https://www.youtube.com/watch?v=CvX9aZ8K8fY"
+  ],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "terapiaweb.com.ar",
+  "leadsEnrichment": []
+},
+{
+  "title": "VETERINARIA RURAL PALERMO",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Av. Raúl Scalabrini Ortiz 2071, C1425DBB Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo, Comuna 14",
+  "street": "Av. Raúl Scalabrini Ortiz 2071",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1425",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 4832-0442",
+  "phoneUnformatted": "+541148320442",
+  "claimThisBusiness": true,
+  "location": {
+    "lat": -34.5881614,
+    "lng": -58.4204911
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.5,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJc5zTmoC1vJUR9SsQd2KO76s",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcb5809ad39c73:0xabef8e6277102bf5",
+  "cid": "12389277653475011573",
+  "reviewsCount": 379,
+  "imagesCount": 216,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.208Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 6 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "9 AM to 7 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "9 AM to 7 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "9 AM to 7 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "9 AM to 7 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "9 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": true
+      },
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": true
+      },
+      {
+        "Sanitarios accesibles para personas en silla de ruedas": true
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=VETERINARIA%20RURAL%20PALERMO&query_place_id=ChIJc5zTmoC1vJUR9SsQd2KO76s",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 19,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl0yzylQUtCtD9l0p-772BRZ1mj-bXnjvJFyhjLOqX3AOzZ1ZWSdYNOC77i3s5gyHoEF6_uzXMwtichpFXv2zUfYJ3AedW4dSn1HaUL8aPl0KZiDixYXw9w_W3tvW-cltElmp_QRBsBpq3l=w408-h544-k-no",
+  "kgmid": "/g/1tg51m08",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "Veterinaria Diogenes",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Farmacia veterinaria",
+  "address": "Piedras 533, C1070 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Monserrat, Comuna 1",
+  "street": "Piedras 533",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1070",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.instagram.com/diogenes_veterinaria?igsh=ZWYyOXl6am00MXY0",
+  "phone": "+54 11 3017-9500",
+  "phoneUnformatted": "+541130179500",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.6143226,
+    "lng": -58.3776406
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.3,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJX4QpeNbKvJURAnbv0Esw9Oc",
+  "categories": [
+    "Farmacia veterinaria"
+  ],
+  "fid": "0x95bccad67829845f:0xe7f4304bd0ef7602",
+  "cid": "16714037219264787970",
+  "reviewsCount": 203,
+  "reviewsDistribution": {
+    "oneStar": 14,
+    "twoStar": 6,
+    "threeStar": 17,
+    "fourStar": 34,
+    "fiveStar": 132
+  },
+  "imagesCount": 16,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:31.153Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10:30 AM to 1:30 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10:30 AM to 1 PM, 4 to 8 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10:30 AM to 1 PM, 4 to 8 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10:30 AM to 1 PM, 4 to 8 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10:30 AM to 1 PM, 4 to 8 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10:30 AM to 1 PM, 4 to 8 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Planificación": [
+      {
+        "Visita rápida": true
+      }
+    ],
+    "Pagos": [
+      {
+        "Pagos móviles mediante NFC": true
+      },
+      {
+        "Tarjetas de crédito": true
+      },
+      {
+        "Tarjetas de débito": true
+      },
+      {
+        "Tarjetas de crédito": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Veterinaria%20Diogenes&query_place_id=ChIJX4QpeNbKvJURAnbv0Esw9Oc",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 92,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-proxy/ALd4DhFMp9nBcsTJWWAA8SEReZw7MHsU8isrQoTD6q2fmimsdnUGXR8Z9ZSrQnBQrDB552ALWWMWt5FpSANntzw_9zVgcTFBhJZTIwQuMI1htTIn7EgCNT6aqXxkeCaA-H0ooJ1zNdo9CL705mSuCj5ugOys6PF21FGj9QbT1DKVymSqUkCCkzJ941lB1UR5Kmx2pvU70w=w408-h544-k-no",
+  "kgmid": "/g/1vtqx8vl",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "instagram.com",
+  "leadsEnrichment": []
+},
+{
+  "title": "Clínica Veterinaria Ayelen",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Av. Dorrego 2646 Loc 10, C1425 GAQ, Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo",
+  "street": "Av. Dorrego 2646 Loc 10",
+  "city": "GAQ",
+  "postalCode": "C1425",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 4777-2377",
+  "phoneUnformatted": "+541147772377",
+  "claimThisBusiness": true,
+  "location": {
+    "lat": -34.5741052,
+    "lng": -58.4338586
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.9,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJc7ZWcpa1vJURERWaG2x82h4",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcb5967256b673:0x1eda7c6c1b9a1511",
+  "cid": "2223226169822156049",
+  "reviewsCount": 177,
+  "imagesCount": 32,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.208Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 12 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "9 AM to 12 PM, 3 to 6 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "9 AM to 12 PM, 3 to 6 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "9 AM to 12 PM, 3 to 6 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "9 AM to 12 PM, 3 to 6 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "9 AM to 12 PM, 3 to 6 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Veterinaria%20Ayelen&query_place_id=ChIJc7ZWcpa1vJURERWaG2x82h4",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 15,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnSenkFKYAFbT9aA2LVWOWB4s_Ml3J9IdP0SnMSAkXJq35H_5puxrtX2Dv-fug2ktPjebTEj_e7OMwBNL0vJDT3G_cXRs1KuywViOEpIxgReq0JGmOk28-a0H8zC8mjlmOjdaH1Aw=w408-h544-k-no",
+  "kgmid": "/g/11bydkmgzv",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "Veterinaria Pacalú",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Gurruchaga 632, C1414 C1414DHN, Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Villa Crespo",
+  "street": "Gurruchaga 632",
+  "city": "C1414DHN",
+  "postalCode": "C1414",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://instagram.com/veterinaria.pacalu?igshid=YmMyMTA2M2Y=",
+  "phone": "+54 11 4855-3969",
+  "phoneUnformatted": "+541148553969",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5960844,
+    "lng": -58.4400209
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.3,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJ7YWu373LvJURJfQTTT0r6bA",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bccbbddfae85ed:0xb0e92b3d4d13f425",
+  "cid": "12747767762535052325",
+  "reviewsCount": 289,
+  "reviewsDistribution": {
+    "oneStar": 30,
+    "twoStar": 3,
+    "threeStar": 8,
+    "fourStar": 43,
+    "fiveStar": 205
+  },
+  "imagesCount": 11,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:30.176Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10 AM to 7:30 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 7:30 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 7:30 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 7:30 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 7:30 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 7:30 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Opciones de servicio": [
+      {
+        "Servicios en el lugar": true
+      }
+    ],
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": false
+      },
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": false
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Veterinaria%20Pacal%C3%BA&query_place_id=ChIJ7YWu373LvJURJfQTTT0r6bA",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 76,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlZWUcx6hpr-vo3XqT9svldfoGPpTSMaQv6UoPG_W881t98Pvtfz1v-_Toit9IvJNa0OiG7y8dWk6zrSuAaN--mnHK_G4ZJR2WZfrBuS4HrE9TKyFvW3vFCCicz92KkN-IE22FQdw=w408-h725-k-no",
+  "kgmid": "/g/11fm3n5t_p",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "instagram.com",
+  "leadsEnrichment": []
+},
+{
+  "title": "SM VET Veterinaria",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Valentín Gómez 3700, C1191 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Almagro, Comuna 5",
+  "street": "Valentín Gómez 3700",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1191",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 7361-2279",
+  "phoneUnformatted": "+541173612279",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.6048346,
+    "lng": -58.4168323
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.9,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJTVYHxTnJvJURx2FSWUCKFzk",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcc939c507564d:0x39178a40595261c7",
+  "cid": "4113908793607348679",
+  "reviewsCount": 156,
+  "imagesCount": 38,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.208Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10 AM to 2 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 2 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=SM%20VET%20Veterinaria&query_place_id=ChIJTVYHxTnJvJURx2FSWUCKFzk",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 14,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl6UDMDsOufINE2nPxXciLFVsLIZXOKmv96Ot9WtvZDWulDA-P-aYyFm5scpg5tkHVGBGsLeAJkoonghFktm_qwDgunMChr7s9AQZYNXzAXbpWri-clXT119EV-RL87EItgagLt=w427-h240-k-no",
+  "kgmid": "/g/11hzsksbrb",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "Olmos Lucas Psicólogo del Sobrepeso y obesidad",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Servicio de salud mental",
+  "address": "Báez 645, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo, Comuna 14",
+  "street": "Báez 645",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1426",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://psicologiadelsobrepeso.lovable.app/",
+  "phone": "+54 11 6593-6629",
+  "phoneUnformatted": "+541165936629",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5698141,
+    "lng": -58.4346816
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 5,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJqQ7m8MfLvJURfxYp0osTLuQ",
+  "categories": [
+    "Servicio de salud mental"
+  ],
+  "fid": "0x95bccbc7f0e60ea9:0xe42e138bd229167f",
+  "cid": "16442100780823549567",
+  "reviewsCount": 24,
+  "reviewsDistribution": {
+    "oneStar": 0,
+    "twoStar": 0,
+    "threeStar": 0,
+    "fourStar": 0,
+    "fiveStar": 24
+  },
+  "imagesCount": 1,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:32.087Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 5 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "7 AM to 8 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "7 AM to 8 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "7 AM to 8 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "7 AM to 8 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "7 AM to 8 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Servicios": [
+      {
+        "Sanitario": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Olmos%20Lucas%20Psic%C3%B3logo%20del%20Sobrepeso%20y%20obesidad&query_place_id=ChIJqQ7m8MfLvJURfxYp0osTLuQ",
+  "searchPageUrl": "https://www.google.com/maps/search/psic%C3%B3logo/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "psicólogo",
+  "language": "es",
+  "rank": 105,
+  "isAdvertisement": false,
+  "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=X8ma-o_AKNmQOWAz4xtElg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=19.100573&pitch=0&thumbfov=100",
+  "kgmid": "/g/11r_xynxpj",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [
+    "+5411-6593-6629",
+    "114-4102",
+    "1773615190576"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "lovable.app",
+  "leadsEnrichment": []
+},
+{
+  "title": "Clínica Veterinaria Dr. Guillermo J. Martelo",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Río de Janeiro 344, C1405 CCD, Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Caballito",
+  "street": "Río de Janeiro 344",
+  "city": "CCD",
+  "postalCode": "C1405",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 4981-7009",
+  "phoneUnformatted": "+541149817009",
+  "claimThisBusiness": true,
+  "location": {
+    "lat": -34.6114027,
+    "lng": -58.4304106
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.9,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJj1KBIGjKvJURS2UsxGa64Cc",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcca682081528f:0x27e0ba66c42c654b",
+  "cid": "2873501512803050827",
+  "reviewsCount": 316,
+  "imagesCount": 27,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.207Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10 AM to 1 PM, 5 to 8 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 1 PM, 5 to 8 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 1 PM, 5 to 8 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 1 PM, 5 to 8 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 1 PM, 5 to 8 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": false
+      },
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Veterinaria%20Dr.%20Guillermo%20J.%20Martelo&query_place_id=ChIJj1KBIGjKvJURS2UsxGa64Cc",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 11,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpTJ8wggq9AmCiuchmXadBFe7jD7jIXRU6m2gkRax1iQvXvnnpPhlWlk0y_vHRlK3eCnTdrQZFerjezDk0w8p-WDWC0fpea_a-deYmKvstBIQ7i_U64u8ZDyU-hUOrAq-uZND8sA=w408-h544-k-no",
+  "kgmid": "/g/11b6hq1302",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "M Florencia Lagares veterinaria a domicilio",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": null,
+  "neighborhood": null,
+  "street": null,
+  "city": null,
+  "postalCode": null,
+  "state": null,
+  "countryCode": null,
+  "website": "http://www.facebook.com/dralagares",
+  "phone": "+54 11 5261-3723",
+  "phoneUnformatted": "+541152613723",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.574318,
+    "lng": -58.4771934
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.5,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJk2pwJaS3vJURjrKunALnPbg",
+  "categories": [
+    "Veterinario",
+    "Service establishment"
+  ],
+  "fid": "0x95bcb7a425706a93:0xb83de7029caeb28e",
+  "cid": "13276021274962735758",
+  "reviewsCount": 26,
+  "reviewsDistribution": {
+    "oneStar": 3,
+    "twoStar": 0,
+    "threeStar": 0,
+    "fourStar": 1,
+    "fiveStar": 22
+  },
+  "imagesCount": 3,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:30.537Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "domingo",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "lunes",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "martes",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "miércoles",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "jueves",
+      "hours": "8 AM to 12 a.m."
+    },
+    {
+      "day": "viernes",
+      "hours": "8 AM to 12 a.m."
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=M%20Florencia%20Lagares%20veterinaria%20a%20domicilio&query_place_id=ChIJk2pwJaS3vJURjrKunALnPbg",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.53109138513739,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 113,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk_sJrtPsA8j6JCczs8XL8sSG3QYIqKzgBIIbwIamxMcU7zkJVdQ9fe88WRCpLNw0fiO7BDJ5BDEbNaBzhODL_qZtiDor5snZ677FEeO1wnq1d8L_EwNGnKJcnJdmW9lXikcoim=w408-h306-k-no",
+  "kgmid": "/g/11gnrsld8t",
+  "emails": [
+    "veterinarialagares@gmail.com"
+  ],
+  "phones": [
+    "+54 9 11 5261-3723"
+  ],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [
+    "https://www.facebook.com/dralagares"
+  ],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "facebook.com",
+  "leadsEnrichment": []
+},
+{
+  "title": "Veterinaria del Centro",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Pres. José Evaristo Uriburu 662, C1027 AAN, Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Balvanera",
+  "street": "Pres. José Evaristo Uriburu 662",
+  "city": "AAN",
+  "postalCode": "C1027",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 4954-0981",
+  "phoneUnformatted": "+541149540981",
+  "claimThisBusiness": true,
+  "location": {
+    "lat": -34.6015257,
+    "lng": -58.3986813
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.7,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJiR_expTKvJURIghqytKgoOc",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcca94c6de1f89:0xe7a0a0d2ca6a0822",
+  "cid": "16690517046234581026",
+  "reviewsCount": 239,
+  "imagesCount": 32,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.207Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10 AM to 1 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Veterinaria%20del%20Centro&query_place_id=ChIJiR_expTKvJURIghqytKgoOc",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 7,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklv4FHajzqWv6RFXbrVwjpZ3RVH2ixEQWFxsI_YjcQ1TgZ-CPk5k3mYqmPvHBXwt9X-BH1CFs6CtihUGg-k9swoori7gz6A6ytdY6-nOF88Gmdbdf8DNfsBDIp2I8PWnG-RO2z=w408-h306-k-no",
+  "kgmid": "/g/11bxw8jzy1",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "Veterinaria Dr. Rossano",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Julián Álvarez 706, C1414DRP Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Villa Crespo, Comuna 15",
+  "street": "Julián Álvarez 706",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1414",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 6132-2102",
+  "phoneUnformatted": "+541161322102",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5985056,
+    "lng": -58.4328942
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.8,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJn64_FXHKvJURltEN_KI8AU0",
+  "categories": [
+    "Veterinario"
+  ],
+  "fid": "0x95bcca71153fae9f:0x4d013ca2fc0dd196",
+  "cid": "5548782886608294294",
+  "reviewsCount": 257,
+  "imagesCount": 21,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.207Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Veterinaria%20Dr.%20Rossano&query_place_id=ChIJn64_FXHKvJURltEN_KI8AU0",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 6,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnqAfyR_NF7zoYuqz_JjZxsHhl-KLgC4hGWJQO43dtFlfk_yU64wIKa5SXTfPwoN54hcyJ4q5bO4t3GMywEZQ41644TPIzP0h5WtHk9ZE2ofOw8xqf7RjkjkZajToH-8bkNHXBr=w408-h544-k-no",
+  "kgmid": "/g/1tf_ph3_",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "Clínica Veterinaria Dr. Pablo",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Correa 2455, C1429DRM Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Saavedra, Comuna 12",
+  "street": "Correa 2455",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1429",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "http://www.veterinarias.com.ar/dr-pablo-veterinaria",
+  "phone": "+54 11 4703-5573",
+  "phoneUnformatted": "+541147035573",
+  "claimThisBusiness": true,
+  "location": {
+    "lat": -34.5439185,
+    "lng": -58.4728227
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.7,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJw4gtdJi2vJURsX8tBiQeuIw",
+  "categories": [
+    "Veterinario",
+    "Tienda de alimentos para animales",
+    "Peluquero de mascotas",
+    "Tienda de animales",
+    "Cuidados veterinarios"
+  ],
+  "fid": "0x95bcb698742d88c3:0x8cb81e24062d7fb1",
+  "cid": "10139887701095972785",
+  "reviewsCount": 305,
+  "reviewsDistribution": {
+    "oneStar": 11,
+    "twoStar": 1,
+    "threeStar": 6,
+    "fourStar": 33,
+    "fiveStar": 254
+  },
+  "imagesCount": 14,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:28.272Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "8 AM to 1 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "8 AM to 6:30 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "8 AM to 6:30 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "8 AM to 6:30 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "8 AM to 6:30 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "8 AM to 6:30 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": false
+      },
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Veterinaria%20Dr.%20Pablo&query_place_id=ChIJw4gtdJi2vJURsX8tBiQeuIw",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.53109138513739,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 56,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlOjvjKJ6V5vof_t0mi_r4O8_g94alUPP7sV5SqJM_s3O3yCtQ5PFriWfQ2w6OuvO6snEIUSSyXBY2Bs-ezoB6rvLzUk5AQ0PVcFR8slSmRPbi5-kdR1znNQJxw4Ofy65uUseGuOw=w408-h488-k-no",
+  "kgmid": "/g/11bbrgg7s7",
+  "emails": [],
+  "phones": [
+    "541147035573",
+    "541160913666",
+    "541160914554",
+    "5491140794000",
+    "5491149373000"
+  ],
+  "phonesUncertain": [
+    "+54-11-4703-5573",
+    "11.4079.4000",
+    "11.4937.3000",
+    "11.6449.0999",
+    "+54.11.6091.3666",
+    "+54.11.6091.4554",
+    "11.6091.3666"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "veterinarias.com.ar",
+  "leadsEnrichment": []
+},
+{
+  "title": "Clínica Veterinaria Pet's",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Av. Córdoba 4416, C1414BAP Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Villa Crespo, Comuna 15",
+  "street": "Av. Córdoba 4416",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1414BAP",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.instagram.com/vete.pets/",
+  "phone": "+54 47778877",
+  "phoneUnformatted": "",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5954768,
+    "lng": -58.4284317
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.6,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJBUYE-3nKvJUROZljG9ZrH8k",
+  "categories": [
+    "Veterinario",
+    "Tienda de alimentos para animales",
+    "Tienda de animales",
+    "Tienda de productos para mascotas",
+    "Farmacia veterinaria"
+  ],
+  "fid": "0x95bcca79fb044605:0xc91f6bd61b639939",
+  "cid": "14492420693228230969",
+  "reviewsCount": 238,
+  "reviewsDistribution": {
+    "oneStar": 11,
+    "twoStar": 0,
+    "threeStar": 11,
+    "fourStar": 28,
+    "fiveStar": 188
+  },
+  "imagesCount": 31,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:31.153Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "10:30 AM to 2 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "10 AM to 7 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "10 AM to 7 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Opciones de servicio": [
+      {
+        "Servicios en el lugar": true
+      }
+    ],
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": false
+      },
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": true
+      },
+      {
+        "Sanitarios unisex": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ],
+    "Estacionamiento": [
+      {
+        "Estacionamiento gratuito en la calle": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Veterinaria%20Pet's&query_place_id=ChIJBUYE-3nKvJUROZljG9ZrH8k",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 89,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmu4Y-Ilj95kf0dG4zfQctK_Yv8oq3C0TS8ZrjwMbJKE16WN5chFZ3MtbVNAhXDpzNZSxNdMpKNpoRhTKpUydtqXntrcvYtRBwBoUO4jWjVjr4zcTgAX0FaahRYz2zgcKzAJL4=w533-h240-k-no",
+  "kgmid": "/g/1tfcdc9q",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [
+    "4777-1568",
+    "4777-8877"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [
+    "https://www.instagram.com/vete.pets/"
+  ],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "instagram.com",
+  "leadsEnrichment": []
+},
+{
+  "title": "Veterinaria Costa Rica",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Veterinario",
+  "address": "Costa Rica 5689, C1414 BTE, Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo Hollywood",
+  "street": "Costa Rica 5689",
+  "city": "BTE",
+  "postalCode": "C1414",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "phone": "+54 11 4773-4179",
+  "phoneUnformatted": "+541147734179",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5819492,
+    "lng": -58.4354207
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.8,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJTXnXFZK1vJURJnYuMv3tNq4",
+  "categories": [
+    "Veterinario",
+    "Hospital veterinario"
+  ],
+  "fid": "0x95bcb59215d7794d:0xae36edfd322e7626",
+  "cid": "12553482683066250790",
+  "reviewsCount": 368,
+  "imagesCount": 33,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.207Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 2 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "9 AM to 6 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "9 AM to 6 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "9 AM to 6 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "9 AM to 6 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "9 AM to 6 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Estacionamiento accesible para personas en silla de ruedas": false
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Veterinaria%20Costa%20Rica&query_place_id=ChIJTXnXFZK1vJURJnYuMv3tNq4",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 3,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkt5FhziA_v6e5VGO0vdQWCS5x4hj9homzXwFK1qytoZMCfoi_mm6YibNuLuVB0BChZLJ3WFHjn2hMR_-s21-UOZvvbGQWW3qDbGzMbdp0Z3zEPFToUzNxL2PAZh8gNrrLcisypTg=w408-h544-k-no",
+  "kgmid": "/g/1hc6ng7rz",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "leadsEnrichment": []
+},
+{
+  "title": "La Estación Oftalmología Veterinaria",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Cuidados veterinarios",
+  "address": "Pico 1701, C1429EFA Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Núñez, Comuna 13",
+  "street": "Pico 1701",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1429",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "http://www.veterinarias.com.ar/la-estacion-oftalmologia-veterinaria",
+  "phone": "+54 11 4703-4230",
+  "phoneUnformatted": "+541147034230",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5371698,
+    "lng": -58.4680786
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 4.5,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJReMxs6a2vJURt-u9_Pa26Ek",
+  "categories": [
+    "Cuidados veterinarios"
+  ],
+  "fid": "0x95bcb6a6b331e345:0x49e8b6f6fcbdebb7",
+  "cid": "5325707731284126647",
+  "reviewsCount": 786,
+  "reviewsDistribution": {
+    "oneStar": 45,
+    "twoStar": 11,
+    "threeStar": 28,
+    "fourStar": 93,
+    "fiveStar": 609
+  },
+  "imagesCount": 98,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:28.902Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "9 AM to 1 PM"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "9 AM to 1 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "9 AM to 1 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "9 AM to 1 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "9 AM to 1 PM"
+    },
+    {
+      "day": "viernes",
+      "hours": "9 AM to 1 PM"
+    }
+  ],
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Planificación": [
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=La%20Estaci%C3%B3n%20Oftalmolog%C3%ADa%20Veterinaria&query_place_id=ChIJReMxs6a2vJURt-u9_Pa26Ek",
+  "searchPageUrl": "https://www.google.com/maps/search/veterinaria/@-34.53109138513739,-58.4332952,14z?hl=es",
+  "searchString": "veterinaria",
+  "language": "es",
+  "rank": 64,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmRSSXNtxNDOmw1liUIEucvGi-PHMXfuNCrSyS4XFAOzYrAnS3tDjgpYbukvnPukalKiuGHogmtrrSKZFQ8SgiGlzh99A60dXKMYZo7vJTwC1-N78ENgUTiYRcHghDcBtFLF68ltw=w408-h306-k-no",
+  "kgmid": "/g/1td6hnwp",
+  "emails": [],
+  "phones": [
+    "541147034230",
+    "541160913666",
+    "541160914554",
+    "5491140794000",
+    "5491149373000"
+  ],
+  "phonesUncertain": [
+    "+54-11-4703-4230",
+    "11.4079.4000",
+    "11.4937.3000",
+    "11.6449.0999",
+    "+54.11.6091.3666",
+    "+54.11.6091.4554",
+    "11.6091.3666"
+  ],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "veterinarias.com.ar",
+  "leadsEnrichment": []
+},
+{
+  "title": "Psicóloga de Adolescentes y Adultos",
+  "subTitle": null,
+  "description": null,
+  "price": null,
+  "categoryName": "Psicólogo",
+  "address": "Clay 2836, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+  "neighborhood": "Palermo, Comuna 14",
+  "street": "Clay 2836",
+  "city": "Cdad. Autónoma de Buenos Aires",
+  "postalCode": "C1426",
+  "state": "Cdad. Autónoma de Buenos Aires",
+  "countryCode": "AR",
+  "website": "https://www.lictrinidadsotoacebal.es/",
+  "phone": "",
+  "phoneUnformatted": "",
+  "claimThisBusiness": false,
+  "location": {
+    "lat": -34.5738869,
+    "lng": -58.4316414
+  },
+  "locatedIn": null,
+  "floor": null,
+  "plusCode": null,
+  "menu": null,
+  "servicesLink": null,
+  "totalScore": 5,
+  "permanentlyClosed": false,
+  "temporarilyClosed": false,
+  "placeId": "ChIJV1y_NyW1vJURlw6t_SlW6Ic",
+  "categories": [
+    "Psicólogo"
+  ],
+  "fid": "0x95bcb52537bf5c57:0x87e85629fdad0e97",
+  "cid": "9793172128066768535",
+  "reviewsCount": 19,
+  "imagesCount": 2,
+  "imageCategories": [],
+  "scrapedAt": "2026-07-19T01:22:27.327Z",
+  "reserveTableUrl": null,
+  "googleFoodUrl": null,
+  "hotelStars": null,
+  "hotelDescription": null,
+  "checkInDate": null,
+  "checkOutDate": null,
+  "hotelAds": [],
+  "popularTimesLiveText": null,
+  "popularTimesLivePercent": null,
+  "popularTimesHistogram": {},
+  "openingHours": [
+    {
+      "day": "sábado",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "domingo",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "lunes",
+      "hours": "2 AM to 9 PM"
+    },
+    {
+      "day": "martes",
+      "hours": "2 to 9 PM"
+    },
+    {
+      "day": "miércoles",
+      "hours": "2 to 9 PM"
+    },
+    {
+      "day": "jueves",
+      "hours": "Cerrado"
+    },
+    {
+      "day": "viernes",
+      "hours": "Cerrado"
+    }
+  ],
+  "additionalOpeningHours": {
+    "Horario de atención en línea": [
+      {
+        "day": "sábado",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "domingo",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "lunes",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "martes",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "miércoles",
+        "hours": "Cerrado"
+      },
+      {
+        "day": "jueves",
+        "hours": "2 a.m.–9 p.m."
+      },
+      {
+        "day": "viernes",
+        "hours": "Cerrado"
+      }
+    ]
+  },
+  "peopleAlsoSearch": [],
+  "placesTags": [],
+  "reviewsTags": [],
+  "additionalInfo": {
+    "Accesibilidad": [
+      {
+        "Entrada accesible para personas en silla de ruedas": true
+      },
+      {
+        "Espacio accesible para personas en silla de ruedas": true
+      },
+      {
+        "Sanitarios accesibles para personas en silla de ruedas": true
+      }
+    ],
+    "Servicios": [
+      {
+        "Sanitario": true
+      },
+      {
+        "Sanitarios unisex": true
+      }
+    ],
+    "Público usual": [
+      {
+        "Amigable con LGBTQ+": true
+      },
+      {
+        "Espacio seguro para personas transgénero": true
+      }
+    ],
+    "Planificación": [
+      {
+        "Se requiere una cita": true
+      },
+      {
+        "Se recomienda concertar cita": true
+      }
+    ]
+  },
+  "gasPrices": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Psic%C3%B3loga%20de%20Adolescentes%20y%20Adultos&query_place_id=ChIJV1y_NyW1vJURlw6t_SlW6Ic",
+  "searchPageUrl": "https://www.google.com/maps/search/psic%C3%B3logo/@-34.587724895045795,-58.4332952,14z?hl=es",
+  "searchString": "psicólogo",
+  "language": "es",
+  "rank": 10,
+  "isAdvertisement": false,
+  "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWloCV-wi88v1ACvR_L0TPYhZccXFxhnimqe4M4uegN1V1PZAtHN-HYoa8LjNGLtPxQeJAfFF9kqQ5qHD3dJWh01Djq-qiglj-71oofbGumytyu60zDfZy3GUNlrjx6c0KUbTbQj=w408-h725-k-no",
+  "kgmid": "/g/11lfbj1dzg",
+  "emails": [],
+  "phones": [],
+  "phonesUncertain": [],
+  "linkedIns": [],
+  "twitters": [],
+  "instagrams": [],
+  "facebooks": [],
+  "youtubes": [],
+  "tiktoks": [],
+  "pinterests": [],
+  "discords": [],
+  "domain": "lictrinidadsotoacebal.es",
+  "leadsEnrichment": []
+}]
