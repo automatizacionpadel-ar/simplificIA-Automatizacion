@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SimplificIA - No Pierdas Oportunidades</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          "Manrope",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background-color: #e7ece4;
+        color: #14241b;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .email-wrapper {
+        width: 100%;
+        background: #e7ece4;
+        padding: 40px 20px;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(20, 36, 27, 0.08);
+      }
+
+      /* Header */
+      .header {
+        background: #14241b;
+        padding: 32px 40px;
+        text-align: center;
+      }
+      .header-logo {
+        height: 36px;
+        width: auto;
+        display: inline-block;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 48px 40px;
+        text-align: center;
+        background: linear-gradient(180deg, #f4f7f1 0%, #ffffff 100%);
+      }
+      .hero-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #6a9b2a;
+        background: #eef4e4;
+        border: 1px solid #e3ebe0;
+        border-radius: 20px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-family: Georgia, serif;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+        color: #14241b;
+        letter-spacing: -0.5px;
+        margin-bottom: 16px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: #1b4332;
+      }
+      .hero p {
+        font-size: 16px;
+        color: #5c6b62;
+        max-width: 420px;
+        margin: 0 auto;
+        font-weight: 500;
+      }
+      .hero-divider {
+        width: 54px;
+        height: 4px;
+        background: #96bd45;
+        border-radius: 3px;
+        margin: 28px auto 0;
+      }
+
+      /* Content Sections */
+      .content {
+        padding: 40px;
+      }
+      .section-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #6a9b2a;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-title::before {
+        content: "//";
+        color: #8a9a90;
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+      .section h2 {
+        font-family: Georgia, serif;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 1.3;
+        color: #14241b;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e3ebe0;
+      }
+      .section h2 .emoji {
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        margin-right: 8px;
+      }
+      .section p {
+        font-size: 14px;
+        color: #5c6b62;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .feature-list li {
+        padding: 10px 0 10px 28px;
+        position: relative;
+        color: #5c6b62;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .feature-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #96bd45;
+      }
+
+      /* Automation Box */
+      .automation-box {
+        background: #f4f7f1;
+        border: 1px solid #e3ebe0;
+        border-left: 4px solid #96bd45;
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+      }
+      .automation-box h3 {
+        font-family: Georgia, serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #14241b;
+        margin: 0 0 12px;
+      }
+      .automation-box p {
+        font-size: 13px;
+        color: #5c6b62;
+        margin-bottom: 16px;
+      }
+      .automation-box .feature-list li {
+        font-size: 13px;
+        padding-left: 24px;
+      }
+      .automation-box .feature-list li::before {
+        top: 12px;
+        width: 5px;
+        height: 5px;
+        background: #6a9b2a;
+      }
+
+      /* Result Box */
+      .result-box {
+        background: #14241b;
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        margin: 28px 0;
+      }
+      .result-box p {
+        font-family: Georgia, serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.4;
+      }
+      .result-box .highlight {
+        color: #96bd45;
+      }
+
+      /* CTA */
+      .cta-section {
+        text-align: center;
+        padding: 24px 0 0;
+      }
+      .btn {
+        display: inline-block;
+        background: #96bd45;
+        color: #14241b;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 16px 36px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+      .btn:hover {
+        background: #6a9b2a;
+        color: #ffffff;
+      }
+      .btn-secondary {
+        display: inline-block;
+        margin-top: 16px;
+        color: #6a9b2a;
+        font-weight: 600;
+        font-size: 13px;
+        text-decoration: underline;
+      }
+
+      .closing-note {
+        text-align: center;
+        color: #8a9a90;
+        font-style: italic;
+        margin-top: 28px;
+        font-size: 13px;
+      }
+
+      /* Footer */
+      .footer {
+        background: #14241b;
+        padding: 32px 40px;
+        text-align: center;
+      }
+      .footer-logo {
+        height: 28px;
+        width: auto;
+        display: inline-block;
+        margin-bottom: 16px;
+        opacity: 0.9;
+      }
+      .footer p {
+        font-size: 12px;
+        color: #8a9a90;
+        margin: 6px 0;
+      }
+      .footer p strong {
+        color: #ffffff;
+        font-weight: 700;
+      }
+      .footer-divider {
+        width: 54px;
+        height: 3px;
+        background: #96bd45;
+        border-radius: 2px;
+        margin: 20px auto 0;
+      }
+      .unsubscribe {
+        margin-top: 20px;
+        font-size: 11px;
+        color: #5c6b62;
+      }
+      .unsubscribe a {
+        color: #8a9a90;
+        text-decoration: underline;
+      }
+
+      /* Responsive */
+      @media only screen and (max-width: 480px) {
+        .email-container {
+          border-radius: 0;
+        }
+        .header,
+        .hero,
+        .content,
+        .footer {
+          padding: 28px 24px;
+        }
+        .hero h1 {
+          font-size: 26px;
+        }
+        .section h2 {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-wrapper">
+      <div class="email-container">
+        <!-- Header -->
+        <header class="header">
+          <img
+            class="header-logo"
+            src="https://www.simplificia.com.ar/img/logo.png"
+            alt="SimplificIA"
+            style="display: block; margin: 0 auto"
+          />
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+          <span class="hero-badge">SimplificIA para agencias</span>
+          <h1>No perder oportunidades<br />también es <em>vender más</em>.</h1>
+          <p>
+            Asegurá un flujo de trabajo continuo donde ninguna cotización quede
+            olvidada.
+          </p>
+          <div class="hero-divider"></div>
+        </section>
+
+        <!-- Content -->
+        <section class="content">
+          <!-- Sección 1: Control Comercial -->
+          <div class="section">
+            <span class="section-title">Control comercial</span>
+            <h2><span class="emoji">📊</span>Control Comercial Completo</h2>
+            <p>
+              Organizá cada consulta y seguimiento para que no dependa de la
+              memoria del vendedor.
+            </p>
+            <ul class="feature-list">
+              <li>Registrar y centralizar nuevos clientes</li>
+              <li>Organizar consultas por estado y prioridad</li>
+              <li>Asignar leads al vendedor correspondiente</li>
+              <li>Programar recordatorios automáticos</li>
+              <li>Hacer seguimiento riguroso de cotizaciones</li>
+              <li>Mantener historial unificado de cada cliente</li>
+            </ul>
+          </div>
+
+          <!-- Sección 2: Automatización -->
+          <div class="automation-box">
+            <h3>⚡ Automatizá lo que quita tiempo</h3>
+            <p>
+              Tu equipo debería concentrarse en vender y atender. El sistema se
+              ocupa de lo repetitivo.
+            </p>
+            <ul class="feature-list">
+              <li>Vouchers</li>
+              <li>Recordatorios</li>
+              <li>Documentación</li>
+              <li>Carpetas digitales</li>
+              <li>Mensajería</li>
+              <li>Tareas diarias</li>
+              <li>Integraciones</li>
+              <li>Trabajo Digital</li>
+            </ul>
+          </div>
+
+          <!-- Resultado -->
+          <div class="result-box">
+            <p>
+              ✅ <span class="highlight">Más orden</span>,
+              <span class="highlight">más seguimiento</span> y
+              <span class="highlight">más control comercial</span>
+            </p>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-section">
+            <a
+              href="https://wa.me/+549113336942?text=Hola%20SimplificIA,%20quiero%20saber%20más%20sobre%20el%20software"
+              class="btn"
+              target="_blank"
+              >Quiero simplificar mi negocio</a
+            >
+            <a
+              href="https://www.simplificia.com.ar/pdf/presentacion.pdf"
+              class="btn-secondary"
+              target="_blank"
+              >Mas información</a
+            >
+          </div>
+
+          <p class="closing-note">
+            El objetivo es sencillo: que tu equipo se ocupe de lo importante y
+            el sistema de lo repetitivo.
+          </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <img
+            class="footer-logo"
+            src="https://www.simplificia.com.ar/img/logo.png"
+            alt="SimplificIA"
+            style="display: block; margin: 0 auto"
+          />
+          <p>Software de gestión para agencias</p>
+          <p>Buenos Aires, Argentina</p>
+          <div class="footer-divider"></div>
+          <p class="unsubscribe">
+            ¿No querés recibir más novedades?
+            <a href="{{unsubscribe_url}}" target="_blank">Darse de baja</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

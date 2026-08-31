@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SimplificIA — Gestión integral para tu centro de imágenes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      background-color: #e7ece4; 
+      color: #14241b; 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased; 
+    }
+    .email-wrapper { 
+      width: 100%; 
+      background: #e7ece4; 
+      padding: 40px 20px; 
+    }
+    .email-container { 
+      max-width: 600px; 
+      margin: 0 auto; 
+      background: #ffffff; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 24px rgba(20, 36, 27, 0.08); 
+    }
+    
+    /* Header */
+    .header { 
+      background: #14241b; 
+      padding: 32px 40px; 
+      text-align: center; 
+    }
+    .header-logo { 
+      height: 36px; 
+      width: auto; 
+      display: inline-block; 
+    }
+    
+    /* Hero */
+    .hero { 
+      padding: 48px 40px; 
+      text-align: center; 
+      background: linear-gradient(180deg, #f4f7f1 0%, #ffffff 100%); 
+    }
+    .hero-badge { 
+      display: inline-block; 
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      color: #6a9b2a; 
+      background: #eef4e4; 
+      border: 1px solid #e3ebe0; 
+      border-radius: 20px; 
+      padding: 6px 16px; 
+      margin-bottom: 20px; 
+    }
+    .hero h1 { 
+      font-family: Georgia, serif; 
+      font-weight: 700; 
+      font-size: 32px; 
+      line-height: 1.2; 
+      color: #14241b; 
+      letter-spacing: -0.5px; 
+      margin-bottom: 16px; 
+    }
+    .hero h1 em { 
+      font-style: italic; 
+      color: #1b4332; 
+    }
+    .hero p { 
+      font-size: 16px; 
+      color: #5c6b62; 
+      max-width: 420px; 
+      margin: 0 auto; 
+      font-weight: 500; 
+    }
+    .hero-divider { 
+      width: 54px; 
+      height: 4px; 
+      background: #96bd45; 
+      border-radius: 3px; 
+      margin: 28px auto 0; 
+    }
+    
+    /* Modules */
+    .modules { 
+      padding: 40px; 
+    }
+    .section-title { 
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: 2.5px; 
+      text-transform: uppercase; 
+      color: #6a9b2a; 
+      margin-bottom: 28px; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+    }
+    .section-title::before { 
+      content: "//"; 
+      color: #8a9a90; 
+    }
+    
+    .module-grid { 
+      display: table; 
+      width: 100%; 
+    }
+    .module-row { 
+      display: table-row; 
+    }
+    .module-card { 
+      display: table-cell; 
+      width: 50%; 
+      padding: 0 12px; 
+      vertical-align: top; 
+    }
+    .module-card:first-child { padding-right: 8px; }
+    .module-card:last-child { padding-left: 8px; }
+    
+    .card-inner { 
+      background: #f4f7f1; 
+      border: 1px solid #e3ebe0; 
+      border-radius: 12px; 
+      padding: 24px 20px; 
+      height: 100%; 
+      transition: border-color 0.2s, box-shadow 0.2s; 
+    }
+    .card-inner:hover { 
+      border-color: #96bd45; 
+      box-shadow: 0 8px 24px rgba(150, 189, 69, 0.12); 
+    }
+    .card-icon { 
+      width: 40px; 
+      height: 40px; 
+      border-radius: 10px; 
+      background: #eef4e4; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: #6a9b2a; 
+      margin-bottom: 14px; 
+    }
+    .card-icon svg { width: 20px; height: 20px; }
+    .card-inner h3 { 
+      font-size: 14px; 
+      font-weight: 800; 
+      color: #14241b; 
+      margin-bottom: 8px; 
+      line-height: 1.3; 
+    }
+    .card-inner p { 
+      font-size: 12.5px; 
+      color: #5c6b62; 
+      line-height: 1.55; 
+      margin: 0; 
+    }
+    
+    /* Dashboard Section */
+    .dashboard-section { 
+      background: #14241b; 
+      padding: 40px; 
+    }
+    .dashboard-title { 
+      color: #ffffff; 
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: 2.5px; 
+      text-transform: uppercase; 
+      margin-bottom: 8px; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+    }
+    .dashboard-title::before { 
+      content: "//"; 
+      color: #8a9a90; 
+    }
+    .dashboard-section h2 { 
+      font-family: Georgia, serif; 
+      font-weight: 600; 
+      font-size: 26px; 
+      line-height: 1.25; 
+      color: #ffffff; 
+      letter-spacing: -0.4px; 
+      margin-bottom: 24px; 
+    }
+    .kpi-row { 
+      display: table; 
+      width: 100%; 
+      margin-bottom: 16px; 
+    }
+    .kpi-cell { 
+      display: table-cell; 
+      width: 25%; 
+      padding: 0 8px; 
+      vertical-align: top; 
+    }
+    .kpi-card { 
+      background: rgba(255,255,255,0.05); 
+      border: 1px solid rgba(255,255,255,0.08); 
+      border-radius: 10px; 
+      padding: 18px 14px; 
+      text-align: center; 
+    }
+    .kpi-label { 
+      font-size: 9px; 
+      font-weight: 600; 
+      letter-spacing: 1.2px; 
+      text-transform: uppercase; 
+      color: #8a9a90; 
+      margin-bottom: 6px; 
+    }
+    .kpi-value { 
+      font-family: Georgia, serif; 
+      font-weight: 700; 
+      font-size: 24px; 
+      color: #ffffff; 
+      line-height: 1; 
+      letter-spacing: -0.5px; 
+    }
+    .kpi-value span { font-size: 13px; color: #8a9a90; }
+    .kpi-trend { 
+      font-size: 10px; 
+      font-weight: 700; 
+      color: #96bd45; 
+      margin-top: 6px; 
+    }
+    
+    /* Value Bar */
+    .value-bar { 
+      display: flex; 
+      align-items: center; 
+      gap: 14px; 
+      background: #eef4e4; 
+      border-left: 4px solid #96bd45; 
+      border-radius: 10px; 
+      padding: 16px 20px; 
+      margin-top: 24px; 
+    }
+    .value-glyph { font-size: 20px; color: #6a9b2a; flex-shrink: 0; }
+    .value-bar p { 
+      font-size: 13px; 
+      font-weight: 600; 
+      color: #1b4332; 
+      line-height: 1.5; 
+      margin: 0; 
+    }
+    
+    /* CTA */
+    .cta-section { 
+      padding: 48px 40px; 
+      text-align: center; 
+      background: #f4f7f1; 
+      border-top: 1px solid #e3ebe0; 
+    }
+    .cta-section h2 { 
+      font-family: Georgia, serif; 
+      font-weight: 600; 
+      font-size: 26px; 
+      line-height: 1.25; 
+      color: #14241b; 
+      letter-spacing: -0.4px; 
+      margin-bottom: 12px; 
+    }
+    .cta-section h2 em { font-style: italic; color: #1b4332; }
+    .cta-section p { 
+      font-size: 14px; 
+      color: #5c6b62; 
+      max-width: 380px; 
+      margin: 0 auto 28px; 
+    }
+    .btn { 
+      display: inline-block; 
+      background: #96bd45; 
+      color: #14241b; 
+      font-weight: 700; 
+      font-size: 14px; 
+      text-decoration: none; 
+      padding: 16px 36px; 
+      border-radius: 8px; 
+      transition: background 0.2s; 
+    }
+    .btn:hover { background: #6a9b2a; color: #ffffff; }
+    .btn-secondary { 
+      display: inline-block; 
+      margin-top: 16px; 
+      color: #6a9b2a; 
+      font-weight: 600; 
+      font-size: 13px; 
+      text-decoration: underline; 
+    }
+    
+    /* Footer */
+    .footer { 
+      background: #14241b; 
+      padding: 32px 40px; 
+      text-align: center; 
+    }
+    .footer-logo { 
+      height: 28px; 
+      width: auto; 
+      display: inline-block; 
+      margin-bottom: 16px; 
+      opacity: 0.9; 
+    }
+    .footer p { 
+      font-size: 12px; 
+      color: #8a9a90; 
+      margin: 6px 0; 
+    }
+    .footer p strong { 
+      color: #ffffff; 
+      font-weight: 700; 
+    }
+    .footer-divider { 
+      width: 54px; 
+      height: 3px; 
+      background: #96bd45; 
+      border-radius: 2px; 
+      margin: 20px auto 0; 
+    }
+    .unsubscribe { 
+      margin-top: 20px; 
+      font-size: 11px; 
+      color: #5c6b62; 
+    }
+    .unsubscribe a { color: #8a9a90; text-decoration: underline; }
+    
+    /* Responsive */
+    @media only screen and (max-width: 480px) {
+      .email-container { border-radius: 0; }
+      .header, .hero, .modules, .dashboard-section, .cta-section, .footer { padding: 28px 24px; }
+      .hero h1 { font-size: 26px; }
+      .module-card { display: block; width: 100%; padding: 0 0 16px 0; }
+      .module-card:first-child { padding-right: 0; }
+      .module-card:last-child { padding-left: 0; }
+      .kpi-cell { display: block; width: 100%; padding: 0 0 12px 0; }
+      .kpi-row { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      
+      <!-- Header -->
+      <header class="header">
+        <img class="header-logo" src="https://simplificia.com/logo-verde-claro.png" alt="SimplificIA" style="display:block; margin:0 auto;">
+      </header>
+      
+      <!-- Hero -->
+      <section class="hero">
+        <span class="hero-badge">Solución para centros de imágenes</span>
+        <h1>Gestión integral<br>para tu centro<em>.</em></h1>
+        <p>Organizamos estudios, pagos, comunicaciones y coordinación en un solo lugar, para que el centro se enfoque en lo que mejor sabe hacer: atender pacientes.</p>
+        <div class="hero-divider"></div>
+      </section>
+      
+      <!-- Modules -->
+      <section class="modules">
+        <span class="section-title">Los 4 módulos</span>
+        
+        <div class="module-grid">
+          <div class="module-row">
+            <div class="module-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3>Estudios y documentación</h3>
+                <p>Solicitudes, datos de pacientes y resultados organizados y accesibles. Seguimiento de estados y envío automático de información.</p>
+              </div>
+            </div>
+            <div class="module-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <h3>Pagos y confirmaciones</h3>
+                <p>Links de pago automáticos, confirmaciones instantáneas, avisos de pendientes y registro ordenado de cada operación.</p>
+              </div>
+            </div>
+          </div>
+          <div class="module-row">
+            <div class="module-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                </div>
+                <h3>Comunicación y campañas</h3>
+                <p>Recordatorios de turnos, promociones, reactivación de pacientes y anuncios de nuevos servicios — todo automatizado.</p>
+              </div>
+            </div>
+            <div class="module-card">
+              <div class="card-inner">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg>
+                </div>
+                <h3>Derivación y coordinación</h3>
+                <p>Detección de necesidades, derivación al área correcta, asignación de tareas y seguimiento de casos pendientes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="value-bar">
+          <span class="value-glyph">◆</span>
+          <p>Menos búsquedas, menos papeles, menos errores: la información siempre a mano cuando se la necesita.</p>
+        </div>
+      </section>
+      
+      <!-- Dashboard -->
+      <section class="dashboard-section">
+        <span class="dashboard-title">Dashboard en tiempo real</span>
+        <h2>Métricas claras para decidir con datos.</h2>
+        
+        <div class="kpi-row">
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Consultas</div>
+              <div class="kpi-value">1.284</div>
+              <div class="kpi-trend">▲ 12% vs mes anterior</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Turnos solicitados</div>
+              <div class="kpi-value">348</div>
+              <div class="kpi-trend">▲ 8%</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Turnos confirmados</div>
+              <div class="kpi-value">291</div>
+              <div class="kpi-trend">▲ 5%</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Cancelaciones</div>
+              <div class="kpi-value">38</div>
+              <div class="kpi-trend">▼ 4%</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="kpi-row">
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Pacientes nuevos</div>
+              <div class="kpi-value">97</div>
+              <div class="kpi-trend">▲ 14%</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Pacientes recurrentes</div>
+              <div class="kpi-value">112</div>
+              <div class="kpi-trend">▲ 6%</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Rendimiento campañas</div>
+              <div class="kpi-value">23<span>%</span></div>
+              <div class="kpi-trend">▲ 3 pts.</div>
+            </div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-card">
+              <div class="kpi-label">Top estudios</div>
+              <div class="kpi-value" style="font-size:16px;">RMN · TC · Ecografía</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="value-bar" style="background: rgba(150,189,69,0.15); border-left-color: #96bd45;">
+          <span class="value-glyph">◆</span>
+          <p style="color: #1b4332;">Un solo panel con lo que más importa: consultas, turnos, cancelaciones, estudios y pacientes.</p>
+        </div>
+      </section>
+      
+      <!-- CTA -->
+      <section class="cta-section">
+        <h2>¿Hablamos de tu centro<em>?</em></h2>
+        <p>Agendamos una demo de 20 minutos y te mostramos cómo se vería SimplificIA funcionando con tus datos reales.</p>
+        <a href="https://calendly.com/simplificia/demo" class="btn" target="_blank">Agendar demo</a>
+        <a href="https://simplificia.com/contacto" class="btn-secondary" target="_blank">O escribinos y te contactamos →</a>
+      </section>
+      
+      <!-- Footer -->
+      <footer class="footer">
+        <img class="footer-logo" src="https://simplificia.com/logo-verde-claro.png" alt="SimplificIA" style="display:block; margin:0 auto;">
+        <p><strong>SimplificIA</strong> — Software de gestión para centros de imágenes</p>
+        <p>Buenos Aires, Argentina</p>
+        <div class="footer-divider"></div>
+        <p class="unsubscribe">
+          ¿No querés recibir más novedades? <a href="{{unsubscribe_url}}" target="_blank">Darse de baja</a>
+        </p>
+      </footer>
+      
+    </div>
+  </div>
+</body>
+</html>
