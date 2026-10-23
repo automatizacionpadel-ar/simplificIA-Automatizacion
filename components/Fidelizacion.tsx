@@ -232,6 +232,10 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
               </button>
               <a
                 href="#fidelizacion-planes"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('fidelizacion-planes')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="w-full sm:w-auto text-center bg-transparent border border-slate-200 dark:border-white/15 hover:border-primary hover:text-primary transition-all text-slate-700 dark:text-white px-10 py-5 rounded-2xl font-bold text-lg"
               >
                 Ver planes
@@ -351,7 +355,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
             Empezá simple y crecé cuando quieras. Sin hardware especial ni instalaciones raras.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
           {fidelizacionPlans.map((plan) => (
             <div
               key={plan.name}
@@ -386,7 +390,13 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                   {plan.description}
                 </p>
                 <div className={`text-4xl font-black mb-6 ${plan.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
-                  {plan.price} <span className="text-lg font-bold">{plan.period}</span>
+                  {plan.quoteOnly ? (
+                    <span className="text-2xl">Cotización a medida</span>
+                  ) : (
+                    <>
+                      {plan.price} <span className="text-lg font-bold">{plan.period}</span>
+                    </>
+                  )}
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature, i) => (

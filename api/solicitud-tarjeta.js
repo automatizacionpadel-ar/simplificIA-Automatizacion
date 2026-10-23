@@ -4,7 +4,7 @@ const TO_EMAIL = process.env.SOLICITUD_TO_EMAIL || 'info@simplificia.com.ar';
 // Dominio ya verificado en Resend.
 const FROM_EMAIL = process.env.SOLICITUD_FROM_EMAIL || 'SimplificIA <solicitudes@simplificia.com.ar>';
 
-const PLANES_VALIDOS = ['Inicial', 'Pro'];
+const PLANES_VALIDOS = ['Inicial', 'Pro', 'Empresa'];
 
 function escapeHtml(value) {
   return String(value ?? '')

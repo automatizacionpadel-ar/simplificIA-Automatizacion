@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { fidelizacionPlans, FIDELIZACION_HIGHLIGHT_LABEL } from './fidelizacionPlans';
 
-export type PlanSolicitud = 'Inicial' | 'Pro';
+export type PlanSolicitud = 'Inicial' | 'Pro' | 'Empresa';
 
 export interface SolicitudTarjetaData {
   nombre: string;
@@ -37,7 +38,7 @@ const initialData = (planInicial?: string | null): SolicitudTarjetaData => ({
   direccion: '',
   telefono: '',
   rubro: '',
-  plan: planInicial === 'Pro' || planInicial === 'Inicial' ? planInicial : '',
+  plan: planInicial === 'Pro' || planInicial === 'Inicial' || planInicial === 'Empresa' ? planInicial : '',
 });
 
 const inputClass =
@@ -106,7 +107,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
   if (enviado) {
     return (
       <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#111827] flex flex-col">
-        <main className="flex-1 max-w-[720px] mx-auto w-full px-6 py-16 md:py-24 text-center">
+        <main className="flex-1 w-[95%] md:w-[80%] mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
           <div className="bg-white dark:bg-slate-900 rounded-super border border-slate-100 dark:border-white/5 shadow-2xl p-10 md:p-14 space-y-6">
             <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <span className="material-symbols-outlined text-5xl">check_circle</span>
@@ -147,7 +148,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#111827] flex flex-col">
-      <main className="flex-1 max-w-[720px] mx-auto w-full px-6 py-12 md:py-20">
+      <main className="flex-1 w-[95%] md:w-[80%] mx-auto px-4 sm:px-6 py-12 md:py-20">
         <button
           onClick={onBack}
           className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
@@ -254,12 +255,12 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
 
           <fieldset>
             <legend className={labelClass}>Plan a elegir</legend>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="radiogroup" aria-label="Plan a elegir">
-              {(['Inicial', 'Pro'] as PlanSolicitud[]).map((plan) => {
-                const selected = form.plan === plan;
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="radiogroup" aria-label="Plan a elegir">
+              {fidelizacionPlans.map((plan) => {
+                const selected = form.plan === plan.name;
                 return (
                   <label
-                    key={plan}
+                    key={plan.name}
                     className={`cursor-pointer rounded-2xl border-2 p-5 flex items-start gap-4 transition-all ${
                       selected
                         ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10'
@@ -269,27 +270,34 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
                     <input
                       type="radio"
                       name="plan"
-                      value={plan}
+                      value={plan.name}
                       checked={selected}
-                      onChange={() => set('plan', plan)}
+                      onChange={() => set('plan', plan.name)}
                       className="mt-1 accent-[#96bd45] w-5 h-5"
                     />
                     <span>
                       <span className="flex items-center gap-2 font-black text-lg text-slate-900 dark:text-white">
                         <span className="material-symbols-outlined text-primary">
-                          {plan === 'Pro' ? 'workspace_premium' : 'loyalty'}
+                          {plan.icon}
                         </span>
-                        {plan}
-                        {plan === 'Pro' && (
+                        {plan.name}
+                        {plan.highlighted && (
                           <span className="bg-primary text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
-                            Más elegido
+                            {FIDELIZACION_HIGHLIGHT_LABEL}
                           </span>
                         )}
                       </span>
+                      <span className="block text-base font-black text-primary mt-1">
+                        {plan.quoteOnly ? (
+                          'Cotización a medida'
+                        ) : (
+                          <>
+                            {plan.price} <span className="text-sm font-bold">{plan.period}</span>
+                          </>
+                        )}
+                      </span>
                       <span className="block text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                        {plan === 'Inicial'
-                          ? 'Para arrancar a fidelizar sin vueltas.'
-                          : 'Para locales que quieren ir más a fondo.'}
+                        {plan.description}
                       </span>
                     </span>
                   </label>
@@ -308,13 +316,10 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
           <button
             type="submit"
             disabled={enviando}
-            className="w-full bg-primary hover:bg-primary-dark transition-all hover:scale-[1.01] active:scale-[0.99] text-white px-8 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-wait disabled:hover:scale-100"
+            className="block w-full sm:w-auto sm:ml-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.01] active:scale-[0.99] text-white px-8 py-3.5 rounded-2xl font-black text-base shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-wait disabled:hover:scale-100"
           >
             {enviando ? 'Enviando…' : 'Solicitar mi tarjeta'}
           </button>
-          <p className="text-center text-sm text-slate-400 dark:text-slate-500">
-            Al enviar aceptás que te contactemos para darte una propuesta sin compromiso.
-          </p>
         </form>
       </main>
     </div>
