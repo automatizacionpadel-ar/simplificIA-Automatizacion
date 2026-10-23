@@ -5,6 +5,7 @@ const TO_EMAIL = process.env.SOLICITUD_TO_EMAIL || 'info@simplificia.com.ar';
 const FROM_EMAIL = process.env.SOLICITUD_FROM_EMAIL || 'SimplificIA <solicitudes@simplificia.com.ar>';
 
 const PLANES_VALIDOS = ['Inicial', 'Pro', 'Empresa'];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function escapeHtml(value) {
   return String(value ?? '')
@@ -20,10 +21,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { nombre, empresa, direccion, telefono, rubro, plan } = req.body || {};
+  const { nombre, email, empresa, direccion, telefono, rubro, plan } = req.body || {};
 
   if (
     typeof nombre !== 'string' || nombre.trim().length < 2 ||
+    typeof email !== 'string' || !EMAIL_RE.test(email.trim()) ||
     typeof empresa !== 'string' || empresa.trim().length < 2 ||
     typeof direccion !== 'string' || direccion.trim().length < 3 ||
     typeof telefono !== 'string' || telefono.replace(/\D/g, '').length < 8 ||
@@ -39,6 +41,7 @@ export default async function handler(req, res) {
 
   const data = {
     nombre: nombre.trim().slice(0, 120),
+    email: email.trim().slice(0, 160),
     empresa: empresa.trim().slice(0, 120),
     direccion: direccion.trim().slice(0, 200),
     telefono: telefono.trim().slice(0, 40),
@@ -52,6 +55,7 @@ export default async function handler(req, res) {
   const text =
     `Nueva solicitud de tarjeta digital\n\n` +
     `Nombre: ${data.nombre}\n` +
+    `Email: ${data.email}\n` +
     `Empresa: ${data.empresa}\n` +
     `Dirección: ${data.direccion}\n` +
     `Teléfono: ${data.telefono}\n` +
@@ -61,6 +65,7 @@ export default async function handler(req, res) {
     <h2>Nueva solicitud de tarjeta digital</h2>
     <table cellpadding="6" cellspacing="0" style="font-family:sans-serif;font-size:14px">
       <tr><td><strong>Nombre</strong></td><td>${escapeHtml(data.nombre)}</td></tr>
+      <tr><td><strong>Email</strong></td><td>${escapeHtml(data.email)}</td></tr>
       <tr><td><strong>Empresa</strong></td><td>${escapeHtml(data.empresa)}</td></tr>
       <tr><td><strong>Dirección</strong></td><td>${escapeHtml(data.direccion)}</td></tr>
       <tr><td><strong>Teléfono</strong></td><td>${escapeHtml(data.telefono)}</td></tr>

@@ -5,6 +5,7 @@ export type PlanSolicitud = 'Inicial' | 'Pro' | 'Empresa';
 
 export interface SolicitudTarjetaData {
   nombre: string;
+  email: string;
   empresa: string;
   direccion: string;
   telefono: string;
@@ -34,6 +35,7 @@ const RUBROS = [
 
 const initialData = (planInicial?: string | null): SolicitudTarjetaData => ({
   nombre: '',
+  email: '',
   empresa: '',
   direccion: '',
   telefono: '',
@@ -51,6 +53,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
   const [form, setForm] = useState<SolicitudTarjetaData>(() => initialData(planInicial));
   const [errors, setErrors] = useState<Partial<Record<keyof SolicitudTarjetaData, string>>>({});
   const [enviado, setEnviado] = useState(false);
+  const [modalAbierto, setModalAbierto] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [errorEnvio, setErrorEnvio] = useState<string | null>(null);
 
@@ -62,6 +65,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
   const validate = (): boolean => {
     const next: Partial<Record<keyof SolicitudTarjetaData, string>> = {};
     if (form.nombre.trim().length < 2) next.nombre = 'Contanos tu nombre.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) next.email = 'Ingresá un email válido.';
     if (form.empresa.trim().length < 2) next.empresa = 'Contanos el nombre de tu negocio.';
     if (form.direccion.trim().length < 3) next.direccion = 'Necesitamos la dirección del local.';
     const tel = form.telefono.replace(/[^\d+]/g, '');
@@ -84,6 +88,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nombre: form.nombre.trim(),
+          email: form.email.trim(),
           empresa: form.empresa.trim(),
           direccion: form.direccion.trim(),
           telefono: form.telefono.trim(),
@@ -96,6 +101,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
         throw new Error(data?.error || 'No se pudo enviar la solicitud. Probá de nuevo.');
       }
       setEnviado(true);
+      setModalAbierto(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       setErrorEnvio(err instanceof Error ? err.message : 'No se pudo enviar la solicitud. Probá de nuevo.');
@@ -118,9 +124,11 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
             <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
               Gracias por elegir el plan <span className="font-bold text-primary">{form.plan}</span> para{' '}
               <span className="font-bold text-slate-700 dark:text-slate-200">{form.empresa}</span>.
-              Te vamos a contactar al <span className="font-bold">{form.telefono}</span> para mostrarte cómo quedaría tu tarjeta.
+              Te vamos a contactar al <span className="font-bold">{form.telefono}</span> o a{' '}
+              <span className="font-bold">{form.email}</span> para mostrarte cómo quedaría tu tarjeta.
             </p>
             <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-6 text-left text-sm space-y-2 text-slate-600 dark:text-slate-300">
+              <p><span className="font-bold">Email:</span> {form.email}</p>
               <p><span className="font-bold">Empresa:</span> {form.empresa}</p>
               <p><span className="font-bold">Dirección:</span> {form.direccion}</p>
               <p><span className="font-bold">Rubro:</span> {form.rubro}</p>
@@ -142,6 +150,46 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
             </div>
           </div>
         </main>
+
+        {modalAbierto && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-6"
+            onClick={() => setModalAbierto(false)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="solicitud-modal-title"
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-md bg-white dark:bg-slate-900 rounded-super border border-slate-100 dark:border-white/10 shadow-2xl p-8 md:p-10 text-center space-y-4"
+            >
+              <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <span className="material-symbols-outlined text-4xl">support_agent</span>
+              </div>
+              <h2 id="solicitud-modal-title" className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
+                ¡Solicitud recibida!
+              </h2>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+                Alguien de nuestro equipo se va a contactar con vos en breves momentos
+                {form.email ? <> a <span className="font-bold text-slate-700 dark:text-slate-200">{form.email}</span></> : null}.
+              </p>
+              <div className="flex flex-col gap-3 pt-2">
+                <button
+                  onClick={() => setModalAbierto(false)}
+                  className="w-full bg-primary hover:bg-primary-dark transition-all text-white px-8 py-4 rounded-2xl font-black text-base shadow-xl shadow-primary/20"
+                >
+                  Entendido
+                </button>
+                <button
+                  onClick={onBack}
+                  className="w-full border border-slate-200 dark:border-white/15 hover:border-primary hover:text-primary transition-all text-slate-700 dark:text-white px-8 py-3.5 rounded-2xl font-bold text-sm"
+                >
+                  Volver a fidelización
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -188,6 +236,22 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
               aria-invalid={!!errors.nombre}
             />
             {errors.nombre && <p className="mt-2 text-sm font-semibold text-red-500">{errors.nombre}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="solicitud-email" className={labelClass}>Email</label>
+            <input
+              id="solicitud-email"
+              type="email"
+              autoComplete="email"
+              inputMode="email"
+              placeholder="Ej.: maria@cafecentral.com"
+              value={form.email}
+              onChange={(e) => set('email', e.target.value)}
+              className={inputClass}
+              aria-invalid={!!errors.email}
+            />
+            {errors.email && <p className="mt-2 text-sm font-semibold text-red-500">{errors.email}</p>}
           </div>
 
           <div>
