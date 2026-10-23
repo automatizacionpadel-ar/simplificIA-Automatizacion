@@ -1,7 +1,11 @@
 
 import React from 'react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onGoFidelizacion: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onGoFidelizacion }) => {
   return (
     <footer className="bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-white/5 pt-20 pb-10 px-6 transition-colors">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24">
@@ -20,6 +24,7 @@ export const Footer: React.FC = () => {
           <h5 className="font-bold text-slate-900 dark:text-white text-[10px] uppercase tracking-[0.2em]">Compañía</h5>
           <ul className="space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400">
             <li><a href="#" className="hover:text-primary transition-colors">Sobre nosotros</a></li>
+            <li><a href="/fidelizacion" onClick={(e) => { e.preventDefault(); onGoFidelizacion(); }} className="hover:text-primary transition-colors">Fidelización</a></li>
             <li><a href="#" className="hover:text-primary transition-colors">Privacidad</a></li>
           </ul>
         </div>

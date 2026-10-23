@@ -3,3 +3,6 @@ __pycache__/
 node_modules/
 .env
 .env.local
+.vercel
+.env*
+dist/
