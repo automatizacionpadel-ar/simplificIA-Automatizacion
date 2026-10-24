@@ -5,6 +5,11 @@ const TO_EMAIL = process.env.SOLICITUD_TO_EMAIL || 'info@simplificia.com.ar';
 const FROM_EMAIL = process.env.SOLICITUD_FROM_EMAIL || 'SimplificIA <solicitudes@simplificia.com.ar>';
 
 const PLANES_VALIDOS = ['Inicial', 'Pro', 'Empresa'];
+const CICLOS_VALIDOS = {
+  monthly: 'Mensual',
+  semestral: 'Semestral',
+  annual: 'Anual',
+};
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function escapeHtml(value) {
@@ -22,6 +27,7 @@ export default async function handler(req, res) {
   }
 
   const { nombre, email, empresa, direccion, telefono, rubro, plan } = req.body || {};
+  const billingCycle = req.body?.billingCycle ?? 'monthly';
 
   if (
     typeof nombre !== 'string' || nombre.trim().length < 2 ||
@@ -30,7 +36,8 @@ export default async function handler(req, res) {
     typeof direccion !== 'string' || direccion.trim().length < 3 ||
     typeof telefono !== 'string' || telefono.replace(/\D/g, '').length < 8 ||
     typeof rubro !== 'string' || rubro.trim().length < 2 ||
-    !PLANES_VALIDOS.includes(plan)
+    !PLANES_VALIDOS.includes(plan) ||
+    !Object.prototype.hasOwnProperty.call(CICLOS_VALIDOS, billingCycle)
   ) {
     return res.status(400).json({ error: 'Faltan campos requeridos o son inválidos' });
   }
@@ -47,11 +54,13 @@ export default async function handler(req, res) {
     telefono: telefono.trim().slice(0, 40),
     rubro: rubro.trim().slice(0, 120),
     plan,
+    billingCycle,
+    billingCycleLabel: CICLOS_VALIDOS[billingCycle],
   };
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  const subject = `Nueva solicitud de tarjeta (${data.plan}) — ${data.empresa}`;
+  const subject = `Nueva solicitud de tarjeta (${data.plan} · ${data.billingCycleLabel}) — ${data.empresa}`;
   const text =
     `Nueva solicitud de tarjeta digital\n\n` +
     `Nombre: ${data.nombre}\n` +
@@ -60,7 +69,8 @@ export default async function handler(req, res) {
     `Dirección: ${data.direccion}\n` +
     `Teléfono: ${data.telefono}\n` +
     `Rubro: ${data.rubro}\n` +
-    `Plan: ${data.plan}\n`;
+    `Plan: ${data.plan}\n` +
+    `Forma de pago: ${data.billingCycleLabel}\n`;
   const html = `
     <h2>Nueva solicitud de tarjeta digital</h2>
     <table cellpadding="6" cellspacing="0" style="font-family:sans-serif;font-size:14px">
@@ -71,6 +81,7 @@ export default async function handler(req, res) {
       <tr><td><strong>Teléfono</strong></td><td>${escapeHtml(data.telefono)}</td></tr>
       <tr><td><strong>Rubro</strong></td><td>${escapeHtml(data.rubro)}</td></tr>
       <tr><td><strong>Plan</strong></td><td>${escapeHtml(data.plan)}</td></tr>
+      <tr><td><strong>Forma de pago</strong></td><td>${escapeHtml(data.billingCycleLabel)}</td></tr>
     </table>
   `;
 

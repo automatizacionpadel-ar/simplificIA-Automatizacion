@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { fidelizacionPlans, FIDELIZACION_HIGHLIGHT_LABEL } from './fidelizacionPlans';
+import {
+  fidelizacionPlans,
+  FIDELIZACION_HIGHLIGHT_LABEL,
+  BILLING_CYCLES,
+  getBillingCycle,
+  getPlanBillingPrice,
+  formatArs,
+  type BillingCycleId,
+} from './fidelizacionPlans';
 
 export type PlanSolicitud = 'Inicial' | 'Pro' | 'Empresa';
 
@@ -11,10 +19,12 @@ export interface SolicitudTarjetaData {
   telefono: string;
   rubro: string;
   plan: PlanSolicitud | '';
+  billingCycle: BillingCycleId;
 }
 
 interface SolicitudTarjetaProps {
   planInicial?: string | null;
+  billingCycleInicial?: BillingCycleId | null;
   onBack: () => void;
   onHome: () => void;
 }
@@ -33,14 +43,21 @@ const RUBROS = [
   'Otro',
 ];
 
-const initialData = (planInicial?: string | null): SolicitudTarjetaData => ({
+const isValidPlan = (value?: string | null): value is PlanSolicitud =>
+  value === 'Pro' || value === 'Inicial' || value === 'Empresa';
+
+const initialData = (
+  planInicial?: string | null,
+  billingCycleInicial?: BillingCycleId | null
+): SolicitudTarjetaData => ({
   nombre: '',
   email: '',
   empresa: '',
   direccion: '',
   telefono: '',
   rubro: '',
-  plan: planInicial === 'Pro' || planInicial === 'Inicial' || planInicial === 'Empresa' ? planInicial : '',
+  plan: isValidPlan(planInicial) ? planInicial : '',
+  billingCycle: billingCycleInicial ?? 'monthly',
 });
 
 const inputClass =
@@ -49,17 +66,34 @@ const inputClass =
 const labelClass =
   'block text-sm font-bold text-slate-700 dark:text-slate-200 mb-2';
 
-export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial, onBack, onHome }) => {
-  const [form, setForm] = useState<SolicitudTarjetaData>(() => initialData(planInicial));
+export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
+  planInicial,
+  billingCycleInicial,
+  onBack,
+  onHome,
+}) => {
+  const [form, setForm] = useState<SolicitudTarjetaData>(() => initialData(planInicial, billingCycleInicial));
   const [errors, setErrors] = useState<Partial<Record<keyof SolicitudTarjetaData, string>>>({});
   const [enviado, setEnviado] = useState(false);
   const [modalAbierto, setModalAbierto] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [errorEnvio, setErrorEnvio] = useState<string | null>(null);
+  const [editingSelection, setEditingSelection] = useState(() => !isValidPlan(planInicial));
+
+  const selectedPlan = fidelizacionPlans.find((plan) => plan.name === form.plan);
+  const selectedCycle = getBillingCycle(form.billingCycle);
+  const selectedPricing =
+    selectedPlan?.monthlyPrice !== undefined
+      ? getPlanBillingPrice(selectedPlan.monthlyPrice, form.billingCycle)
+      : null;
 
   const set = (field: keyof SolicitudTarjetaData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
+  };
+
+  const setBillingCycle = (billingCycle: BillingCycleId) => {
+    setForm((prev) => ({ ...prev, billingCycle }));
   };
 
   const validate = (): boolean => {
@@ -94,6 +128,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
           telefono: form.telefono.trim(),
           rubro: form.rubro,
           plan: form.plan,
+          billingCycle: form.billingCycle,
         }),
       });
       const data = await resp.json().catch(() => null);
@@ -122,7 +157,8 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
               ¡Solicitud recibida, {form.nombre.split(' ')[0]}!
             </h1>
             <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-              Gracias por elegir el plan <span className="font-bold text-primary">{form.plan}</span> para{' '}
+              Gracias por elegir el plan <span className="font-bold text-primary">{form.plan}</span> con pago{' '}
+              <span className="font-bold text-primary">{selectedCycle.label.toLowerCase()}</span> para{' '}
               <span className="font-bold text-slate-700 dark:text-slate-200">{form.empresa}</span>.
               Te vamos a contactar al <span className="font-bold">{form.telefono}</span> o a{' '}
               <span className="font-bold">{form.email}</span> para mostrarte cómo quedaría tu tarjeta.
@@ -133,6 +169,18 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
               <p><span className="font-bold">Dirección:</span> {form.direccion}</p>
               <p><span className="font-bold">Rubro:</span> {form.rubro}</p>
               <p><span className="font-bold">Plan:</span> {form.plan}</p>
+              <p>
+                <span className="font-bold">Forma de pago:</span> {selectedCycle.label}
+                {selectedPricing
+                  ? ` — ${formatArs(selectedPricing.total)} ${selectedPricing.cycle.periodLabel}`
+                  : ' — a cotizar'}
+              </p>
+              {selectedPricing && selectedPricing.discount > 0 && (
+                <p>
+                  <span className="font-bold">Descuento por pago adelantado:</span>{' '}
+                  {formatArs(selectedPricing.discount)}
+                </p>
+              )}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <button
@@ -317,59 +365,184 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({ planInicial,
             {errors.rubro && <p className="mt-2 text-sm font-semibold text-red-500">{errors.rubro}</p>}
           </div>
 
-          <fieldset>
-            <legend className={labelClass}>Plan a elegir</legend>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="radiogroup" aria-label="Plan a elegir">
-              {fidelizacionPlans.map((plan) => {
-                const selected = form.plan === plan.name;
-                return (
-                  <label
-                    key={plan.name}
-                    className={`cursor-pointer rounded-2xl border-2 p-5 flex items-start gap-4 transition-all ${
-                      selected
-                        ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10'
-                        : 'border-slate-200 dark:border-white/10 hover:border-primary/50'
-                    }`}
+          {editingSelection || !selectedPlan ? (
+            <div className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/80 shadow-sm backdrop-blur dark:border-white/10 dark:bg-slate-900/60">
+              <div className="flex items-start justify-between gap-4 px-6 pb-4 pt-6">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary">Tu plan</p>
+                  <h2 className="mt-1 font-display text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Elegí plan y forma de pago
+                  </h2>
+                </div>
+                {selectedPlan && (
+                  <button
+                    type="button"
+                    onClick={() => setEditingSelection(false)}
+                    className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:border-primary hover:text-primary dark:border-white/15 dark:text-slate-300"
                   >
-                    <input
-                      type="radio"
-                      name="plan"
-                      value={plan.name}
-                      checked={selected}
-                      onChange={() => set('plan', plan.name)}
-                      className="mt-1 accent-[#96bd45] w-5 h-5"
-                    />
-                    <span>
-                      <span className="flex items-center gap-2 font-black text-lg text-slate-900 dark:text-white">
-                        <span className="material-symbols-outlined text-primary">
-                          {plan.icon}
-                        </span>
-                        {plan.name}
-                        {plan.highlighted && (
-                          <span className="bg-primary text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
-                            {FIDELIZACION_HIGHLIGHT_LABEL}
+                    Listo
+                  </button>
+                )}
+              </div>
+
+              <div
+                className="divide-y divide-slate-100 border-y border-slate-100 dark:divide-white/5 dark:border-white/5"
+                role="radiogroup"
+                aria-label="Plan"
+              >
+                {fidelizacionPlans.map((plan) => {
+                  const selected = form.plan === plan.name;
+                  const pricing =
+                    plan.monthlyPrice !== undefined
+                      ? getPlanBillingPrice(plan.monthlyPrice, form.billingCycle)
+                      : null;
+                  return (
+                    <button
+                      key={plan.name}
+                      type="button"
+                      role="radio"
+                      aria-checked={selected}
+                      onClick={() => set('plan', plan.name)}
+                      className={`flex w-full items-center gap-4 px-6 py-4 text-left transition-colors ${
+                        selected ? 'bg-primary/[0.06]' : 'hover:bg-slate-50 dark:hover:bg-white/5'
+                      }`}
+                    >
+                      <span
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all ${
+                          selected
+                            ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                            : 'bg-primary/10 text-primary'
+                        }`}
+                      >
+                        <span className="material-symbols-outlined text-[22px]">{plan.icon}</span>
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-center gap-2">
+                          <span className="font-display font-extrabold text-slate-900 dark:text-white">
+                            {plan.name}
                           </span>
-                        )}
+                          {plan.highlighted && (
+                            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-primary">
+                              {FIDELIZACION_HIGHLIGHT_LABEL}
+                            </span>
+                          )}
+                        </span>
+                        <span className="mt-0.5 block truncate text-xs text-slate-500 dark:text-slate-400">
+                          {plan.description}
+                        </span>
                       </span>
-                      <span className="block text-base font-black text-primary mt-1">
-                        {plan.quoteOnly ? (
-                          'Cotización a medida'
-                        ) : (
-                          <>
-                            {plan.price} <span className="text-sm font-bold">{plan.period}</span>
-                          </>
-                        )}
+                      <span className="shrink-0 text-right">
+                        <span className="block text-sm font-black text-slate-900 dark:text-white">
+                          {pricing ? formatArs(pricing.total) : 'A medida'}
+                        </span>
+                        <span className="block text-[11px] font-semibold text-slate-400 dark:text-slate-500">
+                          {pricing ? pricing.cycle.periodLabel : 'Cotización'}
+                        </span>
                       </span>
-                      <span className="block text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                        {plan.description}
+                      <span
+                        className={`ml-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
+                          selected
+                            ? 'border-primary bg-primary text-white'
+                            : 'border-slate-300 dark:border-slate-600'
+                        }`}
+                      >
+                        {selected && <span className="material-symbols-outlined text-[14px]">check</span>}
                       </span>
-                    </span>
-                  </label>
-                );
-              })}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="space-y-3 px-6 py-5">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400">Forma de pago</p>
+                  <div
+                    className="inline-flex w-full rounded-xl bg-slate-100 p-1 dark:bg-slate-800 sm:w-auto"
+                    role="radiogroup"
+                    aria-label="Forma de pago"
+                  >
+                    {BILLING_CYCLES.map((cycle) => {
+                      const selected = form.billingCycle === cycle.id;
+                      return (
+                        <button
+                          key={cycle.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={selected}
+                          onClick={() => setBillingCycle(cycle.id)}
+                          className={`flex-1 rounded-lg px-4 py-2 text-xs font-bold transition-all sm:flex-none ${
+                            selected
+                              ? 'bg-white text-slate-900 shadow-sm dark:bg-slate-700 dark:text-white'
+                              : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+                          }`}
+                        >
+                          {cycle.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                {selectedPricing && selectedPricing.discount > 0 && (
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Con pago {selectedCycle.label.toLowerCase()} ahorrás{' '}
+                    <span className="font-bold text-primary">{formatArs(selectedPricing.discount)}</span>.
+                  </p>
+                )}
+              </div>
             </div>
-            {errors.plan && <p className="mt-2 text-sm font-semibold text-red-500">{errors.plan}</p>}
-          </fieldset>
+          ) : (
+            <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/[0.09] via-white to-white p-6 shadow-sm dark:from-primary/15 dark:via-slate-900 dark:to-slate-900 md:p-8">
+              <div className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-24 left-10 h-40 w-40 rounded-full bg-emerald-soft/10 blur-3xl" />
+              <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-primary/25">
+                    <span className="material-symbols-outlined text-[28px]">{selectedPlan.icon}</span>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary">Plan elegido</p>
+                    <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                      {selectedPlan.name}
+                    </h2>
+                    <div className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-primary/15 bg-white/70 px-3 py-1 text-[11px] font-bold text-slate-600 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+                      <span className="material-symbols-outlined text-[15px] text-primary">calendar_month</span>
+                      Pago {selectedCycle.label.toLowerCase()} · {selectedCycle.months}{' '}
+                      {selectedCycle.months === 1 ? 'mes' : 'meses'}
+                    </div>
+                  </div>
+                </div>
+                <div className="md:border-l md:border-primary/15 md:pl-8 md:text-right">
+                  <p className="font-display text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+                    {selectedPricing ? formatArs(selectedPricing.total) : 'A medida'}
+                    {selectedPricing && (
+                      <span className="ml-1 text-sm font-bold text-slate-400 dark:text-slate-500">
+                        {selectedPricing.cycle.periodLabel}
+                      </span>
+                    )}
+                  </p>
+                  {selectedPricing && selectedPricing.discount > 0 ? (
+                    <p className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-primary">
+                      <span className="material-symbols-outlined text-[15px]">savings</span>
+                      Ahorrás {formatArs(selectedPricing.discount)}
+                    </p>
+                  ) : (
+                    <p className="mt-1 text-xs font-semibold text-slate-400 dark:text-slate-500">
+                      {selectedPlan.quoteOnly ? 'Se define en la cotización' : 'Facturado mes a mes'}
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setEditingSelection(true)}
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 transition-colors hover:text-primary dark:text-slate-400"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">tune</span>
+                    Cambiar plan o pago
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          {errors.plan && <p className="mt-2 text-sm font-semibold text-red-500">{errors.plan}</p>}
 
           {errorEnvio && (
             <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-500/10 dark:border-red-500/30 px-5 py-4 text-sm font-semibold text-red-600 dark:text-red-300">

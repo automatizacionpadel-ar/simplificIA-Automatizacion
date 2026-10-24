@@ -6,6 +6,7 @@ export interface FidelizacionPlanFeature {
 
 export interface FidelizacionPlan {
   name: string;
+  monthlyPrice?: number;
   price?: string;
   period?: string;
   quoteOnly?: boolean;
@@ -16,13 +17,56 @@ export interface FidelizacionPlan {
   features: FidelizacionPlanFeature[];
 }
 
+export type BillingCycleId = 'monthly' | 'semestral' | 'annual';
+
+export interface BillingCycle {
+  id: BillingCycleId;
+  label: string;
+  months: number;
+  discountMonths: number;
+  periodLabel: string;
+}
+
+export interface PlanBillingPrice {
+  cycle: BillingCycle;
+  total: number;
+  monthlyEquivalent: number;
+  discount: number;
+  savingsMonths: number;
+}
+
+export const formatArs = (value: number): string =>
+  `ARS ${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(value)}`;
+
+export const BILLING_CYCLES: BillingCycle[] = [
+  { id: 'monthly', label: 'Mensual', months: 1, discountMonths: 0, periodLabel: '/ mes' },
+  { id: 'semestral', label: 'Semestral', months: 6, discountMonths: 1, periodLabel: '/ semestre' },
+  { id: 'annual', label: 'Anual', months: 12, discountMonths: 2, periodLabel: '/ año' },
+];
+
+export const getBillingCycle = (cycleId: BillingCycleId): BillingCycle =>
+  BILLING_CYCLES.find((item) => item.id === cycleId) ?? BILLING_CYCLES[0];
+
+export const getPlanBillingPrice = (monthlyPrice: number, cycleId: BillingCycleId): PlanBillingPrice => {
+  const cycle = getBillingCycle(cycleId);
+  const billedMonths = cycle.months - cycle.discountMonths;
+  const total = monthlyPrice * billedMonths;
+
+  return {
+    cycle,
+    total,
+    monthlyEquivalent: total / cycle.months,
+    discount: monthlyPrice * cycle.discountMonths,
+    savingsMonths: cycle.discountMonths,
+  };
+};
+
 // Precios definidos con el dueño del proyecto (ARS, por mes).
 // Para cambiar precios o nombres, editar solo este archivo.
-export const fidelizacionPlans: FidelizacionPlan[] = [
+const planDefinitions: FidelizacionPlan[] = [
   {
     name: 'Inicial',
-    price: 'ARS 30.000',
-    period: '/ mes',
+    monthlyPrice: 30000,
     description: 'Para arrancar a fidelizar sin vueltas.',
     icon: 'loyalty',
     highlighted: false,
@@ -38,8 +82,7 @@ export const fidelizacionPlans: FidelizacionPlan[] = [
   },
   {
     name: 'Pro',
-    price: 'ARS 55.000',
-    period: '/ mes',
+    monthlyPrice: 55000,
     description: 'Para locales que quieren ir más a fondo.',
     icon: 'workspace_premium',
     highlighted: true,
@@ -70,5 +113,11 @@ export const fidelizacionPlans: FidelizacionPlan[] = [
     ],
   },
 ];
+
+export const fidelizacionPlans: FidelizacionPlan[] = planDefinitions.map((plan) => ({
+  ...plan,
+  price: plan.monthlyPrice !== undefined ? formatArs(plan.monthlyPrice) : undefined,
+  period: plan.monthlyPrice !== undefined ? '/ mes' : undefined,
+}));
 
 export const FIDELIZACION_HIGHLIGHT_LABEL = 'Más elegido';

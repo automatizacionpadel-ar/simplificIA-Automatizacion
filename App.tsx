@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { AuditStep1 } from './components/AuditStep1';
 import { AuditStep2 } from './components/AuditStep2';
 import { SolicitudTarjeta } from './components/SolicitudTarjeta';
+import type { BillingCycleId } from './components/fidelizacionPlans';
 
 export type AppView = 'landing' | 'fidelizacion' | 'solicitud' | 'step1' | 'step2';
 
@@ -56,6 +57,7 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [view, setView] = useState<AppView>(() => viewFromPath());
   const [planSolicitud, setPlanSolicitud] = useState<string | null>(null);
+  const [billingCycleSolicitud, setBillingCycleSolicitud] = useState<BillingCycleId>('monthly');
 
   useEffect(() => {
     if (isDarkMode) {
@@ -112,8 +114,9 @@ const App: React.FC = () => {
   const goHome = useCallback(() => navigate('/', 'landing'), [navigate]);
   const goFidelizacion = useCallback(() => navigate(FIDELIZACION_PATH, 'fidelizacion'), [navigate]);
   const goSolicitud = useCallback(
-    (plan?: string | null) => {
+    (plan?: string | null, billingCycle?: BillingCycleId) => {
       if (plan !== undefined) setPlanSolicitud(plan);
+      if (billingCycle !== undefined) setBillingCycleSolicitud(billingCycle);
       navigate(SOLICITUD_PATH, 'solicitud');
     },
     [navigate]
@@ -151,8 +154,9 @@ const App: React.FC = () => {
         />
         <main className="flex-1">
           <SolicitudTarjeta
-            key={planSolicitud ?? 'sin-plan'}
+            key={`${planSolicitud ?? 'sin-plan'}-${billingCycleSolicitud}`}
             planInicial={planSolicitud}
+            billingCycleInicial={billingCycleSolicitud}
             onBack={goFidelizacion}
             onHome={goHome}
           />

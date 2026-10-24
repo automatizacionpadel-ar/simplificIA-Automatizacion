@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { fidelizacionPlans, FIDELIZACION_HIGHLIGHT_LABEL } from './fidelizacionPlans';
+import {
+  fidelizacionPlans,
+  FIDELIZACION_HIGHLIGHT_LABEL,
+  BILLING_CYCLES,
+  getPlanBillingPrice,
+  formatArs,
+  type BillingCycleId,
+} from './fidelizacionPlans';
 
 interface FidelizacionProps {
   onStartAudit: () => void;
-  onSolicitar?: (plan?: string) => void;
+  onSolicitar?: (plan?: string | null, billingCycle?: BillingCycleId) => void;
 }
 
 const STEPS = [
@@ -202,8 +209,9 @@ const LoyaltyCardMock: React.FC = () => (
 
 export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSolicitar }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const solicitar = (plan?: string) => {
-    if (onSolicitar) onSolicitar(plan ?? null);
+  const [billingCycle, setBillingCycle] = useState<BillingCycleId>('monthly');
+  const solicitar = (plan?: string, cycle: BillingCycleId = billingCycle) => {
+    if (onSolicitar) onSolicitar(plan ?? null, cycle);
     else onStartAudit();
   };
 
@@ -355,8 +363,50 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
             Empezá simple y crecé cuando quieras. Sin hardware especial ni instalaciones raras.
           </p>
         </div>
+
+        {/* Selector de frecuencia de pago */}
+        <div className="flex justify-center mb-10">
+          <div
+            className="inline-flex flex-col sm:flex-row gap-1.5 p-1.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-sm"
+            role="group"
+            aria-label="Frecuencia de pago"
+          >
+            {BILLING_CYCLES.map((cycle) => {
+              const active = billingCycle === cycle.id;
+              return (
+                <button
+                  key={cycle.id}
+                  type="button"
+                  onClick={() => setBillingCycle(cycle.id)}
+                  aria-pressed={active}
+                  className={`relative px-6 py-3 rounded-xl text-sm font-black transition-all ${
+                    active
+                      ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-primary/5 hover:text-primary'
+                  }`}
+                >
+                  {cycle.label}
+                  {cycle.discountMonths > 0 && (
+                    <span
+                      className={`ml-2 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${
+                        active ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'
+                      }`}
+                    >
+                      {cycle.discountMonths} {cycle.discountMonths === 1 ? 'mes' : 'meses'} gratis
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
-          {fidelizacionPlans.map((plan) => (
+          {fidelizacionPlans.map((plan) => {
+            const pricing =
+              plan.monthlyPrice !== undefined ? getPlanBillingPrice(plan.monthlyPrice, billingCycle) : null;
+
+            return (
             <div
               key={plan.name}
               className={
@@ -389,13 +439,46 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                 <p className={`text-sm mb-4 ${plan.highlighted ? 'text-white/80' : 'text-slate-500 dark:text-slate-400'}`}>
                   {plan.description}
                 </p>
-                <div className={`text-4xl font-black mb-6 ${plan.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
-                  {plan.quoteOnly ? (
-                    <span className="text-2xl">Cotización a medida</span>
-                  ) : (
+                <div className="mb-6">
+                  {pricing ? (
                     <>
-                      {plan.price} <span className="text-lg font-bold">{plan.period}</span>
+                      <div
+                        className={`flex flex-wrap items-end gap-2 ${
+                          plan.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'
+                        }`}
+                      >
+                        <span className="text-4xl font-black">{formatArs(pricing.total)}</span>
+                        <span className="text-lg font-bold">{pricing.cycle.periodLabel}</span>
+                      </div>
+                      {pricing.discount > 0 ? (
+                        <div className="mt-3 flex flex-wrap items-center gap-2">
+                          <span
+                            className={`inline-block text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                              plan.highlighted ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'
+                            }`}
+                          >
+                            Ahorrás {formatArs(pricing.discount)}
+                          </span>
+                          <span
+                            className={`text-xs font-semibold ${
+                              plan.highlighted ? 'text-white/80' : 'text-slate-500 dark:text-slate-400'
+                            }`}
+                          >
+                            Equivale a {formatArs(pricing.monthlyEquivalent)} por mes
+                          </span>
+                        </div>
+                      ) : (
+                        <span
+                          className={`block mt-2 text-xs font-semibold ${
+                            plan.highlighted ? 'text-white/70' : 'text-slate-400 dark:text-slate-500'
+                          }`}
+                        >
+                          Facturado mes a mes
+                        </span>
+                      )}
                     </>
+                  ) : (
+                    <span className="text-2xl">Cotización a medida</span>
                   )}
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
@@ -426,7 +509,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                   ))}
                 </ul>
                 <button
-                  onClick={() => solicitar(plan.name)}
+                  onClick={() => solicitar(plan.name, billingCycle)}
                   className={
                     plan.highlighted
                       ? 'w-full bg-white text-primary hover:bg-slate-100 transition-all hover:scale-[1.02] active:scale-95 px-8 py-4 rounded-2xl font-black text-lg'
@@ -437,10 +520,12 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                 </button>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
         <p className="text-center text-slate-500 dark:text-slate-400 text-sm mb-24">
-          ¿No sabés cuál te conviene? Escribinos y lo vemos juntos.
+          Los pagos semestral y anual incluyen el descuento por pago adelantado. Precios en pesos argentinos.
+          <span className="block mt-1">¿No sabés cuál te conviene? Escribinos y lo vemos juntos.</span>
         </p>
 
         {/* FAQ */}
