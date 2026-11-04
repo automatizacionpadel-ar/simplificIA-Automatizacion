@@ -8,8 +8,8 @@ interface AuditStep1Props {
 
 export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#111827] flex flex-col">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-[#111827]/80 backdrop-blur-xl px-6 py-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl px-6 py-4">
         <div className="flex items-center justify-between max-w-[1200px] mx-auto">
           <button onClick={onHome} className="flex items-center gap-2">
             <div className="text-primary flex items-center">
@@ -36,14 +36,14 @@ export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
                 Proceso de Auditoría <br /><span className="text-primary">Gratuita Inteligente</span>
               </h1>
               <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">
-                Diseñemos el futuro de tu PyME en menos de 2 minutos. Selecciona las áreas que deseas optimizar hoy.
+                Diseñemos el futuro de tu negocio en menos de 2 minutos. Seleccioná las áreas que querés optimizar hoy.
               </p>
             </div>
 
             <div className="space-y-8">
               <h3 className="text-xl font-bold dark:text-white flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm">1</span>
-                ¿Qué área deseas automatizar?
+                <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">1</span>
+                ¿Qué área querés automatizar?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <button className="flex flex-col text-left p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-white/5 rounded-[2.5rem] hover:border-primary transition-all group shadow-sm hover:shadow-xl hover:-translate-y-1">
@@ -73,7 +73,7 @@ export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
             <div className="pt-12 border-t border-slate-100 dark:border-white/5">
               <h3 className="text-xl font-bold dark:text-white mb-8 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-sm">2</span>
-                Cuéntanos sobre tus herramientas actuales
+                Contanos qué herramientas usás hoy
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {['HubSpot', 'Salesforce', 'Airtable', 'Zapier', 'Slack', 'Notion', 'Sheets', 'Otros'].map((tool) => (
@@ -90,9 +90,9 @@ export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
             <div className="flex justify-end pt-8">
               <button 
                 onClick={onNext}
-                className="bg-primary text-white px-10 py-5 rounded-2xl font-black text-lg hover:shadow-[0_10px_25px_rgba(22,163,74,0.3)] transition-all flex items-center gap-3 group"
+                className="bg-primary text-primary-foreground px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all flex items-center gap-3 group"
               >
-                Siguiente Paso
+                Siguiente paso
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
             </div>
@@ -102,32 +102,30 @@ export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
             <div className="bg-white dark:bg-slate-900/50 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-2xl shadow-emerald-900/5 border border-slate-100 dark:border-white/5 space-y-8">
               <div className="flex items-center gap-4 pb-6 border-b border-slate-100 dark:border-white/5">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                  <span className="material-symbols-outlined text-3xl">analytics</span>
+                  <span className="material-symbols-outlined text-3xl">fact_check</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg dark:text-white">Resultados Esperados</h3>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Estimación Dinámica</p>
+                  <h3 className="font-bold text-lg dark:text-white">Qué incluye la auditoría</h3>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Sin compromiso</p>
                 </div>
               </div>
-              <div className="space-y-6">
-                <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-white/5">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Tiempo Ahorrado Mensual</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-black text-primary">12-15h</span>
-                    <span className="text-sm font-bold text-slate-500">/ equipo</span>
+              <div className="space-y-4">
+                {[
+                  'Revisamos las tareas que más tiempo te consumen.',
+                  'Vemos qué se puede automatizar en tu negocio.',
+                  'Te llevás un plan claro para arrancar cuando quieras.',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+                      <span className="material-symbols-outlined text-[16px] font-bold">check</span>
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item}</p>
                   </div>
-                </div>
-                <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-white/5">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Incremento Eficiencia</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-black text-slate-900 dark:text-white">40%</span>
-                    <span className="text-primary font-bold">↑</span>
-                  </div>
-                </div>
+                ))}
               </div>
               <div className="bg-primary/10 p-5 rounded-2xl">
-                <p className="text-[13px] leading-relaxed text-slate-700 dark:text-slate-300 italic">
-                  "Con base en tu selección, SimplificIA estima que tu retorno de inversión sería visible en los primeros <span className="font-bold">45 días</span>."
+                <p className="text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
+                  No prometemos números inventados: te mostramos qué se puede automatizar y qué podés ganar en tiempo.
                 </p>
               </div>
             </div>
@@ -137,11 +135,7 @@ export const AuditStep1: React.FC<AuditStep1Props> = ({ onNext, onHome }) => {
 
       <footer className="w-full border-t border-slate-100 dark:border-white/5 py-12 px-6 mt-auto bg-white/50 dark:bg-slate-950/50">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-slate-400 font-medium">© 2024 SimplificIA. Auditoría inteligente protegida.</div>
-          <div className="flex gap-8">
-            <a className="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Ayuda</a>
-            <a className="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Privacidad</a>
-          </div>
+          <div className="text-sm text-slate-400 font-medium">© {new Date().getFullYear()} SimplificIA.</div>
         </div>
       </footer>
     </div>

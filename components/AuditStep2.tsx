@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+const monthLabel = new Intl.DateTimeFormat('es-AR', { month: 'long', year: 'numeric' }).format(new Date());
+
 interface AuditStep2Props {
   onBack: () => void;
   onHome: () => void;
@@ -8,8 +10,8 @@ interface AuditStep2Props {
 
 export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
   return (
-    <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#111827] flex flex-col">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-[#111827]/80 backdrop-blur-xl px-6 py-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-100 dark:border-white/5 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl px-6 py-4">
         <div className="flex items-center justify-between max-w-[1200px] mx-auto">
           <button onClick={onHome} className="flex items-center gap-2">
             <div className="text-primary flex items-center">
@@ -21,7 +23,7 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
           </button>
           <div className="flex items-center gap-6">
             <button onClick={onBack} className="text-sm font-semibold text-slate-500 hover:text-primary transition-colors">Volver al inicio</button>
-            <button className="bg-primary hover:bg-primary-dark transition-all text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide">
+            <button className="bg-primary hover:bg-primary-dark transition-all text-primary-foreground px-6 py-2.5 rounded-full font-bold text-sm tracking-wide">
               Ayuda
             </button>
           </div>
@@ -39,7 +41,7 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
                 Diseñemos tu estrategia de <span className="text-primary">automatización.</span>
               </h1>
               <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-                Reserva una sesión de 30 minutos con un experto para transformar la operativa de tu PyME.
+                Reservá una sesión de 30 minutos con un especialista para ordenar las tareas de tu negocio.
               </p>
             </div>
 
@@ -48,8 +50,8 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
                 <span className="material-symbols-outlined text-4xl">account_circle</span>
               </div>
               <div>
-                <h4 className="font-bold text-slate-900 dark:text-white">David Sánchez</h4>
-                <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Consultor de Automatización</p>
+                <h4 className="font-bold text-slate-900 dark:text-white">Nuestro equipo</h4>
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Automatización para negocios</p>
               </div>
             </div>
 
@@ -58,8 +60,8 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
               <ul className="space-y-4">
                 {[
                   { t: '1. Análisis de cuellos de botella', d: 'Identificamos los procesos manuales que más tiempo consumen en tu equipo.' },
-                  { t: '2. Propuesta de arquitectura IA', d: 'Esbozamos el ecosistema tecnológico ideal para tu volumen de negocio.' },
-                  { t: '3. Estimación de ROI', d: 'Calculamos el ahorro potencial en horas y costes operativos para tu primer trimestre.' }
+                  { t: '2. Propuesta de automatización', d: 'Vemos qué herramientas te convienen según el tamaño de tu negocio.' },
+                  { t: '3. Plan de acción', d: 'Te llevás una hoja de ruta clara para automatizar sin gastar de más.' }
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
@@ -84,7 +86,7 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
               <div className="p-8 border-b border-slate-50 dark:border-white/5 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/20">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">calendar_month</span>
-                  <h3 className="font-bold text-slate-900 dark:text-white">Octubre 2024</h3>
+                  <h3 className="font-bold text-slate-900 dark:text-white capitalize">{monthLabel}</h3>
                 </div>
                 <div className="flex gap-2">
                   <button className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
@@ -103,14 +105,14 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
                   {Array.from({ length: 3 }).map((_, i) => <div key={`empty-${i}`} className="h-14 lg:h-20"></div>)}
                   {[1, 2, 3, 4, 5].map(d => <div key={d} className="h-14 lg:h-20 flex items-center justify-center font-bold text-slate-400 opacity-30">{d}</div>)}
                   {[6, 7, 8].map(d => (
-                    <button key={d} className="h-14 lg:h-20 rounded-2xl border-2 border-primary/20 bg-primary/5 text-primary flex items-center justify-center font-bold hover:bg-primary hover:text-white transition-all">{d}</button>
+                    <button key={d} className="h-14 lg:h-20 rounded-2xl border-2 border-primary/20 bg-primary/5 text-primary flex items-center justify-center font-bold hover:bg-primary hover:text-primary-foreground transition-all">{d}</button>
                   ))}
-                  <button className="h-14 lg:h-20 rounded-2xl border-2 border-primary text-white bg-primary flex flex-col items-center justify-center font-bold shadow-lg shadow-primary/20">
+                  <button className="h-14 lg:h-20 rounded-2xl border-2 border-primary text-primary-foreground bg-primary flex flex-col items-center justify-center font-bold shadow-lg shadow-primary/20">
                     <span>9</span>
                     <span className="text-[10px] opacity-80 uppercase tracking-tighter">Hoy</span>
                   </button>
                   {[10, 13, 14, 15, 16, 17, 20].map(d => (
-                    <button key={d} className="h-14 lg:h-20 rounded-2xl border-2 border-primary/20 bg-primary/5 text-primary flex items-center justify-center font-bold hover:bg-primary hover:text-white transition-all">{d}</button>
+                    <button key={d} className="h-14 lg:h-20 rounded-2xl border-2 border-primary/20 bg-primary/5 text-primary flex items-center justify-center font-bold hover:bg-primary hover:text-primary-foreground transition-all">{d}</button>
                   ))}
                   {[11, 12, 18, 19].map(d => <div key={d} className="h-14 lg:h-20 flex items-center justify-center font-bold text-slate-400 opacity-30">{d}</div>)}
                 </div>
@@ -132,9 +134,9 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
                 <div className="mt-10 pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
                     <span className="material-symbols-outlined text-[18px]">public</span>
-                    Zona horaria: Madrid (GMT+2)
+                    Zona horaria: Buenos Aires (GMT-3)
                   </div>
-                  <button className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all text-white px-10 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary/20">
+                  <button className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all text-primary-foreground px-10 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary/20">
                     Confirmar cita
                   </button>
                 </div>
@@ -146,11 +148,7 @@ export const AuditStep2: React.FC<AuditStep2Props> = ({ onBack, onHome }) => {
 
       <footer className="w-full border-t border-slate-100 dark:border-white/5 py-12 px-6 bg-white dark:bg-slate-900 mt-auto">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-slate-400 font-medium">© 2024 SimplificIA. Todos los derechos reservados.</div>
-          <div className="flex gap-8">
-            <a className="text-xs text-slate-500 hover:text-primary font-bold uppercase tracking-widest" href="#">Privacidad</a>
-            <a className="text-xs text-slate-500 hover:text-primary font-bold uppercase tracking-widest" href="#">Términos</a>
-          </div>
+          <div className="text-sm text-slate-400 font-medium">© {new Date().getFullYear()} SimplificIA. Todos los derechos reservados.</div>
         </div>
       </footer>
     </div>

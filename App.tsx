@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { HomeFidelizacion } from './components/HomeFidelizacion';
 import { Services } from './components/Services';
 import { LocalWebs } from './components/LocalWebs';
 import { Fidelizacion } from './components/Fidelizacion';
 import { Process } from './components/Process';
 import { ValueProp } from './components/ValueProp';
-import { SocialProof } from './components/SocialProof';
 // import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { AuditStep1 } from './components/AuditStep1';
 import { AuditStep2 } from './components/AuditStep2';
 import { SolicitudTarjeta } from './components/SolicitudTarjeta';
+import { WhatsAppFloat } from './components/WhatsAppFloat';
 import type { BillingCycleId } from './components/fidelizacionPlans';
 
 export type AppView = 'landing' | 'fidelizacion' | 'solicitud' | 'step1' | 'step2';
@@ -21,9 +22,9 @@ const SOLICITUD_PATH = '/solicitud-tarjeta';
 
 const PAGE_META: Record<'landing' | 'fidelizacion' | 'solicitud', { title: string; description: string }> = {
   landing: {
-    title: 'SimplificIA - Automatización Inteligente para PyMEs',
+    title: 'Simplificia | Tarjetas de fidelización digitales y webs con turnos para negocios locales',
     description:
-      'Automatización inteligente para PyMEs en Argentina: webs para negocios locales, automatizaciones con IA y tarjetas de fidelización digitales.',
+      'Tarjetas de fidelización en el celular de tus clientes y webs con turnos online para peluquerías, cafeterías, gimnasios y negocios locales de Argentina. Probala gratis.',
   },
   fidelizacion: {
     title: 'Tarjetas de fidelización digitales para comercios | SimplificIA',
@@ -122,15 +123,19 @@ const App: React.FC = () => {
     [navigate]
   );
 
-  // Desde la página de Fidelización, los links de secciones vuelven al home y scrollean.
+  // Los links de secciones vuelven al home (si hace falta) y scrollean a la sección.
   const goSection = useCallback(
     (id: string) => {
-      goHome();
-      window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 60);
+      if (window.location.pathname !== '/') {
+        navigate('/', 'landing');
+      }
+      window.requestAnimationFrame(() => {
+        window.setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      });
     },
-    [goHome]
+    [navigate]
   );
 
   if (view === 'step1') {
@@ -146,11 +151,9 @@ const App: React.FC = () => {
         <Navbar
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
-          onStartAudit={startAudit}
           isFidelizacion
           onGoHome={goHome}
           onGoSection={goSection}
-          onGoFidelizacion={goFidelizacion}
         />
         <main className="flex-1">
           <SolicitudTarjeta
@@ -161,7 +164,8 @@ const App: React.FC = () => {
             onHome={goHome}
           />
         </main>
-        <Footer onGoFidelizacion={goFidelizacion} />
+        <Footer onGoFidelizacion={goFidelizacion} onGoSection={goSection} />
+        <WhatsAppFloat />
       </div>
     );
   }
@@ -175,16 +179,15 @@ const App: React.FC = () => {
         <Navbar
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
-          onStartAudit={startAudit}
           isFidelizacion
           onGoHome={goHome}
           onGoSection={goSection}
-          onGoFidelizacion={goFidelizacion}
         />
         <main className="flex-1">
           <Fidelizacion onStartAudit={startAudit} onSolicitar={goSolicitud} />
         </main>
-        <Footer onGoFidelizacion={goFidelizacion} />
+        <Footer onGoFidelizacion={goFidelizacion} onGoSection={goSection} />
+        <WhatsAppFloat />
       </div>
     );
   }
@@ -194,21 +197,21 @@ const App: React.FC = () => {
       <Navbar
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
-        onStartAudit={startAudit}
         onGoHome={goHome}
         onGoSection={goSection}
-        onGoFidelizacion={goFidelizacion}
       />
       <main className="flex-1">
-        <Hero onStartAudit={startAudit} />
-        <Services />
-        <LocalWebs onStartAudit={startAudit} />
+        <Hero onSolicitar={() => goSolicitud()} />
+        <HomeFidelizacion onGoFidelizacion={goFidelizacion} onSolicitar={goSolicitud} />
+        <LocalWebs />
         <Process />
         <ValueProp />
-        <SocialProof />
+        <Services />
+        {/* TODO_TESTIMONIOS: cuando haya testimonios reales, sumar una sección acá y volver a agregar el link en el menú. */}
         {/* <CTA /> */}
       </main>
-      <Footer onGoFidelizacion={goFidelizacion} />
+      <Footer onGoFidelizacion={goFidelizacion} onGoSection={goSection} />
+      <WhatsAppFloat />
     </div>
   );
 };

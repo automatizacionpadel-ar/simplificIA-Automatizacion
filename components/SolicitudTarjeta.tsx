@@ -147,7 +147,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
 
   if (enviado) {
     return (
-      <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#111827] flex flex-col">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
         <main className="flex-1 w-[95%] md:w-[80%] mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
           <div className="bg-white dark:bg-slate-900 rounded-super border border-slate-100 dark:border-white/5 shadow-2xl p-10 md:p-14 space-y-6">
             <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -185,7 +185,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <button
                 onClick={onBack}
-                className="bg-primary hover:bg-primary-dark transition-all text-white px-8 py-4 rounded-2xl font-black text-base shadow-xl shadow-primary/20"
+                className="bg-primary hover:bg-primary-dark transition-all text-primary-foreground px-8 py-4 rounded-2xl font-black text-base shadow-xl shadow-primary/20"
               >
                 Volver a fidelización
               </button>
@@ -224,7 +224,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
               <div className="flex flex-col gap-3 pt-2">
                 <button
                   onClick={() => setModalAbierto(false)}
-                  className="w-full bg-primary hover:bg-primary-dark transition-all text-white px-8 py-4 rounded-2xl font-black text-base shadow-xl shadow-primary/20"
+                  className="w-full bg-primary hover:bg-primary-dark transition-all text-primary-foreground px-8 py-4 rounded-2xl font-black text-base shadow-xl shadow-primary/20"
                 >
                   Entendido
                 </button>
@@ -243,7 +243,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB] dark:bg-[#111827] flex flex-col">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
       <main className="flex-1 w-[95%] md:w-[80%] mx-auto px-4 sm:px-6 py-12 md:py-20">
         <button
           onClick={onBack}
@@ -410,7 +410,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
                       <span
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all ${
                           selected
-                            ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                            ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25'
                             : 'bg-primary/10 text-primary'
                         }`}
                       >
@@ -442,7 +442,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
                       <span
                         className={`ml-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
                           selected
-                            ? 'border-primary bg-primary text-white'
+                            ? 'border-primary bg-primary text-primary-foreground'
                             : 'border-slate-300 dark:border-slate-600'
                         }`}
                       >
@@ -496,7 +496,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
               <div className="pointer-events-none absolute -bottom-24 left-10 h-40 w-40 rounded-full bg-emerald-soft/10 blur-3xl" />
               <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-primary/25">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-xl shadow-primary/25">
                     <span className="material-symbols-outlined text-[28px]">{selectedPlan.icon}</span>
                   </div>
                   <div>
@@ -553,7 +553,7 @@ export const SolicitudTarjeta: React.FC<SolicitudTarjetaProps> = ({
           <button
             type="submit"
             disabled={enviando}
-            className="block w-full sm:w-auto sm:ml-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.01] active:scale-[0.99] text-white px-8 py-3.5 rounded-2xl font-black text-base shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-wait disabled:hover:scale-100"
+            className="block w-full sm:w-auto sm:ml-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.01] active:scale-[0.99] text-primary-foreground px-8 py-3.5 rounded-2xl font-black text-base shadow-xl shadow-primary/20 disabled:opacity-60 disabled:cursor-wait disabled:hover:scale-100"
           >
             {enviando ? 'Enviando…' : 'Solicitar mi tarjeta'}
           </button>

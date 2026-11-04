@@ -151,7 +151,7 @@ const FaqItem: React.FC<{ question: string; answer: string; open: boolean; onTog
         <span className="font-bold text-slate-900 dark:text-white">{question}</span>
         <span
           className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-            open ? 'bg-primary text-white' : 'bg-primary/10 text-primary'
+            open ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
           }`}
         >
           <span className="material-symbols-outlined text-[20px]">{open ? 'remove' : 'add'}</span>
@@ -173,13 +173,13 @@ const LoyaltyCardMock: React.FC = () => (
     aria-label="Ejemplo de tarjeta de sellos digital en un celular: 7 de 10 sellos completados"
   >
     <div className="mx-auto mb-3 h-1.5 w-24 rounded-full bg-slate-200 dark:bg-slate-700" />
-    <div className="rounded-[2rem] bg-primary p-6 text-white relative overflow-hidden">
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full" />
+    <div className="rounded-[2rem] bg-primary p-6 text-primary-foreground relative overflow-hidden">
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary-foreground/10 rounded-full" />
       <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-black/10 rounded-full" />
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/80">Mi café favorito</span>
-          <span className="material-symbols-outlined text-white/90">local_cafe</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-primary-foreground/80">Mi café favorito</span>
+          <span className="material-symbols-outlined text-primary-foreground/90">local_cafe</span>
         </div>
         <p className="font-black text-xl mb-4">Comprá 10 y llevate el 11 gratis</p>
         <div className="grid grid-cols-5 gap-2.5 mb-4">
@@ -187,7 +187,7 @@ const LoyaltyCardMock: React.FC = () => (
             <div
               key={i}
               className={`aspect-square rounded-full flex items-center justify-center border-2 ${
-                i < FILLED_STAMPS ? 'bg-white border-white text-primary' : 'bg-white/20 border-white/50 text-white/70 border-dashed'
+                i < FILLED_STAMPS ? 'bg-primary-foreground border-primary-foreground text-primary' : 'bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground/70 border-dashed'
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">{i < FILLED_STAMPS ? 'coffee' : 'lock_open'}</span>
@@ -195,8 +195,8 @@ const LoyaltyCardMock: React.FC = () => (
           ))}
         </div>
         <div className="flex items-center justify-between text-xs font-bold">
-          <span className="bg-white/20 rounded-full px-3 py-1.5">7 de 10 sellos</span>
-          <span className="text-white/80">Te faltan 3</span>
+          <span className="bg-primary-foreground/20 rounded-full px-3 py-1.5">7 de 10 sellos</span>
+          <span className="text-primary-foreground/80">Te faltan 3</span>
         </div>
       </div>
     </div>
@@ -234,7 +234,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <button
                 onClick={() => solicitar()}
-                className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20"
+                className="w-full sm:w-auto bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-primary-foreground px-10 py-5 rounded-2xl font-black text-lg shadow-xl shadow-primary/20"
               >
                 Quiero mi tarjeta
               </button>
@@ -338,17 +338,17 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
               key={idx}
               className="group p-8 bg-white dark:bg-primary/10 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-sm hover:shadow-md transition-all"
             >
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors mb-4">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors mb-4">
                 <span className="material-symbols-outlined text-[20px]">{benefit.icon}</span>
               </div>
               <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{benefit.title}</h4>
               <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{benefit.description}</p>
             </div>
           ))}
-          <div className="p-8 bg-primary rounded-[2rem] text-white flex flex-col justify-center shadow-xl shadow-primary/20">
+          <div className="p-8 bg-primary rounded-[2rem] text-primary-foreground flex flex-col justify-center shadow-xl shadow-primary/20">
             <span className="material-symbols-outlined text-4xl mb-4">wallet</span>
             <h4 className="text-xl font-black mb-2">Compatible con Google Wallet</h4>
-            <p className="text-white/80 text-sm leading-relaxed">
+            <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Tus clientes guardan la tarjeta en la billetera del celular. En iPhone acceden desde un enlace web, y el
               soporte para Apple Wallet está en camino.
             </p>
@@ -381,7 +381,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                   aria-pressed={active}
                   className={`relative px-6 py-3 rounded-xl text-sm font-black transition-all ${
                     active
-                      ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
                       : 'text-slate-600 dark:text-slate-300 hover:bg-primary/5 hover:text-primary'
                   }`}
                 >
@@ -389,7 +389,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                   {cycle.discountMonths > 0 && (
                     <span
                       className={`ml-2 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${
-                        active ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'
+                        active ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-primary/10 text-primary'
                       }`}
                     >
                       {cycle.discountMonths} {cycle.discountMonths === 1 ? 'mes' : 'meses'} gratis
@@ -411,32 +411,32 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
               key={plan.name}
               className={
                 plan.highlighted
-                  ? 'bg-primary p-10 rounded-super text-white flex flex-col shadow-2xl shadow-primary/30 relative overflow-hidden group'
+                  ? 'bg-primary p-10 rounded-super text-primary-foreground flex flex-col shadow-2xl shadow-primary/30 relative overflow-hidden group'
                   : 'bg-white dark:bg-slate-900 p-10 rounded-super border border-slate-100 dark:border-white/5 flex flex-col hover:shadow-xl dark:hover:border-primary/20 transition-all group'
               }
             >
-              {plan.highlighted && <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />}
+              {plan.highlighted && <div className="absolute inset-0 bg-primary-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity" />}
               <div className="relative z-10 flex flex-col flex-1">
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <div
                     className={
                       plan.highlighted
-                        ? 'w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center'
-                        : 'w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors'
+                        ? 'w-14 h-14 bg-primary-foreground/20 rounded-2xl flex items-center justify-center'
+                        : 'w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors'
                     }
                   >
-                    <span className={`material-symbols-outlined text-3xl ${plan.highlighted ? 'text-white' : ''}`}>{plan.icon}</span>
+                    <span className={`material-symbols-outlined text-3xl ${plan.highlighted ? 'text-primary-foreground' : ''}`}>{plan.icon}</span>
                   </div>
                   {plan.highlighted && (
-                    <span className="bg-white text-primary text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full whitespace-nowrap">
+                    <span className="bg-primary-foreground text-primary text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full whitespace-nowrap">
                       {FIDELIZACION_HIGHLIGHT_LABEL}
                     </span>
                   )}
                 </div>
-                <h4 className={`text-xl font-bold mb-1 ${plan.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
+                <h4 className={`text-xl font-bold mb-1 ${plan.highlighted ? 'text-primary-foreground' : 'text-slate-900 dark:text-white'}`}>
                   {plan.name}
                 </h4>
-                <p className={`text-sm mb-4 ${plan.highlighted ? 'text-white/80' : 'text-slate-500 dark:text-slate-400'}`}>
+                <p className={`text-sm mb-4 ${plan.highlighted ? 'text-primary-foreground/80' : 'text-slate-500 dark:text-slate-400'}`}>
                   {plan.description}
                 </p>
                 <div className="mb-6">
@@ -444,7 +444,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                     <>
                       <div
                         className={`flex flex-wrap items-end gap-2 ${
-                          plan.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'
+                          plan.highlighted ? 'text-primary-foreground' : 'text-slate-900 dark:text-white'
                         }`}
                       >
                         <span className="text-4xl font-black">{formatArs(pricing.total)}</span>
@@ -454,14 +454,14 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                         <div className="mt-3 flex flex-wrap items-center gap-2">
                           <span
                             className={`inline-block text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full ${
-                              plan.highlighted ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'
+                              plan.highlighted ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-primary/10 text-primary'
                             }`}
                           >
                             Ahorrás {formatArs(pricing.discount)}
                           </span>
                           <span
                             className={`text-xs font-semibold ${
-                              plan.highlighted ? 'text-white/80' : 'text-slate-500 dark:text-slate-400'
+                              plan.highlighted ? 'text-primary-foreground/80' : 'text-slate-500 dark:text-slate-400'
                             }`}
                           >
                             Equivale a {formatArs(pricing.monthlyEquivalent)} por mes
@@ -470,7 +470,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                       ) : (
                         <span
                           className={`block mt-2 text-xs font-semibold ${
-                            plan.highlighted ? 'text-white/70' : 'text-slate-400 dark:text-slate-500'
+                            plan.highlighted ? 'text-primary-foreground/70' : 'text-slate-400 dark:text-slate-500'
                           }`}
                         >
                           Facturado mes a mes
@@ -486,19 +486,19 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                     <li key={i} className="flex items-start gap-3">
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          plan.highlighted ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'
+                          plan.highlighted ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-primary/10 text-primary'
                         }`}
                       >
                         <span className="material-symbols-outlined text-[16px] font-bold">check</span>
                       </div>
                       <span
-                        className={`text-sm font-medium ${plan.highlighted ? 'text-white/90' : 'text-slate-600 dark:text-slate-400'}`}
+                        className={`text-sm font-medium ${plan.highlighted ? 'text-primary-foreground/90' : 'text-slate-600 dark:text-slate-400'}`}
                       >
                         {feature.label}
                         {feature.comingSoon && (
                           <span
                             className={`ml-2 inline-block text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${
-                              plan.highlighted ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300'
+                              plan.highlighted ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300'
                             }`}
                           >
                             Próximamente
@@ -512,8 +512,8 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
                   onClick={() => solicitar(plan.name, billingCycle)}
                   className={
                     plan.highlighted
-                      ? 'w-full bg-white text-primary hover:bg-slate-100 transition-all hover:scale-[1.02] active:scale-95 px-8 py-4 rounded-2xl font-black text-lg'
-                      : 'w-full bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-white px-8 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary/20'
+                      ? 'w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-all hover:scale-[1.02] active:scale-95 px-8 py-4 rounded-2xl font-black text-lg'
+                      : 'w-full bg-primary hover:bg-primary-dark transition-all hover:scale-[1.02] active:scale-95 text-primary-foreground px-8 py-4 rounded-2xl font-black text-lg shadow-xl shadow-primary/20'
                   }
                 >
                   {plan.ctaLabel}
@@ -561,7 +561,7 @@ export const Fidelizacion: React.FC<FidelizacionProps> = ({ onStartAudit, onSoli
           <div className="flex flex-col sm:flex-row gap-5 w-full justify-center relative z-10">
             <button
               onClick={() => solicitar()}
-              className="bg-primary hover:bg-primary-dark transition-all hover:scale-105 active:scale-95 text-white px-12 py-5 rounded-2xl font-black text-xl shadow-[0_0_40px_rgba(22,163,74,0.3)]"
+              className="bg-primary hover:bg-primary-dark transition-all hover:scale-105 active:scale-95 text-primary-foreground px-12 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-primary/30"
             >
               Quiero mi tarjeta
             </button>

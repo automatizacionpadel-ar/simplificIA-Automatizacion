@@ -120,4 +120,4 @@ export const fidelizacionPlans: FidelizacionPlan[] = planDefinitions.map((plan) 
   period: plan.monthlyPrice !== undefined ? '/ mes' : undefined,
 }));
 
-export const FIDELIZACION_HIGHLIGHT_LABEL = 'Más elegido';
+export const FIDELIZACION_HIGHLIGHT_LABEL = 'Recomendado';
